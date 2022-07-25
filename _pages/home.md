@@ -26,7 +26,7 @@ feature_row:
       <p>Lassen Sie uns gemeinsam handeln!</p>
       {: .text-justify}
 feature_row2:
-  - image_path: /assets/images/andre-Monson.png
+  - image_path: /assets/images/andre-monson.png
     alt: Bild von André Monson
     title: André Monson
     excerpt: <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;%61%6E%64%72%65%2E%6D%6F%6E%73%6F%6E%40%61%63%74%2D%69%74%2E%65%75"><span class="codeDirection">ue.ti-tca@</span><span class="displayNone">@example@</span><span class="codeDirection">nosnom.erdna</span></a><br/><span class="codeDirection">3319 2462</span><span class="displayNone">0041 2765</span><span class="codeDirection"> 251 (0) 94+</span>
