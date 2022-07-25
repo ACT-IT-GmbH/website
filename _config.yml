@@ -88,6 +88,12 @@ author:
 
 footer:
   links:
+    - label: "Impressum"
+      icon: "fas fa-fw fa-stamp"
+      url: /impressum/
+    - label: "Datenschutzerklärung"
+      icon: "fas fa-fw fa-gavel"
+      url: /datenschutzerklaerung/
     #- label: "Twitter"
     #  icon: "fab fa-fw fa-twitter-square"
     #  url: "https://twitter.com/"
