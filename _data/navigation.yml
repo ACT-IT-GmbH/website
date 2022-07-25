@@ -1,0 +1,20 @@
+# main links
+main:
+  - title: "Startseite"
+    url: /
+  - title: "Blog"
+    url: /blog/
+  - title: "Rechtliches"
+    url: /terms/
+
+blog:
+  - title: "Blog"
+    children:
+      - title: "Aktuelle Beiträge"
+        url: /blog/
+      - title: "Posts by Year"
+        url: /blog/year-archive/
+      - title: "Posts by Tag"
+        url: /blog/tags/
+      - title: "Posts by Category"
+        url: /blog/categories/
