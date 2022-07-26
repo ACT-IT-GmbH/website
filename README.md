@@ -18,7 +18,7 @@ Tobias Arnhold
 Telefon: <span style="unicode-bidi: bidi-override; direction: rtl;">3319 2462</span><span style="display: none;">0041 2765</span><span style="unicode-bidi: bidi-override; direction: rtl;"> 251 (0) 94+</span>  
 Telefon: <span style="unicode-bidi: bidi-override; direction: rtl;">1740 3262</span><span style="display: none;">0041 2765</span><span style="unicode-bidi: bidi-override; direction: rtl;"> 251 (0) 94+</span>  
 Telefon:  <span style="unicode-bidi: bidi-override; direction: rtl;">5003 4848</span><span style="display: none;">0041 2765</span><span style="unicode-bidi: bidi-override; direction: rtl;"> 751 (0) 94+</span>  
-E-Mail: <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;%69%6E%66%6F%40%61%63%74%2D%69%74%2E%65%75"><span style="unicode-bidi: bidi-override; direction: rtl;">ue.ti-tca@</span><span style="display: none;">@example@</span><span style="unicode-bidi: bidi-override; direction: rtl;">ofni</span></a>  
+E-Mail: <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;%6B%6F%6E%74%61%6B%74%40%61%63%74%2D%69%74%2E%65%75"><span style="unicode-bidi: bidi-override; direction: rtl;">ue.ti-tca@</span><span style="display: none;">@example@</span><span style="unicode-bidi: bidi-override; direction: rtl;">tkatnok</span></a>  
 
 ### Umsatzsteuer-ID
 Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:  
