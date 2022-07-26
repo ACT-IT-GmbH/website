@@ -21,7 +21,7 @@ email: "info@act-it.eu"
 description: >- # this means to ignore newlines until "baseurl:"
   The time to ACT! is now
 #twitter_username: username
-#github_username: username
+github_username: ACT-IT-GmbH
 minimal_mistakes_skin: dark
 search: true
 logo: "/assets/images/ACT-IT-GmbH-1024x180.png"
