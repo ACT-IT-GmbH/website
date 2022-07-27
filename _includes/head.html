@@ -24,20 +24,20 @@
 <style type="text/css" media="screen, print">
   @font-face {
     font-family: Sen;
-    src: local('Sen-Regular'),
-         url({{ '/assets/fonts/sen-regular.ttf' | relative_url }});
+    src: local('Sen-Regular'), url({{ '/assets/fonts/sen-regular.ttf' | relative_url }}) format('ttf');
+    font-display: swap;
   }
   @font-face {
     font-family: Sen;
-    src: local('Sen-Bold'),
-         url({{ '/assets/fonts/sen-bold.ttf' | relative_url }})
+    src: local('Sen-Bold'), url({{ '/assets/fonts/sen-bold.ttf' | relative_url }}) format('ttf');
     font-weight: bold;
+    font-display: swap;
   }
   @font-face {
     font-family: Sen;
-    src: local('Sen-ExtraBold'),
-         url({{ '/assets/fonts/sen-extrabold.ttf' | relative_url }})
+    src: local('Sen-ExtraBold'), url({{ '/assets/fonts/sen-extrabold.ttf' | relative_url }}) format('ttf');
     font-weight: bolder;
+    font-display: swap;
   }
   /* Text in Banner auf Startseite */
   h1#page-title {
