@@ -9,7 +9,7 @@ author: Tobias Arnhold
 classes: wide
 excerpt: "If you want an automatic generating increasing number column in your interactive grid, follow these instrunctions"
 ---
-[![automatic-position-number-in-interactive-grid](/assets/images/posts/2022-07-20-interactive-grid-automatic-position-number.png){: .align-center }](/assets/images/posts/2022-07-20-interactive-grid-automatic-position-number.png)
+[![automatic-position-number-in-interactive-grid](/assets/images/posts/2022-07-20-interactive-grid-automatic-position-number.webp){: .align-center }](/assets/images/posts/2022-07-20-interactive-grid-automatic-position-number.webp)
 
 Create a new hidden "POSITION" item. During startup select the current max position value into that item. Add a Dynamic Action doing the magic inside your Interactive Grid. 🙂
 

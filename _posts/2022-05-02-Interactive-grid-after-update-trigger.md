@@ -54,4 +54,4 @@ Action: Execute Javascript Code
 var model = apex.region("igYourGrid").widget().interactiveGrid("getViews").grid.model;
 model.fetchRecords(model._data);
 ```
-[![interactive-grid-after-update-trigger](/assets/images/posts/2022-05-02-interactive-grid-after-update-trigger.png){: .align-center }](/assets/images/posts/2022-05-02-interactive-grid-after-update-trigger.png)
+[![interactive-grid-after-update-trigger](/assets/images/posts/2022-05-02-interactive-grid-after-update-trigger.webp){: .align-center }](/assets/images/posts/2022-05-02-interactive-grid-after-update-trigger.webp)

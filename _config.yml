@@ -24,7 +24,7 @@ description: >- # this means to ignore newlines until "baseurl:"
 github_username: ACT-IT-GmbH
 minimal_mistakes_skin: dark
 search: true
-logo: "/assets/images/ACT-IT-GmbH-1024x180.png"
+logo: "/assets/images/ACT-IT-GmbH-1024x180.webp"
 
 # Build settings
 markdown: kramdown

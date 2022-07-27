@@ -4,11 +4,11 @@ layout: splash
 permalink: /
 header:
   overlay_color: #22222299
-  overlay_image: /assets/images/mann-auf-berg-vor-meer.png
+  overlay_image: /assets/images/mann-auf-berg-vor-meer.webp
   overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
 tagline: Profitieren auch Sie von unserem Know-How
 feature_row:
-  - image_path: /assets/images/skills-radar.png
+  - image_path: /assets/images/skills-radar.webp
     alt: Skillmatrix der ACT! IT GmbH
     excerpt: >-
       <p>Die ACT! IT GmbH ist ein IT-Dienstleister, der sich auf die Entwicklung von individuellen Geschäftsanwendungen spezialisiert hat. Die technologische Basis bilden ein Web Frontend mit Anbindung an eine Datenbank. Dabei wird primär die Technologie "Oracle APEX" verwendet.</p>
@@ -26,15 +26,15 @@ feature_row:
       <p>Lassen Sie uns gemeinsam handeln!</p>
       {: .text-justify}
 feature_row2:
-  - image_path: /assets/images/andre-monson.png
+  - image_path: /assets/images/andre-monson.webp
     alt: Bild von André Monson
     title: André Monson
     excerpt: <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;%61%6E%64%72%65%2E%6D%6F%6E%73%6F%6E%40%61%63%74%2D%69%74%2E%65%75"><span class="codeDirection">ue.ti-tca@</span><span class="displayNone">@example@</span><span class="codeDirection">nosnom.erdna</span></a><br/><span class="codeDirection">3319 2462</span><span class="displayNone">0041 2765</span><span class="codeDirection"> 251 (0) 94+</span>
-  - image_path: /assets/images/christopher-berg.png
+  - image_path: /assets/images/christopher-berg.webp
     alt: Bild von Christopher Berg
     title: Christopher Berg
     excerpt: <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;%63%68%72%69%73%74%6F%70%68%65%72%2E%62%65%72%67%40%61%63%74%2D%69%74%2E%65%75"><span class="codeDirection">ue.ti-tca@</span><span class="displayNone">@example@</span><span class="codeDirection">greb.rehpotsirhc</span></a><br/><span class="codeDirection">1740 3262</span><span class="displayNone">0041 2765</span><span class="codeDirection"> 251 (0) 94+</span>
-  - image_path: /assets/images/tobias-arnhold.png
+  - image_path: /assets/images/tobias-arnhold.webp
     title: Tobias Arnhold
     alt: Bild von Tobias Arnhold
     excerpt: <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;%74%6F%62%69%61%73%2E%61%72%6E%68%6F%6C%64%40%61%63%74%2D%69%74%2E%65%75"><span class="codeDirection">ue.ti-tca@</span><span class="displayNone">@example@</span><span class="codeDirection">dlohnra.saibot</span></a><br/><span class="codeDirection">5003 4848</span><span class="displayNone">0041 2765</span><span class="codeDirection"> 751 (0) 94+</span>

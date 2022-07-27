@@ -2,7 +2,7 @@
 
 Andre Monson:
   name: André Monson
-  avatar: /assets/images/andre-monson-cropped.png
+  avatar: /assets/images/andre-monson-cropped.webp
   links:
     - label: E-Mail
       icon: fas fa-fw fa-envelope-square
@@ -10,7 +10,7 @@ Andre Monson:
 
 Christopher Berg:
   name: Christopher Berg
-  avatar: /assets/images/christopher-berg-cropped.png
+  avatar: /assets/images/christopher-berg-cropped.webp
   links:
     - label: E-Mail
       icon: fas fa-fw fa-envelope-square
@@ -18,7 +18,7 @@ Christopher Berg:
 
 Tobias Arnhold:
   name: Tobias Arnhold
-  avatar: /assets/images/tobias-arnhold-cropped.png
+  avatar: /assets/images/tobias-arnhold-cropped.webp
   links:
     - label: E-Mail
       icon: fas fa-fw fa-envelope-square

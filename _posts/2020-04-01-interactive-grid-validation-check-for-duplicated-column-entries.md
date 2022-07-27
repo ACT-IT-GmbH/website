@@ -12,11 +12,11 @@ I had this situation now a few times and was always to lazy to write it down. :/
 
 During my last task within the fabe project I hat to create a validation to check for duplicated entries inside an Interactive Grid.
 
-[![interactive-grid-validation-check-for-duplicated-column-entries-01](/assets/images/posts/2020-04-01-interactive-grid-validation-check-for-duplicated-column-entries-01.png){: .align-center style="width: 50%;"}](/assets/images/posts/2020-04-01-interactive-grid-validation-check-for-duplicated-column-entries-01.png)
+[![interactive-grid-validation-check-for-duplicated-column-entries-01](/assets/images/posts/2020-04-01-interactive-grid-validation-check-for-duplicated-column-entries-01.webp){: .align-center style="width: 50%;"}](/assets/images/posts/2020-04-01-interactive-grid-validation-check-for-duplicated-column-entries-01.webp)
 
 Whenever I add "None of the above" twice, an error should occur:
 
-[![interactive-grid-validation-check-for-duplicated-column-entries-02](/assets/images/posts/2020-04-01-interactive-grid-validation-check-for-duplicated-column-entries-02.png){: .align-center style="width: 50%;"}](/assets/images/posts/2020-04-01-interactive-grid-validation-check-for-duplicated-column-entries-02.png)
+[![interactive-grid-validation-check-for-duplicated-column-entries-02](/assets/images/posts/2020-04-01-interactive-grid-validation-check-for-duplicated-column-entries-02.webp){: .align-center style="width: 50%;"}](/assets/images/posts/2020-04-01-interactive-grid-validation-check-for-duplicated-column-entries-02.webp)
 
 This blog post from Lino Schilde was a good start for my final solution:
 [Interactive Grid Validation](http://lschilde.blogspot.com/2017/12/interactive-grid-validation.html)
