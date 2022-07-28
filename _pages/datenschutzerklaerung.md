@@ -120,7 +120,7 @@ Die von Ihnen an uns per Kontaktanfragen übersandten Daten verbleiben bei uns, 
 ### Google Web Fonts (lokales Hosting)
 Diese Seite nutzt zur einheitlichen Darstellung von Schriftarten so genannte Web Fonts, die von Google bereitgestellt werden. Die Google Fonts sind lokal installiert. Eine Verbindung zu Servern von Google findet dabei nicht statt.
 
-Weitere Informationen zu Google Web Fonts finden Sie unter [https://developers.google.com/fonts/faq](https://developers.google.com/fonts/faq) und in der Datenschutzerklärung von Google: [https://policies.google.com/privacy?hl=de](https://policies.google.com/privacy?hl=de).
+Weitere Informationen zu Google Web Fonts finden Sie unter <a href="https://developers.google.com/fonts/faq" rel="noopener noreferrer" target="_blank">https://developers.google.com/fonts/faq</a> und in der Datenschutzerklärung von Google: <a href="https://policies.google.com/privacy?hl=de" rel="noopener noreferrer" target="_blank">https://policies.google.com/privacy?hl=de</a>.
 
 ### Font Awesome
 Diese Seite nutzt zur einheitlichen Darstellung von Schriftarten und Symbolen Font Awesome. Anbieter ist die Fonticons, Inc., 6 Porter Road Apartment 3R, Cambridge, Massachusetts, USA.
@@ -129,6 +129,6 @@ Beim Aufruf einer Seite lädt Ihr Browser die benötigten Fonts in ihren Browser
 
 Wenn Ihr Browser Font Awesome nicht unterstützt, wird eine Standardschrift von Ihrem Computer genutzt.
 
-Weitere Informationen zu Font Awesome finden Sie und in der Datenschutzerklärung von Font Awesome unter: [https://fontawesome.com/privacy](https://fontawesome.com/privacy).
+Weitere Informationen zu Font Awesome finden Sie und in der Datenschutzerklärung von Font Awesome unter: <a href="https://fontawesome.com/privacy" rel="noopener noreferrer" target="_blank">https://fontawesome.com/privacy</a>.
 
-Quelle: [https://www.e-recht24.de](https://www.e-recht24.de)
+Quelle: <a href="https://www.e-recht24.de" rel="noopener noreferrer" target="_blank">https://www.e-recht24.de</a>

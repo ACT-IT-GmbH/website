@@ -19,7 +19,7 @@ Whenever I add "None of the above" twice, an error should occur:
 [![interactive-grid-validation-check-for-duplicated-column-entries-02](/assets/images/posts/2020-04-01-interactive-grid-validation-check-for-duplicated-column-entries-02.webp){: .align-center style="width: 50%;"}](/assets/images/posts/2020-04-01-interactive-grid-validation-check-for-duplicated-column-entries-02.webp)
 
 This blog post from Lino Schilde was a good start for my final solution:
-[Interactive Grid Validation](http://lschilde.blogspot.com/2017/12/interactive-grid-validation.html)
+<a href="http://lschilde.blogspot.com/2017/12/interactive-grid-validation.html" rel="noopener noreferrer" target="_blank">Interactive Grid Validation</a>
 
 Interactive Grid Validation
 Validation of Type: PL/SQL Function (returning Error Text)
