@@ -8,7 +8,7 @@ header:
   overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
 tagline: Profitieren auch Sie von unserem Know-How
 feature_row:
-  - image_path: ""
+  - image_path: /assets/images/skills-radar.webp
     alt: Skillmatrix der ACT! IT GmbH
     excerpt: >-
       <p>Die ACT! IT GmbH ist ein IT-Dienstleister, der sich auf die Entwicklung von individuellen Geschäftsanwendungen spezialisiert hat. Die technologische Basis bilden ein Web Frontend mit Anbindung an eine Datenbank. Dabei wird primär die Technologie "Oracle APEX" verwendet.</p>
@@ -43,83 +43,5 @@ Geballte Erfahrung im Bereich Oracle Datenbanken und Oracle APEX mit einem äuß
 {: .text-center}
 
 {% include feature_row id="feature_row" type="right" %}
-
-<script src="/assets/js/d3.min.js" charset="utf-8"></script>
-<script src="/assets/js/radarChart.js"></script>
-<style>
-  g.axis > text.legend > tspan {
-    fill: #fff;
-    font-size: 1em;
-  }
-  g.axisWrapper > text.axisLabel {
-    fill: #fff;
-    font-size: 0.7em;
-  }
-  .tooltip {
-    fill: #fff !important;
-    text-shadow: 0 1px 0 #222, 1px 0 0 #222, -1px 0 0 #222, 0 -1px 0 #222;
-    font-size: 1em;
-  }
-</style>
-<script>
-  var margin = {
-    top: 100,
-    right: 100,
-    bottom: 100,
-    left: 100
-  },
-  width = Math.min(document.getElementsByClassName("archive__item-teaser")[0].offsetWidth - 10) - margin.left - margin.right,
-  height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
-  var data = [
-    [
-      {
-        axis: "APEX",
-        value: 1
-      }, {
-        axis: "SQL",
-        value: 0.98
-      }, {
-        axis: "PL/SQL",
-        value: 0.85
-      }, {
-        axis: "Javascript",
-        value: 0.65
-      }, {
-        axis: "UI/UX",
-        value: 0.6
-      }, {
-        axis: "APIs (REST, SOAP, JSON, XML)",
-        value: 0.8
-      }, {
-        axis: "Cloud",
-        value: 0.7
-      }, {
-        axis: "Beratung",
-        value: 0.9
-      }, {
-        axis: "Projekt- management",
-        value: 0.8
-      }, {
-        axis: "Selbstorganisation",
-        value: 0.95
-      }, {
-        axis: "Problemlösung",
-        value: 0.95
-      }
-    ]
-  ];
-  var color = d3.scale.ordinal()
-      .range(["#1894ac"]);
-  var radarChartOptions = {
-    w: width,
-    h: height,
-    margin: margin,
-    maxValue: 0.5,
-    levels: 5,
-    roundStrokes: true,
-    color: color
-  };
-  RadarChart(".archive__item-teaser", data, radarChartOptions);
-</script>
 
 {% include feature_row id="feature_row2" %}
