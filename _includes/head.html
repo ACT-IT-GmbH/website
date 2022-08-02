@@ -26,13 +26,13 @@
     font-family: 'Sora';
     font-style: normal;
     font-weight: 400;
-    src: url({{ '/assets/fonts/sora-v10-latin-regular.eot' | relative_url }}); /* IE9 Compat Modes */
+    src: url({{ '/assets/webfonts/sora-v10-latin-regular.eot' | relative_url }}); /* IE9 Compat Modes */
     src: local(''),
-         url({{ '/assets/fonts/sora-v10-latin-regular.eot?#iefix' | relative_url }}) format('embedded-opentype'), /* IE6-IE8 */
-         url({{ '/assets/fonts/sora-v10-latin-regular.woff2' | relative_url }}) format('woff2'), /* Super Modern Browsers */
-         url({{ '/assets/fonts/sora-v10-latin-regular.woff' | relative_url }}) format('woff'), /* Modern Browsers */
-         url({{ '/assets/fonts/sora-v10-latin-regular.ttf' | relative_url }}) format('truetype'), /* Safari, Android, iOS */
-         url({{ '/assets/fonts/sora-v10-latin-regular.svg#Sora' | relative_url }}) format('svg'); /* Legacy iOS */
+         url({{ '/assets/webfonts/sora-v10-latin-regular.eot?#iefix' | relative_url }}) format('embedded-opentype'), /* IE6-IE8 */
+         url({{ '/assets/webfonts/sora-v10-latin-regular.woff2' | relative_url }}) format('woff2'), /* Super Modern Browsers */
+         url({{ '/assets/webfonts/sora-v10-latin-regular.woff' | relative_url }}) format('woff'), /* Modern Browsers */
+         url({{ '/assets/webfonts/sora-v10-latin-regular.ttf' | relative_url }}) format('truetype'), /* Safari, Android, iOS */
+         url({{ '/assets/webfonts/sora-v10-latin-regular.svg#Sora' | relative_url }}) format('svg'); /* Legacy iOS */
     font-display: swap;
   }
   /* Text in Banner auf Startseite */
@@ -59,8 +59,9 @@
 
 <!-- For all browsers -->
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+<!-- Font Awesome -->
+<link rel="preload" href="{{ '/assets/css/all.min.css' | relative_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="{{ '/assets/css/all.min.css' | relative_url }}"></noscript>
 
 {% if site.head_scripts %}
   {% for script in site.head_scripts %}

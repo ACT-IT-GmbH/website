@@ -122,13 +122,9 @@ Diese Seite nutzt zur einheitlichen Darstellung von Schriftarten so genannte Web
 
 Weitere Informationen zu Google Web Fonts finden Sie unter <a href="https://developers.google.com/fonts/faq" rel="noopener noreferrer" target="_blank">https://developers.google.com/fonts/faq</a> und in der Datenschutzerklärung von Google: <a href="https://policies.google.com/privacy?hl=de" rel="noopener noreferrer" target="_blank">https://policies.google.com/privacy?hl=de</a>.
 
-### Font Awesome
-Diese Seite nutzt zur einheitlichen Darstellung von Schriftarten und Symbolen Font Awesome. Anbieter ist die Fonticons, Inc., 6 Porter Road Apartment 3R, Cambridge, Massachusetts, USA.
+### Font Awesome (lokales Hosting)
+Diese Seite nutzt zur einheitlichen Darstellung von Schriftarten Font Awesome. Font Awesome ist lokal installiert. Eine Verbindung zu Servern von Fonticons, Inc. findet dabei nicht statt.
 
-Beim Aufruf einer Seite lädt Ihr Browser die benötigten Fonts in ihren Browsercache, um Texte, Schriftarten und Symbole korrekt anzuzeigen. Zu diesem Zweck muss der von Ihnen verwendete Browser Verbindung zu den Servern von Font Awesome aufnehmen. Hierdurch erlangt Font Awesome Kenntnis darüber, dass über Ihre IP-Adresse diese Website aufgerufen wurde. Die Nutzung von Font Awesome erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Wir haben ein berechtigtes Interesse an der einheitlichen Darstellung des Schriftbildes auf unserer Website. Sofern eine entsprechende Einwilligung abgefragt wurde, erfolgt die Verarbeitung ausschließlich auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TTDSG, soweit die Einwilligung die Speicherung von Cookies oder den Zugriff auf Informationen im Endgerät des Nutzers (z. B. Device-Fingerprinting) im Sinne des TTDSG umfasst. Die Einwilligung ist jederzeit widerrufbar.
-
-Wenn Ihr Browser Font Awesome nicht unterstützt, wird eine Standardschrift von Ihrem Computer genutzt.
-
-Weitere Informationen zu Font Awesome finden Sie und in der Datenschutzerklärung von Font Awesome unter: <a href="https://fontawesome.com/privacy" rel="noopener noreferrer" target="_blank">https://fontawesome.com/privacy</a>.
+Weitere Informationen zu Font Awesome finden Sie in der Datenschutzerklärung für Font Awesome unter: <a href="https://fontawesome.com/privacy" rel="noopener noreferrer" target="_blank">https://fontawesome.com/privacy</a>.
 
 Quelle: <a href="https://www.e-recht24.de" rel="noopener noreferrer" target="_blank">https://www.e-recht24.de</a>
