@@ -355,3 +355,35 @@ input[type="submit"],
   -webkit-transition: $global-transition;
   transition: $global-transition;
 }
+
+@font-face {
+  font-family: 'Sora';
+  font-style: normal;
+  font-weight: 400;
+  src: url("/assets/webfonts/sora-v10-latin-regular.eot"); /* IE9 Compat Modes */
+  src: local(''),
+       url("/assets/webfonts/sora-v10-latin-regular.eot?#iefix") format('embedded-opentype'), /* IE6-IE8 */
+       url("/assets/webfonts/sora-v10-latin-regular.woff2") format('woff2'), /* Super Modern Browsers */
+       url("/assets/webfonts/sora-v10-latin-regular.woff") format('woff'), /* Modern Browsers */
+       url("/assets/webfonts/sora-v10-latin-regular.ttf") format('truetype'), /* Safari, Android, iOS */
+       url("/assets/webfonts/sora-v10-latin-regular.svg#Sora") format('svg'); /* Legacy iOS */
+  font-display: swap;
+}
+
+/* Text in Banner auf Startseite */
+h1#page-title {
+  text-align: center;
+}
+p.page__lead {
+  max-width: unset !important;
+  text-align: center;
+}
+
+/* Obfuscation */
+span.codeDirection {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+span.displayNone, nav#site-nav > a.displayNone {
+  display: none;
+}
