@@ -127,7 +127,7 @@ defaults:
 
 category_archive:
   type: liquid
-  path: /categories/
+  path: /blog/categories/
 tag_archive:
   type: liquid
-  path: /tags/
+  path: /blog/tags/
