@@ -7,9 +7,11 @@ toc_sticky: true
 ---
 # Impressum
 ## Angaben gemäß § 5 TMG
-ACT! IT GmbH  
-Bessenbacher Weg 37  
-63739 Aschaffenburg
+<span itemprop="name">ACT! IT GmbH</span>  
+<span itemprop="address">
+<span itemprop="streetAddress">Bessenbacher Weg 37</span>  
+<span itemprop="postalCode">63739</span> <span itemprop="addressLocality">Aschaffenburg</span>
+</span>
 
 Handelsregister: HRB 124420  
 Registergericht: Frankfurt am Main

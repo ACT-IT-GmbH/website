@@ -55,9 +55,11 @@ Wir weisen darauf hin, dass die Datenübertragung im Internet (z. B. bei der Kom
 ### Hinweis zur verantwortlichen Stelle
 Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:
 
-ACT! IT GmbH  
-Bessenbacher Weg 37  
-63739 Aschaffenburg
+<span itemprop="name">ACT! IT GmbH</span>  
+<span itemprop="address">
+<span itemprop="streetAddress">Bessenbacher Weg 37</span>  
+<span itemprop="postalCode">63739</span> <span itemprop="addressLocality">Aschaffenburg</span>
+</span>
 
 Telefon: <span class="codeDirection">3319 2462</span><span class="displayNone">0041 2765</span><span class="codeDirection"> 251 (0) 94+</span>  
 Telefon: <span class="codeDirection">1740 3262</span><span class="displayNone">0041 2765</span><span class="codeDirection"> 251 (0) 94+</span>  
