@@ -57,8 +57,8 @@
       {% endif %}
 
       {% if author.email %}
-        <li data-umami-event="email-{{ author.name }}">
-          <a href="mailto:{{ author.email }}">
+        <li>
+          <a href="mailto:{{ author.email }}" data-umami-event="email-{{ author.name }}">
             <meta itemprop="email" content="{{ author.email }}" />
             <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">{{ site.data.ui-text[site.locale].email_label | default: "Email" }}</span>
           </a>
@@ -74,8 +74,8 @@
       {% endif %}
 
       {% if author.twitter %}
-        <li data-umami-event="twitter-{{ author.name }}">
-          <a href="https://twitter.com/{{ author.twitter }}" itemprop="sameAs" rel="nofollow noopener noreferrer">
+        <li>
+          <a href="https://twitter.com/{{ author.twitter }}" itemprop="sameAs" rel="nofollow noopener noreferrer" data-umami-event="twitter-{{ author.name }}">
             <i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i><span class="label">Twitter</span>
           </a>
         </li>
@@ -90,8 +90,8 @@
       {% endif %}
 
       {% if author.linkedin %}
-        <li data-umami-event="linkedin-{{ author.name }}">
-          <a href="https://www.linkedin.com/in/{{ author.linkedin }}" itemprop="sameAs" rel="nofollow noopener noreferrer">
+        <li>
+          <a href="https://www.linkedin.com/in/{{ author.linkedin }}" itemprop="sameAs" rel="nofollow noopener noreferrer" data-umami-event="linkedin-{{ author.name }}">
             <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span>
           </a>
         </li>
