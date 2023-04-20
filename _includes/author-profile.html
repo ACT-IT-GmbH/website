@@ -58,7 +58,7 @@
 
       {% if author.email %}
         <li>
-          <a href="mailto:{{ author.email }}" data-umami-event="email-{{ author.name }}">
+          <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;{{ author.email }}" data-umami-event="email-{{ author.concatname }}">
             <meta itemprop="email" content="{{ author.email }}" />
             <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">{{ site.data.ui-text[site.locale].email_label | default: "Email" }}</span>
           </a>
@@ -67,7 +67,7 @@
 
       {% if author.keybase %}
         <li>
-          <a href="https://keybase.io/{{ author.keybase }}" itemprop="sameAs" rel="nofollow noopener noreferrer">
+          <a href="https://keybase.io/{{ author.keybase }}" itemprop="sameAs" rel="nofollow noopener noreferrer" data-umami-event="keybase-{{ author.concatname }}>
             <i class="fas fa-fw fa-key" aria-hidden="true"></i><span class="label">Keybase</span>
           </a>
         </li>
@@ -75,7 +75,7 @@
 
       {% if author.twitter %}
         <li>
-          <a href="https://twitter.com/{{ author.twitter }}" itemprop="sameAs" rel="nofollow noopener noreferrer" data-umami-event="twitter-{{ author.name }}">
+          <a href="https://twitter.com/{{ author.twitter }}" itemprop="sameAs" rel="nofollow noopener noreferrer" data-umami-event="twitter-{{ author.concatname }}">
             <i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i><span class="label">Twitter</span>
           </a>
         </li>
@@ -83,7 +83,7 @@
 
       {% if author.facebook %}
         <li>
-          <a href="https://www.facebook.com/{{ author.facebook }}" itemprop="sameAs" rel="nofollow noopener noreferrer">
+          <a href="https://www.facebook.com/{{ author.facebook }}" itemprop="sameAs" rel="nofollow noopener noreferrer" data-umami-event="facebook-{{ author.concatname }}>
             <i class="fab fa-fw fa-facebook-square" aria-hidden="true"></i><span class="label">Facebook</span>
           </a>
         </li>
@@ -91,7 +91,7 @@
 
       {% if author.linkedin %}
         <li>
-          <a href="https://www.linkedin.com/in/{{ author.linkedin }}" itemprop="sameAs" rel="nofollow noopener noreferrer" data-umami-event="linkedin-{{ author.name }}">
+          <a href="https://www.linkedin.com/in/{{ author.linkedin }}" itemprop="sameAs" rel="nofollow noopener noreferrer" data-umami-event="linkedin-{{ author.concatname }}">
             <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span>
           </a>
         </li>
@@ -99,7 +99,7 @@
 
       {% if author.xing %}
         <li>
-          <a href="https://www.xing.com/profile/{{ author.xing }}" itemprop="sameAs" rel="nofollow noopener noreferrer">
+          <a href="https://www.xing.com/profile/{{ author.xing }}" itemprop="sameAs" rel="nofollow noopener noreferrer" data-umami-event="xing-{{ author.concatname }}>
             <i class="fab fa-fw fa-xing-square" aria-hidden="true"></i><span class="label">XING</span>
           </a>
         </li>
@@ -107,7 +107,7 @@
 
       {% if author.instagram %}
         <li>
-          <a href="https://instagram.com/{{ author.instagram }}" itemprop="sameAs" rel="nofollow noopener noreferrer">
+          <a href="https://instagram.com/{{ author.instagram }}" itemprop="sameAs" rel="nofollow noopener noreferrer" data-umami-event="instagram-{{ author.concatname }}>
             <i class="fab fa-fw fa-instagram" aria-hidden="true"></i><span class="label">Instagram</span>
           </a>
         </li>
@@ -115,7 +115,7 @@
 
       {% if author.tumblr %}
         <li>
-          <a href="https://{{ author.tumblr }}.tumblr.com" itemprop="sameAs" rel="nofollow noopener noreferrer">
+          <a href="https://{{ author.tumblr }}.tumblr.com" itemprop="sameAs" rel="nofollow noopener noreferrer" data-umami-event="tumblr-{{ author.concatname }}>
             <i class="fab fa-fw fa-tumblr-square" aria-hidden="true"></i><span class="label">Tumblr</span>
           </a>
         </li>
@@ -123,7 +123,7 @@
 
       {% if author.bitbucket %}
         <li>
-          <a href="https://bitbucket.org/{{ author.bitbucket }}" itemprop="sameAs" rel="nofollow noopener noreferrer">
+          <a href="https://bitbucket.org/{{ author.bitbucket }}" itemprop="sameAs" rel="nofollow noopener noreferrer" data-umami-event="bitbucket-{{ author.concatname }}>
             <i class="fab fa-fw fa-bitbucket" aria-hidden="true"></i><span class="label">Bitbucket</span>
           </a>
         </li>
@@ -131,7 +131,7 @@
 
       {% if author.github %}
         <li>
-          <a href="https://github.com/{{ author.github }}" itemprop="sameAs" rel="nofollow noopener noreferrer">
+          <a href="https://github.com/{{ author.github }}" itemprop="sameAs" rel="nofollow noopener noreferrer" data-umami-event="github-{{ author.concatname }}>
             <i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span>
           </a>
         </li>
@@ -139,7 +139,7 @@
 
       {% if author.gitlab %}
         <li>
-          <a href="https://gitlab.com/{{ author.gitlab }}" itemprop="sameAs" rel="nofollow noopener noreferrer">
+          <a href="https://gitlab.com/{{ author.gitlab }}" itemprop="sameAs" rel="nofollow noopener noreferrer" data-umami-event="gitlab-{{ author.concatname }}>
             <i class="fab fa-fw fa-gitlab" aria-hidden="true"></i><span class="label">GitLab</span>
           </a>
         </li>
@@ -147,7 +147,7 @@
 
       {% if author.stackoverflow %}
         <li>
-          <a href="https://stackoverflow.com/users/{{ author.stackoverflow }}" itemprop="sameAs" rel="nofollow noopener noreferrer">
+          <a href="https://stackoverflow.com/users/{{ author.stackoverflow }}" itemprop="sameAs" rel="nofollow noopener noreferrer" data-umami-event="stackoverflow-{{ author.concatname }}>
             <i class="fab fa-fw fa-stack-overflow" aria-hidden="true"></i><span class="label">Stack Overflow</span>
           </a>
         </li>
@@ -155,7 +155,7 @@
 
       {% if author.lastfm %}
         <li>
-          <a href="https://last.fm/user/{{ author.lastfm }}" itemprop="sameAs" rel="nofollow noopener noreferrer">
+          <a href="https://last.fm/user/{{ author.lastfm }}" itemprop="sameAs" rel="nofollow noopener noreferrer" data-umami-event="lastfm-{{ author.concatname }}>
             <i class="fab fa-fw fa-lastfm-square" aria-hidden="true"></i><span class="label">Last.fm</span>
           </a>
         </li>
@@ -163,7 +163,7 @@
 
       {% if author.dribbble %}
         <li>
-          <a href="https://dribbble.com/{{ author.dribbble }}" itemprop="sameAs" rel="nofollow noopener noreferrer">
+          <a href="https://dribbble.com/{{ author.dribbble }}" itemprop="sameAs" rel="nofollow noopener noreferrer" data-umami-event="dribbble-{{ author.concatname }}>
             <i class="fab fa-fw fa-dribbble" aria-hidden="true"></i><span class="label">Dribbble</span>
           </a>
         </li>
@@ -171,7 +171,7 @@
 
       {% if author.pinterest %}
         <li>
-          <a href="https://www.pinterest.com/{{ author.pinterest }}" itemprop="sameAs" rel="nofollow noopener noreferrer">
+          <a href="https://www.pinterest.com/{{ author.pinterest }}" itemprop="sameAs" rel="nofollow noopener noreferrer" data-umami-event="pinterest-{{ author.concatname }}>
             <i class="fab fa-fw fa-pinterest" aria-hidden="true"></i><span class="label">Pinterest</span>
           </a>
         </li>
@@ -179,7 +179,7 @@
 
       {% if author.foursquare %}
         <li>
-          <a href="https://foursquare.com/{{ author.foursquare }}" itemprop="sameAs" rel="nofollow noopener noreferrer">
+          <a href="https://foursquare.com/{{ author.foursquare }}" itemprop="sameAs" rel="nofollow noopener noreferrer" data-umami-event="foursquare-{{ author.concatname }}>
             <i class="fab fa-fw fa-foursquare" aria-hidden="true"></i><span class="label">Foursquare</span>
           </a>
         </li>
@@ -187,7 +187,7 @@
 
       {% if author.steam %}
         <li>
-          <a href="https://steamcommunity.com/id/{{ author.steam }}" itemprop="sameAs" rel="nofollow noopener noreferrer">
+          <a href="https://steamcommunity.com/id/{{ author.steam }}" itemprop="sameAs" rel="nofollow noopener noreferrer" data-umami-event="steam-{{ author.concatname }}>
             <i class="fab fa-fw fa-steam" aria-hidden="true"></i><span class="label">Steam</span>
           </a>
         </li>
@@ -196,13 +196,13 @@
       {% if author.youtube %}
         {% if author.youtube contains "://" %}
           <li>
-            <a href="{{ author.youtube }}" itemprop="sameAs" rel="nofollow noopener noreferrer">
+            <a href="{{ author.youtube }}" itemprop="sameAs" rel="nofollow noopener noreferrer" data-umami-event="youtube-{{ author.concatname }}>
               <i class="fab fa-fw fa-youtube" aria-hidden="true"></i><span class="label">YouTube</span>
             </a>
           </li>
         {% elsif author.youtube %}
           <li>
-            <a href="https://www.youtube.com/user/{{ author.youtube }}" itemprop="sameAs" rel="nofollow noopener noreferrer">
+            <a href="https://www.youtube.com/user/{{ author.youtube }}" itemprop="sameAs" rel="nofollow noopener noreferrer" data-umami-event="youtube-{{ author.concatname }}>
               <i class="fab fa-fw fa-youtube" aria-hidden="true"></i><span class="label">YouTube</span>
             </a>
           </li>
@@ -211,7 +211,7 @@
 
       {% if author.soundcloud %}
         <li>
-          <a href="https://soundcloud.com/{{ author.soundcloud }}" itemprop="sameAs" rel="nofollow noopener noreferrer">
+          <a href="https://soundcloud.com/{{ author.soundcloud }}" itemprop="sameAs" rel="nofollow noopener noreferrer" data-umami-event="soundcloud-{{ author.concatname }}>
             <i class="fab fa-fw fa-soundcloud" aria-hidden="true"></i><span class="label">SoundCloud</span>
           </a>
         </li>
@@ -219,7 +219,7 @@
 
       {% if author.weibo %}
         <li>
-          <a href="https://www.weibo.com/{{ author.weibo }}" itemprop="sameAs" rel="nofollow noopener noreferrer">
+          <a href="https://www.weibo.com/{{ author.weibo }}" itemprop="sameAs" rel="nofollow noopener noreferrer" data-umami-event="weibo-{{ author.concatname }}>
             <i class="fab fa-fw fa-weibo" aria-hidden="true"></i><span class="label">Weibo</span>
           </a>
         </li>
@@ -227,7 +227,7 @@
 
       {% if author.flickr %}
         <li>
-          <a href="https://www.flickr.com/{{ author.flickr }}" itemprop="sameAs" rel="nofollow noopener noreferrer">
+          <a href="https://www.flickr.com/{{ author.flickr }}" itemprop="sameAs" rel="nofollow noopener noreferrer" data-umami-event="flickr-{{ author.concatname }}>
             <i class="fab fa-fw fa-flickr" aria-hidden="true"></i><span class="label">Flickr</span>
           </a>
         </li>
@@ -235,7 +235,7 @@
 
       {% if author.codepen %}
         <li>
-          <a href="https://codepen.io/{{ author.codepen }}" itemprop="sameAs" rel="nofollow noopener noreferrer">
+          <a href="https://codepen.io/{{ author.codepen }}" itemprop="sameAs" rel="nofollow noopener noreferrer" data-umami-event="codepen-{{ author.concatname }}>
             <i class="fab fa-fw fa-codepen" aria-hidden="true"></i><span class="label">CodePen</span>
           </a>
         </li>
@@ -243,7 +243,7 @@
 
       {% if author.vine %}
         <li>
-          <a href="https://vine.co/u/{{ author.vine }}" itemprop="sameAs" rel="nofollow noopener noreferrer">
+          <a href="https://vine.co/u/{{ author.vine }}" itemprop="sameAs" rel="nofollow noopener noreferrer" data-umami-event="vine-{{ author.concatname }}>
             <i class="fab fa-fw fa-vine" aria-hidden="true"></i><span class="label">{{ site.data.ui-text[site.locale].email_label | default: "Email" }}</span>
           </a>
         </li>
