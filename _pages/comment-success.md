@@ -1,4 +1,5 @@
 ---
+permalink: /comment-success/
 layout: home
 author_profile: false
 classes: wide
