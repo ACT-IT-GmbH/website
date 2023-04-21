@@ -1,0 +1,156 @@
+.comment {
+    padding-top: 10px;
+    h3 {
+        display: inline;
+        color: #96c8d2;
+    }
+    p {
+        margin: 0;
+    }
+}
+
+.comment-new {
+    margin-top: 25px;
+}
+
+.comment-form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+    background-color: unset;
+    padding-left: 0;
+    padding-right: 0;
+
+    .comment-message, .comment-name {
+        font-size: 16px;
+        padding: 15px;
+        border: 1px solid #ddd;
+        margin: 0;
+    }
+
+    .comment-message {
+        min-height: 150px;
+        resize: none;
+    }
+    
+    .comment-bottom {
+        display: flex;
+        border-radius: 0 0 4px 4px;
+    }
+
+    .comment-name {
+        flex: 1;
+        border-radius: 0 0 0 4px;
+
+        &::placeholder {
+            color: #96c8d2;
+            opacity: 1;
+        }
+
+        &:-ms-input-placeholder {
+            color:#96c8d2;
+        }
+
+        &::-ms-input-placeholder {
+            color: #96c8d2;
+        }
+    }
+    
+    .comment-submit {
+        width: 200px;
+        border: 1px solid #ddd;
+        color: #96c8d2;
+        background-color: #252a34;
+        font-weight: bold;
+        border-radius: 0 0 4px 0;
+        
+        &:hover {
+            cursor: pointer;
+            background-color: #eee;
+            color: #3d4144;
+        }
+    }
+
+    .CodeMirror {
+        border-radius: 0;
+        background: #eee;
+    }
+    
+    .CodeMirror, .CodeMirror-scroll {
+        min-height: 150px;
+    }
+
+    .editor-toolbar {
+        border-radius: 4px 4px 0 0;
+        background-color: #252a34 !important;
+        opacity: 1;
+    }
+    
+    .editor-toolbar > a {
+        color: #96c8d2 !important;
+
+        &:hover {
+            background-color: #eee;
+            color: #3d4144 !important;
+        }
+    }
+}
+
+.comment-reply {
+    padding: 15px;
+    padding-top: 5px;
+    display: flex;
+    flex-direction: column;
+
+    .open {
+        font-style: italic;
+        text-decoration: underline;
+        text-decoration-color: transparent;
+        -webkit-text-decoration-color: transparent;
+        -moz-text-decoration-color: transparent;
+        transition: all 0.2s ease-in-out;
+        -webkit-transition: all 0.2s ease-in-out;
+        
+        &:hover {
+            color: #bbbbbb;
+            text-decoration-color: #1895ad;
+            -webkit-text-decoration-color: #1895ad;
+            -moz-text-decoration-color: #1895ad;
+        }
+    }
+
+    .close {
+        display: none;
+        align-self: flex-end;
+        padding: 5px 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        color: #96c8d2;
+
+        &:hover {
+            background-color: #eee;
+            color: #3d4144;
+        }
+    }
+    
+    .open:hover, .close:hover {
+        cursor: pointer;
+    }
+
+    .comment-form {
+        display: none;
+    }
+
+    .checkbox {
+        display: none;
+        &:checked ~ .open {
+            display: none;
+        }
+        &:checked ~ .close {
+            display: block;
+        }
+        &:checked ~ .comment-form {
+            display: flex;
+        }
+    }
+}

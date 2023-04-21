@@ -131,3 +131,5 @@ category_archive:
 tag_archive:
   type: liquid
   path: /blog/tags/
+
+staticman_url: https://ACT-IT-Comments/v3/entry/github/ACT-IT-GmbH/ACT-IT-GmbH.github.io/master/comments

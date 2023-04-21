@@ -11,3 +11,5 @@ $sans-serif: -apple-system, BlinkMacSystemFont, "Sora", "Roboto", "Segoe UI",
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
+
+@import "comments";

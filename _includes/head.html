@@ -47,6 +47,10 @@
 <!-- Font Awesome -->
 <link rel="preload" href="{{ '/assets/css/all.min.css' | relative_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="{{ '/assets/css/all.min.css' | relative_url }}"></noscript>
+<!--<script defer src="{{ '/assets/js/fontawesome/all.min.js' || relative_url }}"></script>-->
+<!-- Simple Markdown Editor -->
+<link rel="stylesheet" href="{{ '/assets/css/simplemde.min.css' | relative_url }}">
+<script src="{{ '/assets/js/scripts/simplemde.min.js' | relative_url }}"></script>
 
 {% if site.head_scripts %}
   {% for script in site.head_scripts %}
