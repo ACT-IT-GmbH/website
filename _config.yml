@@ -132,4 +132,4 @@ tag_archive:
   type: liquid
   path: /blog/tags/
 
-staticman_url: https://staticman.deyama.de/v3/entry/github/ACT-IT-GmbH/ACT-IT-GmbH.github.io/master/comments
+staticman_url: https://staticman.deyama.de/v3/entry/github/act-it-gmbh/website/master/comments
