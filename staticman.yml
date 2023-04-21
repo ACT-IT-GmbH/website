@@ -39,7 +39,7 @@ comments:
   moderation: false
 
   # When allowedOrigins is defined, only requests sent from one of the listed domains will be accepted.
-  allowedOrigins: ["localhost", "act-it.eu"]
+  allowedOrigins: ["localhost", "ACT-IT-GmbH.github.io", "act-it.eu"]
 
   # (*) REQUIRED
   #
