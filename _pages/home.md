@@ -1,5 +1,5 @@
 ---
-title: Gemeinsam über 23 Jahre APEX Erfahrung
+title: Gemeinsam über 25 Jahre APEX Erfahrung
 layout: splash
 permalink: /
 header:
@@ -8,7 +8,7 @@ header:
   overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
 tagline: Profitieren auch Sie von unserem Know-How
 feature_row:
-  - image_path: /assets/images/skills-radar.webp
+  - image_path: /assets/images/skills-matrix.webp
     alt: Skillmatrix der ACT! IT GmbH
     excerpt: >-
       <p>Die ACT! IT GmbH ist ein IT-Dienstleister, der sich auf die Entwicklung von individuellen Geschäftsanwendungen spezialisiert hat. Die technologische Basis bilden ein Web Frontend mit Anbindung an eine Datenbank. Dabei wird primär die Technologie "Oracle APEX" verwendet.</p>
