@@ -23,7 +23,7 @@ description: >- # this means to ignore newlines until "baseurl:"
 #twitter_username: username
 github_username: ACT-IT-GmbH
 minimal_mistakes_skin: dark
-search: true
+search: false
 logo: "/assets/images/ACT-IT-GmbH-1024x180.webp"
 
 # Build settings
@@ -44,6 +44,9 @@ locale: de-DE
 include:
   - _pages
 
+atom_feed:
+  hide: true
+
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
@@ -61,7 +64,7 @@ plugins:
   - jekyll-paginate
   - jekyll-sitemap
   - jekyll-gist
-  - jekyll-feed
+#  - jekyll-feed
   - jemoji
   - jekyll-include-cache
 
@@ -131,5 +134,3 @@ category_archive:
 tag_archive:
   type: liquid
   path: /blog/tags/
-
-staticman_url: https://staticman.deyama.de/v3/entry/github/act-it-gmbh/website/master/comments
