@@ -71,7 +71,7 @@ feature_row2:
   - image_path: /assets/images/anja-hildebrandt-neu.webp
     alt: Bild von Anja Hildebrandt
     title: Anja Hildebrandt
-    excerpt: <i class="fas fa-fw fa-envelope-square"></i><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#097;&#110;&#106;&#097;&#046;&#104;&#105;&#108;&#100;&#101;&#098;&#114;&#097;&#110;&#100;&#116;&#064;&#097;&#099;&#116;&#045;&#105;&#116;&#046;&#101;&#117;"><span class="codeDirection">ue.ti-tca@</span><span class="displayNone">@example@</span><span class="codeDirection">tnarbedlih.ajna</span></a><br/><i class="fab fa-fw fa-linkedin"></i><a target="_blank" rel="noopener noreferrer" href="https://de.linkedin.com/in/anja-hildebrandt">Anja Hildebrandt</a>
+    excerpt: <i class="fas fa-fw fa-envelope-square"></i><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#097;&#110;&#106;&#097;&#046;&#104;&#105;&#108;&#100;&#101;&#098;&#114;&#097;&#110;&#100;&#116;&#064;&#097;&#099;&#116;&#045;&#105;&#116;&#046;&#101;&#117;"><span class="codeDirection">ue.ti-tca@</span><span class="displayNone">@example@</span><span class="codeDirection">tdnarbedlih.ajna</span></a><br/><i class="fab fa-fw fa-linkedin"></i><a target="_blank" rel="noopener noreferrer" href="https://de.linkedin.com/in/anja-hildebrandt">Anja Hildebrandt</a>
   - image_path: /assets/images/christopher-berg-neu.webp
     alt: Bild von Christopher Berg
     title: Christopher Berg
