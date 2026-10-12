@@ -1,4 +1,11 @@
-_site
-.sass-cache
-.jekyll-metadata
-Gemfile.lock
+# OS and editor files
+.DS_Store
+Thumbs.db
+*.log
+
+# Not part of the published site: original photos, working notes, tool folders
+CP_*.jpg
+/docs/
+/*.md
+/.*/
+!/.github/
