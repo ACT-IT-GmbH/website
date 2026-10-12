@@ -25,7 +25,14 @@
   <script>document.documentElement.classList.add('js')</script>
   <link rel="stylesheet" href="assets/css/style.css">
   <script src="assets/js/main.js" defer></script>
-  <script src="https://stats.deyama.de/api/script.js?siteId=2a5581d0d590" defer></script>
+  <script>
+    (function() {
+      var el = document.createElement("script");
+      el.src = "https://stats.deyama.de/api/script.js?siteId=2a5581d0d590";
+      el.defer = true;
+      document.head.appendChild(el);
+    })();
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
