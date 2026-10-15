@@ -1,0 +1,74 @@
+---
+// Kompetenzprofil als Radar, übernommen von der vorherigen Seite. 13 Achsen, Hover nennt die Achse in der Mitte.
+const achsen = ['APEX','Datenbanken','Cloud','Lowcode','UI/UX','APIs','Problemlösung','Beratung','Projektmanagement','Selbstorganisation','Prozessdigitalisierung','KI Kompetenz','Flows4APEX'];
+const ends: [number, number][] = [[400,140],[520.8,169.8],[614,252.3],[658.1,368.7],[643.1,492.2],[572.4,594.6],[462.2,652.4],[337.8,652.4],[227.6,594.6],[156.9,492.2],[141.9,368.7],[186,252.3],[279.2,169.8]];
+const dots: [number, number][] = [[400,147.8],[502.7,204.3],[543.4,301],[627.1,372.4],[577.5,467.3],[534.5,551.8],[454.8,622.2],[348.4,609.5],[251.7,567.4],[188.5,480.2],[167.7,371.8],[239.5,289.2],[297.3,204.3]];
+const hits = ['M400,400 L321,79.6 A330,330 0 0 1 479,79.6Z','M400,400 L479,79.6 A330,330 0 0 1 618.8,153Z','M400,400 L618.8,153 A330,330 0 0 1 708.6,283Z','M400,400 L708.6,283 A330,330 0 0 1 727.6,439.8Z','M400,400 L727.6,439.8 A330,330 0 0 1 671.6,587.5Z','M400,400 L671.6,587.5 A330,330 0 0 1 553.4,692.2Z','M400,400 L553.4,692.2 A330,330 0 0 1 400,730Z','M400,400 L400,730 A330,330 0 0 1 246.6,692.2Z','M400,400 L246.6,692.2 A330,330 0 0 1 128.4,587.5Z','M400,400 L128.4,587.5 A330,330 0 0 1 72.4,439.8Z','M400,400 L72.4,439.8 A330,330 0 0 1 91.4,283Z','M400,400 L91.4,283 A330,330 0 0 1 181.2,153Z','M400,400 L181.2,153 A330,330 0 0 1 321,79.6Z'];
+const labels: { x: number; y: number; a: 'start' | 'middle' | 'end'; t: string[] }[] = [
+  { x: 400, y: 100, a: 'middle', t: ['APEX'] }, { x: 539.4, y: 134.4, a: 'start', t: ['Datenbanken'] }, { x: 646.9, y: 229.6, a: 'start', t: ['Cloud'] },
+  { x: 697.8, y: 363.8, a: 'start', t: ['Lowcode'] }, { x: 680.5, y: 506.4, a: 'start', t: ['UI/UX'] }, { x: 598.9, y: 624.6, a: 'start', t: ['APIs'] },
+  { x: 471.8, y: 691.3, a: 'start', t: ['Problemlösung'] }, { x: 328.2, y: 691.3, a: 'end', t: ['Beratung'] }, { x: 201.1, y: 624.6, a: 'end', t: ['Projekt-', 'management'] },
+  { x: 119.5, y: 506.4, a: 'end', t: ['Selbst-', 'organisation'] }, { x: 102.2, y: 363.8, a: 'end', t: ['Prozess-', 'digitalisierung'] }, { x: 153.1, y: 229.6, a: 'end', t: ['KI Kompetenz'] },
+  { x: 260.6, y: 134.4, a: 'end', t: ['Flows4APEX'] },
+];
+const shape = 'M400,147.8 C434.2,147.8 478.8,178.8 502.7,204.3 C526.6,229.9 522.6,273 543.4,301 C564.1,329.1 621.4,344.7 627.1,372.4 C632.8,400.1 592.9,437.4 577.5,467.3 C562,497.2 554.9,526 534.5,551.8 C514,577.6 485.8,612.5 454.8,622.2 C423.7,631.8 382.2,618.7 348.4,609.5 C314.5,600.4 278.4,588.9 251.7,567.4 C225.1,545.8 202.5,512.8 188.5,480.2 C174.5,447.6 159.2,403.6 167.7,371.8 C176.2,340 217.9,317.1 239.5,289.2 C261.1,261.3 270.5,227.9 297.3,204.3 C324,180.7 365.8,147.8 400,147.8Z';
+---
+<figure class="radar reveal">
+  <svg viewBox="-160 0 1120 800" role="img" aria-labelledby="radar-title">
+    <title id="radar-title">Kompetenzprofil der ACT! IT GmbH: {achsen.join(', ')}</title>
+    {[260, 208, 156, 104, 52].map((r, i) => <circle cx="400" cy="400" r={r} class="ring" style={`fill-opacity:${(0.035 + i * 0.025).toFixed(3)}`} />)}
+    <g class="axes">{ends.map(([x, y], i) => <line data-i={i} x1="400" y1="400" x2={x} y2={y} />)}</g>
+    <path class="shape" d={shape} />
+    <g class="dots">{dots.map(([x, y], i) => <circle data-i={i} cx={x} cy={y} r="4.5" />)}</g>
+    <g class="labels">
+      {labels.map((l, i) => (
+        <text data-i={i} x={l.x} y={l.y} text-anchor={l.a}>
+          {l.t.length === 1 ? l.t[0] : l.t.map((s, k) => <tspan x={l.x} dy={k === 0 ? '-0.6em' : '1.2em'}>{s}</tspan>)}
+        </text>
+      ))}
+    </g>
+    <text class="focus" x="400" y="400" text-anchor="middle" aria-hidden="true"></text>
+    <g class="hits">{hits.map((d, i) => <path data-i={i} data-label={achsen[i]} d={d} fill="transparent" />)}</g>
+  </svg>
+  <figcaption class="hint">Bewegen Sie den Mauszeiger über eine Achse.</figcaption>
+</figure>
+
+<style>
+  .radar { margin: 0; width: 100%; }
+  .radar svg { width: 100%; height: auto; display: block; overflow: visible; }
+  .ring { fill: var(--paper); }
+  .axes line { stroke: var(--paper); stroke-opacity: .18; stroke-width: 1; transition: stroke-opacity 200ms, stroke-width 200ms; }
+  .shape { fill: var(--teal); fill-opacity: .82; stroke: var(--teal-bright); stroke-width: 2; transform-box: view-box; transform-origin: 400px 400px; transform: scale(.9); opacity: 0; transition: transform 900ms var(--ease-out), opacity 600ms ease; }
+  .dots circle { fill: color-mix(in srgb, var(--paper) 75%, var(--teal-bright)); opacity: 0; transition: opacity 400ms ease 600ms, r 200ms; }
+  .radar.in .shape { transform: none; opacity: 1; }
+  .radar.in .dots circle { opacity: 1; }
+  .labels text { fill: var(--paper); font: 500 22px/1 var(--font-text); dominant-baseline: middle; transition: fill 200ms; }
+  .focus { fill: var(--paper); font: 700 40px/1 var(--font-display); dominant-baseline: middle; letter-spacing: .01em; opacity: 0; pointer-events: none; transition: opacity 200ms; }
+  .hits path { cursor: pointer; }
+  svg.has-active .focus { opacity: 1; }
+  svg.has-active .labels text:not(.is-active) { fill: color-mix(in srgb, var(--paper) 45%, var(--ink)); }
+  .labels text.is-active { fill: var(--teal-bright); font-weight: 700; }
+  .axes line.is-active { stroke-opacity: 1; stroke-width: 2; }
+  .dots circle.is-active { r: 9; }
+  .hint { display: none; margin-top: 8px; font-size: var(--fs-small, .9rem); color: color-mix(in srgb, var(--paper) 60%, var(--ink)); text-align: center; }
+  @media (hover: hover) and (pointer: fine) { .hint { display: block; } }
+  @media (max-width: 760px) { .labels text { font-size: 30px; } .radar { margin-inline: calc(-1 * var(--gutter)); width: auto; } }
+  @media (prefers-reduced-motion: reduce) { .shape, .dots circle { transition: none; } }
+</style>
+
+<script>
+  const svg = document.querySelector<SVGSVGElement>('.radar svg');
+  if (svg) {
+    const focus = svg.querySelector<SVGTextElement>('.focus')!;
+    const clear = () => { svg.querySelectorAll('.is-active').forEach((el) => el.classList.remove('is-active')); svg.classList.remove('has-active'); focus.textContent = ''; };
+    svg.addEventListener('pointerover', (e) => {
+      const hit = (e.target as Element).closest<SVGPathElement>('.hits path');
+      if (!hit) return;
+      clear();
+      svg.querySelectorAll(`[data-i="${hit.dataset.i}"]`).forEach((el) => { if (!el.closest('.hits')) el.classList.add('is-active'); });
+      svg.classList.add('has-active');
+      focus.textContent = hit.dataset.label ?? '';
+    });
+    svg.addEventListener('pointerleave', clear);
+  }
+</script>

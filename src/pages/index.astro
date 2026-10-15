@@ -4,11 +4,12 @@ import Steps from '../components/Steps.astro';
 import Faq from '../components/Faq.astro';
 import Kontakt from '../components/Kontakt.astro';
 import Stationsleiste from '../components/Stationsleiste.astro';
+import Radar from '../components/Radar.astro';
 import team from '../data/team.json';
 import Icon from '../components/Icon.astro';
 
 const title = 'Oracle APEX Entwicklung aus einer Hand | ACT! IT GmbH';
-const description = 'Aus Excel wird Anwendung. Wir bauen Geschäftsanwendungen mit Oracle APEX, von der Anforderung bis zum Betrieb. Vier Personen, deutschlandweit, meist remote.';
+const description = 'Aus Excel wird Anwendung. Wir bauen Geschäftsanwendungen mit Oracle APEX, von der Anforderung bis zum Betrieb. Deutschlandweit, meist remote.';
 
 const saetze = [
   'Wir haben 12 Excel-Listen, die irgendwie zusammenhängen.',
@@ -63,7 +64,7 @@ const jsonld = [
   {
     '@context': 'https://schema.org', '@type': 'Organization', name: 'ACT! IT GmbH', url: 'https://act-it.eu/', logo: 'https://act-it.eu/logo.svg',
     foundingDate: '2021-09-02', foundingLocation: { '@type': 'Place', name: 'Frankfurt am Main' },
-    address: { '@type': 'PostalAddress', addressCountry: 'DE' }, areaServed: 'DE', numberOfEmployees: { '@type': 'QuantitativeValue', value: 4 },
+    address: { '@type': 'PostalAddress', addressCountry: 'DE' }, areaServed: 'DE',
     description: 'IT-Dienstleister für Geschäftsanwendungen mit Oracle APEX: Anforderungserhebung, Entwicklung, Projektleitung, Betrieb und Weiterentwicklung aus einer Hand.',
     knowsAbout: ['Oracle APEX', 'Oracle Database', 'PL/SQL', 'PostgreSQL', 'Low-Code', 'Oracle Forms'],
     founder: ['André Monson', 'Christopher Berg', 'Tobias Arnhold'].map((n) => ({ '@type': 'Person', name: n })),
@@ -93,7 +94,7 @@ const jsonld = [
       </svg>
       <div class="copy">
         <h1 id="h1">Aus Excel wird Anwendung.</h1>
-        <p class="lead">Wir bauen Geschäftsanwendungen mit Oracle APEX. Von der ersten Anforderung bis zum Betrieb, mit einem Team von vier Personen, das alles selbst macht.</p>
+        <p class="lead">Wir bauen Geschäftsanwendungen mit Oracle APEX. Von der ersten Anforderung bis zum Betrieb, mit einem Team, das alles selbst macht.</p>
         <p class="actions"><a class="btn primary" href="#kontakt">Anfrage senden</a><a class="btn" href="#vorgehen">So arbeiten wir</a></p>
       </div>
       <svg class="lines-mobile" viewBox="0 0 400 230" aria-hidden="true">
@@ -129,6 +130,10 @@ const jsonld = [
           <li><h3>{l.t}</h3><div><p>{l.p}</p>{l.href && <a href={l.href}>{l.link}</a>}</div></li>
         ))}
       </ul>
+      <div class="komp">
+        <div><h3 class="komp-h">Unser Kompetenzprofil</h3><p>Was wir im Alltag einsetzen, vom APEX-Kern bis zur Projektleitung. Je weiter außen, desto öfter.</p></div>
+        <Radar />
+      </div>
     </div>
   </section>
 
@@ -295,6 +300,9 @@ const jsonld = [
   .rows { list-style: none; margin: 0; padding: 0; border-top: 1px solid color-mix(in srgb, var(--paper) 30%, var(--ink)); }
   .rows li { display: grid; grid-template-columns: 5fr 7fr; gap: 40px; padding: 30px 0; border-bottom: 1px solid color-mix(in srgb, var(--paper) 18%, var(--ink)); }
   .rows li p { margin-bottom: .6em; }
+  .komp { display: grid; grid-template-columns: 5fr 7fr; gap: 40px; align-items: center; padding-top: 48px; }
+  .komp-h { font-size: var(--fs-h3, 1.5rem); margin-bottom: .4em; }
+  .komp > div p { max-width: 36ch; }
 
   .vorgehen .lead { margin-bottom: 56px; max-width: 54ch; }
 
@@ -331,7 +339,7 @@ const jsonld = [
   .community a { color: var(--teal-bright); }
 
   @media (max-width: 900px) {
-    .rows li, .wert-list li, .team-head { grid-template-columns: 1fr; gap: 12px; }
+    .rows li, .wert-list li, .team-head, .komp { grid-template-columns: 1fr; gap: 12px; }
     .people { grid-template-columns: repeat(2, 1fr); }
     .talks li { grid-template-columns: 70px 1fr; } .talks .who { grid-column: 2; }
   }
