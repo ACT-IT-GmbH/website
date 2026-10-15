@@ -1,0 +1,22 @@
+---
+interface Props { items: { q: string; a: string }[]; }
+const { items } = Astro.props;
+---
+<div class="faq">
+  {items.map((it) => (
+    <details class="faq-item">
+      <summary><span>{it.q}</span><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><path d="M4 11h14M11 4v14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary>
+      <p>{it.a}</p>
+    </details>
+  ))}
+</div>
+<style>
+  .faq { border-top: 1px solid var(--rail); max-width: 76ch; }
+  .faq-item { border-bottom: 1px solid var(--rail-faint); }
+  summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 20px 0; font-family: var(--font-display); font-weight: 600; font-size: 1.45rem; color: var(--ink); line-height: 1.1; }
+  summary::-webkit-details-marker { display: none; }
+  summary svg { flex: none; color: var(--teal-deep); transition: transform 240ms var(--ease-out); }
+  details[open] summary svg { transform: rotate(45deg); }
+  summary:hover span { color: var(--teal-deep); }
+  .faq-item p { padding: 0 0 22px; margin: 0; max-width: 68ch; }
+</style>

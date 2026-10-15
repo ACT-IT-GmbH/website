@@ -1,0 +1,26 @@
+---
+interface Props { steps: { t: string; text: string }[]; }
+const { steps } = Astro.props;
+---
+<ol class="track reveal">
+  {steps.map((s) => (<li class="stop"><h3>{s.t}</h3><p>{s.text}</p></li>))}
+</ol>
+<style>
+  .track { list-style: none; margin: 0; padding: 0; position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; counter-reset: stop; }
+  .track::before { content: ""; position: absolute; left: 0; right: 0; top: 7px; height: 2px; background: var(--rail-faint); }
+  .track::after { content: ""; position: absolute; left: 0; top: 7px; height: 2px; width: 0; background: var(--teal); transition: width 1600ms var(--ease-out); }
+  .track.in::after { width: 100%; }
+  .stop { position: relative; padding-top: 40px; }
+  .stop::before { content: ""; position: absolute; left: 0; top: 0; width: 16px; height: 16px; border-radius: 50%; background: var(--paper); border: 3px solid var(--teal); box-sizing: border-box; }
+  .stop:last-child::before { background: var(--teal); }
+  .stop h3 { margin-bottom: 10px; }
+  .stop p { margin: 0; }
+  @media (prefers-reduced-motion: reduce) { .track::after { transition: none; } }
+  @media (max-width: 760px) {
+    .track { grid-template-columns: 1fr; gap: 28px; padding-left: 36px; }
+    .track::before, .track::after { left: 7px; top: 0; bottom: 0; width: 2px; height: auto; right: auto; }
+    .track::after { height: 0; width: 2px; transition: height 1600ms var(--ease-out); } .track.in::after { height: 100%; width: 2px; }
+    .stop { padding-top: 0; }
+    .stop::before { left: -36px; top: 4px; }
+  }
+</style>

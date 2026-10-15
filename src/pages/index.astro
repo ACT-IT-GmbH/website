@@ -1,0 +1,339 @@
+---
+import Base from '../layouts/Base.astro';
+import Steps from '../components/Steps.astro';
+import Faq from '../components/Faq.astro';
+import Kontakt from '../components/Kontakt.astro';
+import Stationsleiste from '../components/Stationsleiste.astro';
+import team from '../data/team.json';
+import Icon from '../components/Icon.astro';
+
+const title = 'Oracle APEX Entwicklung aus einer Hand | ACT! IT GmbH';
+const description = 'Aus Excel wird Anwendung. Wir bauen Geschäftsanwendungen mit Oracle APEX, von der Anforderung bis zum Betrieb. Vier Personen, deutschlandweit, meist remote.';
+
+const saetze = [
+  'Wir haben 12 Excel-Listen, die irgendwie zusammenhängen.',
+  'Unser Access-Tool hängt an einer Person, und die geht bald in Rente.',
+  'Unsere Java-Anwendung hat keinen Support mehr, und die Lizenzen werden zu teuer.',
+  'Weg vom eigenen Server, ab in die Cloud.',
+  'Wir brauchen eine Lösung, wissen aber noch nicht genau, wie sie aussehen soll.',
+];
+const leistungen = [
+  { t: 'Geschäftsanwendungen mit Oracle APEX', p: 'Anwendungen, die Ihr Fachbereich täglich nutzt. Im Browser, mit Rechten für jede Rolle, mit Auswertungen und Schnittstellen zu den Systemen, die Sie schon haben. Oracle APEX ist die Entwicklungsplattform der Oracle-Datenbank und braucht keine zusätzliche Lizenz.', href: '/oracle-apex/', link: 'Mehr zu Oracle APEX' },
+  { t: 'Excel und Access ablösen', p: 'Aus vielen Listen und einem alten Access-Tool wird eine Anwendung, in der alle gleichzeitig arbeiten. Ihre bestehenden Daten nehmen wir in der Regel mit.', href: '/excel-und-access-abloesen/', link: 'So läuft die Ablösung' },
+  { t: 'Datenbankentwicklung für Oracle und PostgreSQL', p: 'Datenmodelle, PL/SQL, Schnittstellen, Performance. Die Datenbank ist der Kern jeder Anwendung, deshalb bauen wir sie selbst.' },
+  { t: 'Oracle Forms nach APEX', p: 'Forms läuft noch, aber niemand will mehr darin entwickeln. Wir bringen Forms-Anwendungen nach APEX, in Abschnitten, damit der Betrieb weitergeht.' },
+  { t: 'Anforderungserhebung, Projektleitung, Beratung', p: 'Wir erheben die Anforderungen direkt mit den Leuten aus dem Fachbereich, leiten das Projekt und beraten, wenn die Richtung noch offen ist.' },
+  { t: 'Betrieb und Weiterentwicklung', p: 'Nach dem Go-live bleiben wir dran, auch Jahre später. Das gilt auch für APEX-Anwendungen, die jemand anderes gebaut hat: Wir übernehmen sie und entwickeln sie weiter.' },
+];
+const schritte = [
+  { t: 'Verstehen', text: 'Sie zeigen uns, womit Sie heute arbeiten: die Listen, das Access-Tool, die alte Anwendung. Wir fragen, wer was damit macht und wo es hakt.' },
+  { t: 'Prototyp', text: 'Statt eines Lastenhefts bauen wir eine erste Version, die man anklicken kann. Der Fachbereich sieht früh, was entsteht, und sagt, was fehlt.' },
+  { t: 'Schritt für Schritt', text: 'Wir erweitern die Anwendung in kurzen Runden, direkt mit den Leuten, die sie später nutzen. Bis zum Go-live und darüber hinaus.' },
+];
+const werte = [
+  { t: 'Alles aus einer Hand, kein Stille-Post-Effekt', p: 'Beratung, Anforderungserhebung, Projektleitung, Entwicklung und Testing liegen bei uns in einer Hand. Es geht nichts zwischen Abteilungen verloren, und am Ende ist klar, wer verantwortlich ist.' },
+  { t: 'Direkt mit dem Fachbereich', p: 'Das Wissen über Ihre Abläufe sitzt bei den Leuten, die sie jeden Tag ausführen. Mit diesen Leuten arbeiten wir, von Anfang an.' },
+  { t: 'Team statt Einzelkämpfer', p: 'Auch wenn Sie nur eine Person von uns buchen, steht das ganze Team dahinter. Wir tauschen uns intern aus, prüfen gegenseitig unsere Arbeit und springen ein, wenn jemand ausfällt.' },
+];
+const referenzen = ['Siemens Energy AG', 'Lechwerke AG', 'DB Systel GmbH', 'Union Investment Management GmbH', 'Zweckverband Bodensee Wasserversorgung', 'Oberfinanzdirektion Baden-Württemberg', 'Bofrost GmbH', 'DB Regio AG', 'Volkswagen Financial Services AG', 'Landesamt für Bau und Liegenschaften', 'Heraeus Holding GmbH'];
+const vortraege = [
+  { y: '2026', t: 'KI Paneldiskussion. Der Countdown läuft: Sind unsere Jobs in 18 Monaten noch relevant?', w: 'Moderation Tobias Arnhold' },
+  { y: '2025', t: 'Die APEX Karriereleiter', w: 'André Monson und Tobias Arnhold' },
+  { y: '2024', t: 'Dev Talk: Requirements Engineering mit prototypischer Entwicklung', w: 'Tobias Arnhold' },
+  { y: '2024', t: 'Ein Bild sagt mehr als 1000 Worte. Einfacher Umgang mit Daten durch grafische Darstellung', w: 'Anja Hildebrandt' },
+  { y: '2023', t: 'Postgres der neue Star! Kann das Talent in der Champions League bestehen?', w: 'Tobias Arnhold' },
+  { y: '2021', t: 'Der Weg in eine neue Zeit. UX Design für Einsteiger', w: 'Anja Hildebrandt' },
+];
+const fragen = [
+  { q: 'Was ist Oracle APEX?', a: 'Oracle APEX (Application Express) ist die Low-Code-Plattform der Oracle-Datenbank. Anwendungen laufen direkt in der Datenbank und im Browser, ohne eigenen Anwendungsserver. Für Fachbereichsanwendungen, Auswertungen und Datenpflege ist das meist der kürzeste Weg.' },
+  { q: 'Kostet Oracle APEX eine Lizenz?', a: 'Nein. APEX ist Bestandteil jeder Oracle-Datenbank, auch der kostenlosen Express Edition und der Oracle Cloud. Was Sie bezahlen, ist unsere Arbeit und, falls nötig, die Datenbank selbst.' },
+  { q: 'Brauchen wir dafür eine Oracle-Datenbank?', a: 'Ja, APEX läuft in einer Oracle-Datenbank, auf Ihrem Server oder in der Oracle Cloud. Welche Variante passt, klären wir am Anfang. Haben Sie PostgreSQL, entwickeln wir auch dort, dann ohne APEX.' },
+  { q: 'Was passiert mit unseren Excel-Daten?', a: 'In der Regel kommen sie mit. Wir übernehmen die bestehenden Daten in die neue Anwendung, und ein Export nach Excel bleibt jederzeit möglich.' },
+  { q: 'Wie lange dauert so ein Projekt?', a: 'Das hängt vom Umfang ab. Weil wir früh einen Prototyp bauen, sehen Sie nach den ersten Runden, wohin es geht, und steuern den Umfang selbst mit.' },
+  { q: 'Standardsoftware oder Individualsoftware?', a: 'Wenn es ein fertiges Produkt gibt, das Ihre Abläufe abbildet, nehmen Sie es. Individualsoftware lohnt sich, wenn Ihre Abläufe sich von denen anderer unterscheiden, oder wenn die gewachsenen Listen längst eine eigene Anwendung sind, nur ohne Rechte und Historie.' },
+  { q: 'Wo sitzen Sie, und arbeiten Sie vor Ort?', a: 'Wir sind über Deutschland verteilt und arbeiten deutschlandweit, hauptsächlich remote.' },
+];
+const zuege = [
+  { x: 14, label: 'Excel-Listen' }, { x: 26, label: 'Access-Tool' }, { x: 38, label: 'Java-Anwendung' }, { x: 50, label: 'Eigener Server' }, { x: 62, label: 'Idee ohne Form' },
+];
+const stops = [['anfang','So fängt es an'],['leistungen','Was wir bauen'],['vorgehen','Vorgehen'],['werte','Was uns auszeichnet'],['referenzen','Referenzen'],['team','Team'],['community','Community'],['fragen','Fragen'],['kontakt','Anfrage']];
+const stationen = [{ y: 14, n: 'Verstehen' }, { y: 40, n: 'Prototyp' }, { y: 66, n: 'Schritt für Schritt' }, { y: 90, n: 'Betrieb' }];
+
+const jsonld = [
+  {
+    '@context': 'https://schema.org', '@type': 'Organization', name: 'ACT! IT GmbH', url: 'https://act-it.eu/', logo: 'https://act-it.eu/logo.svg',
+    foundingDate: '2021-09-02', foundingLocation: { '@type': 'Place', name: 'Frankfurt am Main' },
+    address: { '@type': 'PostalAddress', addressCountry: 'DE' }, areaServed: 'DE', numberOfEmployees: { '@type': 'QuantitativeValue', value: 4 },
+    description: 'IT-Dienstleister für Geschäftsanwendungen mit Oracle APEX: Anforderungserhebung, Entwicklung, Projektleitung, Betrieb und Weiterentwicklung aus einer Hand.',
+    knowsAbout: ['Oracle APEX', 'Oracle Database', 'PL/SQL', 'PostgreSQL', 'Low-Code', 'Oracle Forms'],
+    founder: ['André Monson', 'Christopher Berg', 'Tobias Arnhold'].map((n) => ({ '@type': 'Person', name: n })),
+    employee: team.map((m) => ({ '@type': 'Person', name: m.name, jobTitle: m.role, sameAs: m.linkedin })),
+    sameAs: team.map((m) => m.linkedin),
+    makesOffer: ['Entwicklung von Geschäftsanwendungen mit Oracle APEX', 'Ablösung von Excel- und Access-Lösungen', 'Datenbankentwicklung für Oracle und PostgreSQL', 'Migration von Oracle Forms nach APEX', 'Anforderungserhebung, Projektleitung und Beratung', 'Betrieb und Weiterentwicklung bestehender APEX-Anwendungen'].map((s) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name: s } })),
+  },
+  { '@context': 'https://schema.org', '@type': 'WebSite', name: 'ACT! IT GmbH', url: 'https://act-it.eu/', inLanguage: 'de' },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: fragen.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+];
+---
+<Base title={title} description={description} jsonld={jsonld}>
+  <section class="hero" aria-labelledby="h1">
+    <div class="sheet">
+      <div class="timebar num" aria-hidden="true"><span class="unit">Uhr</span>{['06','08','10','12','14','16','18','20'].map((t) => <span>{t}</span>)}</div>
+      <ol class="stations" aria-hidden="true">
+        {stationen.map((s, i) => <li style={`--y:${s.y}%`}><span class="num">0{i + 1}</span> {s.n}</li>)}
+      </ol>
+      {zuege.map((z) => <span class="train" style={`--x:${z.x}`} aria-hidden="true">{z.label}</span>)}
+      <span class="train stop" style="--x:78;--y:40" aria-hidden="true">erste Version</span>
+      <span class="train stop" style="--x:82;--y:66" aria-hidden="true">Runden mit dem Fachbereich</span>
+      <span class="train app" aria-hidden="true">die Anwendung</span>
+      <span class="node" style="--x:78;--y:40" aria-hidden="true"></span><span class="node" style="--x:82;--y:66" aria-hidden="true"></span><span class="node" style="--x:90;--y:90" aria-hidden="true"></span>
+      <svg class="lines" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true">
+        {zuege.map((z, i) => <path class={`rail${i === zuege.length - 1 ? ' idea' : ''}`} style={`--i:${i}`} data-pts={`${z.x},14 78,40`} vector-effect="non-scaling-stroke" d={`M${z.x * 10} 140 L780 400`} />)}
+        <path class="teal" data-pts="78,40 82,66 86,66 90,90 100,90" vector-effect="non-scaling-stroke" d="M780 400 L820 660 L860 660 L900 900 L1000 900" />
+      </svg>
+      <div class="copy">
+        <h1 id="h1">Aus Excel wird Anwendung.</h1>
+        <p class="lead">Wir bauen Geschäftsanwendungen mit Oracle APEX. Von der ersten Anforderung bis zum Betrieb, mit einem Team von vier Personen, das alles selbst macht.</p>
+        <p class="actions"><a class="btn primary" href="#kontakt">Anfrage senden</a><a class="btn" href="#vorgehen">So arbeiten wir</a></p>
+      </div>
+      <svg class="lines-mobile" viewBox="0 0 400 230" aria-hidden="true">
+        <g class="grid">{[40,100,160,220,280,340].map((x) => <line x1={x} y1="0" x2={x} y2="230" />)}</g>
+        {['Verstehen','Prototyp','Schritt für Schritt','Betrieb'].map((n, i) => <g><line x1="0" y1={30 + i * 60} x2="400" y2={30 + i * 60} class="st" /><text x="4" y={24 + i * 60}>{n}</text></g>)}
+        {zuege.map((z, i) => <path class="rail" d={`M${40 + i * 56} 30 L300 90`} />)}
+        {zuege.map((z, i) => <circle cx={40 + i * 56} cy="30" r="3" />)}
+        <path class="teal" d="M300 90 L320 150 L340 150 L360 210 L400 210" /><circle cx="300" cy="90" r="4" class="dot" /><circle cx="320" cy="150" r="4" class="dot" /><circle cx="360" cy="210" r="4" class="dot" /><text x="308" y="84">erste Version</text><text x="330" y="144">Runden</text><text x="262" y="224" class="app">die Anwendung</text>
+      </svg>
+      <p class="titleblock num" aria-hidden="true"><span>Blatt 1</span><span>Bildfahrplan</span><span>ACT! IT GmbH</span></p>
+    </div>
+  </section>
+
+  <Stationsleiste stops={stops} />
+
+  <section class="board-sec" id="anfang" aria-labelledby="h-board">
+    <div class="container">
+      <h2 id="h-board">So fängt es meistens an.</h2>
+      <p class="lead">Fünf Sätze, die wir in Erstgesprächen regelmäßig hören.</p>
+      <ol class="board">
+        {saetze.map((s) => <li><blockquote>„{s}“</blockquote></li>)}
+      </ol>
+      <p class="pull">Genau da steigen wir ein. Aus gewachsenen Strukturen wird eine Anwendung, in der die Daten nur noch an einer Stelle liegen und die sich auch in fünf Jahren noch warten lässt.</p>
+      <p><a href="/excel-und-access-abloesen/">Mehr zur Ablösung von Excel und Access</a></p>
+    </div>
+  </section>
+
+  <section class="leist" id="leistungen" aria-labelledby="h-leist">
+    <div class="container">
+      <h2 id="h-leist">Was wir bauen</h2>
+      <ul class="rows">
+        {leistungen.map((l) => (
+          <li><h3>{l.t}</h3><div><p>{l.p}</p>{l.href && <a href={l.href}>{l.link}</a>}</div></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="vorgehen" id="vorgehen" aria-labelledby="h-vorgehen">
+    <div class="container">
+      <h2 id="h-vorgehen">Erst der Prototyp, dann das Pflichtenheft.</h2>
+      <p class="lead">Lange Lasten- und Pflichtenhefte beschreiben eine Anwendung, die noch niemand gesehen hat. Wir drehen das um.</p>
+      <Steps steps={schritte} />
+    </div>
+  </section>
+
+  <section class="werte" id="werte" aria-labelledby="h-werte">
+    <div class="container">
+      <h2 id="h-werte">Was uns auszeichnet</h2>
+      <ul class="wert-list">
+        {werte.map((w) => <li><h3>{w.t}</h3><p>{w.p}</p></li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="refs-sec" id="referenzen" aria-labelledby="h-refs">
+    <div class="container">
+      <h2 id="h-refs">Für diese Unternehmen und Behörden haben wir gearbeitet.</h2>
+      <ul class="refs">{referenzen.map((r) => <li>{r}</li>)}</ul>
+    </div>
+  </section>
+
+  <section class="team" id="team" aria-labelledby="h-team">
+    <div class="container">
+      <div class="team-head">
+        <h2 id="h-team">Vier Leute, ein Team.</h2>
+        <p class="lead">Die ACT! IT GmbH wurde 2021 in Frankfurt am Main gegründet. Wir sind vier Personen, über Deutschland verteilt, und alle vier beraten und entwickeln. Wir arbeiten deutschlandweit, hauptsächlich remote. Zusammen bringen wir über 30 Jahre Projekterfahrung mit Oracle-Datenbanken und APEX mit.</p>
+      </div>
+      <figure class="teamfoto">
+        <img id="teamfoto" src="/img/team-a.webp" srcset="/img/team-a-900.webp 900w, /img/team-a.webp 1600w" sizes="(max-width: 900px) 100vw, 1280px" width="1600" height="1067" alt="Drei Personen des ACT! IT Teams an einem Tisch vor einem Laptop" loading="lazy" />
+      </figure>
+      <ul class="people">
+        {team.map((m) => (
+          <li>
+            <img src={`/img/${m.img}.webp`} width="600" height="400" alt={`Porträt ${m.name}`} loading="lazy" />
+            <h3>{m.name}</h3>
+            <p class="role">{m.role}</p>
+            <p class="links">
+              <a class="ico" href={m.linkedin} rel="noopener" aria-label={`${m.name} auf LinkedIn`} title="LinkedIn"><Icon name="linkedin" /></a>
+              <a class="ico" data-user={m.user} data-domain={m.domain} href="#" aria-label={`E-Mail an ${m.name}`} title="E-Mail"><Icon name="mail" /></a>
+              {m.tel && <a class="ico" data-tel={m.tel} href="#" aria-label={`${m.name} anrufen`} title="Telefon"><Icon name="phone" /></a>}
+            </p>
+          </li>
+        ))}
+      </ul>
+      <noscript><p class="hint">Kontaktdaten: siehe Impressum.</p></noscript>
+    </div>
+  </section>
+
+  <section class="community" id="community" aria-labelledby="h-comm">
+    <div class="container">
+      <h2 id="h-comm">Aus der APEX-Community</h2>
+      <p class="lead">Wir bauen mit APEX, und wir reden darüber. Tobias Arnhold gehört zum Team der APEX Connect, der deutschen Konferenz zu Oracle APEX, und verantwortet dort den APEX-Stream.</p>
+      <p class="sub">Vorträge auf der APEX Connect</p>
+      <ol class="talks">
+        {vortraege.map((v) => <li><span class="year num">{v.y}</span><span class="talk">„{v.t}“</span><span class="who">{v.w}</span></li>)}
+      </ol>
+      <p class="oss">Open Source: Christopher Berg veröffentlicht APEX-Plugins, darunter den <a href="https://github.com/Choque/APEX-Shuttle-Sorting-Filter" rel="noopener">Shuttle Sorting Filter</a> und Header Logo Link Replacement, das den Link hinter dem Kopfzeilen-Logo einer Anwendung dynamisch umschreibt.</p>
+    </div>
+  </section>
+
+  <section class="faq-sec" id="fragen" aria-labelledby="h-faq">
+    <div class="container">
+      <h2 id="h-faq">Fragen, die wir oft hören</h2>
+      <Faq items={fragen} />
+    </div>
+  </section>
+
+  <Kontakt title="Lassen Sie uns reden." text="Schreiben Sie uns, womit Sie heute arbeiten und was sich ändern soll. Oder rufen Sie an." />
+</Base>
+
+<script>
+  // Fahrplanlinien in echten Pixeln zeichnen, damit die Strichlänge in jedem Browser stimmt.
+  const svg = document.querySelector<SVGSVGElement>('.lines');
+  if (svg) {
+    const paths = [...svg.querySelectorAll<SVGPathElement>('path[data-pts]')];
+    const layout = () => {
+      const { width: w, height: h } = svg.getBoundingClientRect();
+      if (!w || !h) return;
+      svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
+      for (const p of paths) {
+        const pts = p.dataset.pts!.split(' ').map((pt) => pt.split(',').map(Number));
+        p.setAttribute('d', pts.map(([x, y], k) => `${k ? 'L' : 'M'}${(x / 100) * w} ${(y / 100) * h}`).join(' '));
+        p.style.setProperty('--len', String(Math.ceil(p.getTotalLength()) + 2));
+      }
+    };
+    layout();
+    svg.classList.add('ready');
+    svg.addEventListener('animationend', () => { if (svg.querySelectorAll('path').length && !svg.classList.contains('done')) setTimeout(() => svg.classList.add('done'), 1600); }, { once: true });
+    let t: number | undefined;
+    addEventListener('resize', () => { clearTimeout(t); t = setTimeout(layout, 120); });
+  }
+
+  // Eines von zwei Teamfotos je Aufruf.
+  const img = document.getElementById('teamfoto') as HTMLImageElement | null;
+  if (img && Math.random() < 0.5) { img.src = '/img/team-b.webp'; img.srcset = '/img/team-b-900.webp 900w, /img/team-b.webp 1600w'; }
+</script>
+
+<style>
+  /* Hero: das Fahrplanblatt */
+  .hero { border-bottom: 1px solid var(--rail); }
+  .sheet { position: relative; height: clamp(640px, calc(100svh - 72px - 96px), var(--hero-max)); overflow: hidden;
+    --col: calc((100% - var(--station-w)) / 16);
+    background-image: linear-gradient(90deg, var(--rail-faint) 1px, transparent 1px);
+    background-size: var(--col) 100%; background-position: var(--station-w) 0; }
+  .timebar { position: absolute; left: 0; right: 0; top: 0; height: 40px; display: grid; grid-template-columns: var(--station-w) repeat(8, calc(var(--col) * 2)); align-items: center; border-bottom: 1px solid var(--rail); font-family: var(--font-display); font-weight: 600; font-size: .95rem; color: var(--ink-soft); }
+  .timebar .unit { padding-left: var(--gutter); } .timebar span:not(.unit) { transform: translateX(-50%); text-align: center; }
+  .stations { list-style: none; margin: 0; padding: 0; }
+  .stations li { position: absolute; left: 0; right: 0; top: var(--y); padding-left: var(--gutter); transform: translateY(-2.6em); font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; line-height: 1.1; color: var(--ink); }
+  .stations li::after { content: ""; position: absolute; left: 0; right: 0; top: 2.6em; border-top: 1px solid var(--rail); }
+  .stations li .num { display: block; font-size: .8rem; color: var(--ink-soft); }
+  .train { position: absolute; left: calc(var(--station-w) + (100% - var(--station-w)) * var(--x) / 100); top: calc(14% - 1.9em); transform: translateX(-4px); font-family: var(--font-display); font-weight: 600; font-size: .95rem; color: var(--ink-soft); white-space: nowrap; }
+  .train::after { content: ""; position: absolute; left: 0; top: calc(1.9em - 4px); width: 8px; height: 8px; border-radius: 50%; background: var(--ink); }
+  .train.app { left: calc(var(--station-w) + (100% - var(--station-w)) * 91.3 / 100); top: calc(90% - 1.9em); color: var(--ink); transform: none; }
+  .train.stop { top: calc(var(--y) * 1% - 1.9em); transform: translateX(12px); color: var(--ink); } .train.stop::after { display: none; } .train.app::after { display: none; }
+  .node { position: absolute; left: calc(var(--station-w) + (100% - var(--station-w)) * var(--x) / 100); top: calc(var(--y) * 1%); width: 14px; height: 14px; margin: -7px 0 0 -7px; border-radius: 50%; background: var(--paper); border: 1.5px solid var(--ink); z-index: 1; }
+  .lines { position: absolute; left: var(--station-w); top: 0; width: calc(100% - var(--station-w)); height: 100%; overflow: visible; }
+  .lines path { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  .lines .rail { stroke: var(--rail); stroke-width: 1.5px; }
+  .lines .teal { stroke: var(--teal); stroke-width: 3px; }
+  .lines.ready path { stroke-dasharray: var(--len); stroke-dashoffset: var(--len); animation: draw 1100ms var(--ease-out) forwards; animation-delay: calc(120ms + var(--i, 5) * 90ms); }
+  .lines.ready .rail.idea { animation: draw 1100ms var(--ease-out) forwards, dash 1ms linear 1500ms forwards; }
+  .lines.done path { animation: none; stroke-dasharray: none; stroke-dashoffset: 0; }
+  .lines.done .rail.idea, .lines:not(.ready) .rail.idea { stroke-dasharray: 5 6; }
+  @keyframes dash { to { stroke-dasharray: 5 6; stroke-dashoffset: 0; } }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  @media (prefers-reduced-motion: reduce) { .lines.ready path { animation: none; stroke-dasharray: none; stroke-dashoffset: 0; } .lines .rail.idea { stroke-dasharray: 5 6 !important; } }
+  .copy { position: absolute; left: calc(var(--station-w) + var(--copy-left)); bottom: calc(10% + var(--copy-shift)); width: min(var(--copy-w), 820px); }
+  .copy .lead { font-size: var(--fs-lead); max-width: 46ch; margin: 10px 0 14px; color: var(--ink); }
+  .actions { display: flex; gap: 12px; flex-wrap: wrap; margin: 0; }
+  .titleblock { position: absolute; right: var(--gutter); bottom: 18px; margin: 0; display: flex; border: 1px solid var(--ink); font-family: var(--font-display); font-weight: 600; font-size: .78rem; letter-spacing: .06em; text-transform: uppercase; color: var(--ink); }
+  .titleblock span { padding: 6px 12px; border-right: 1px solid var(--ink); } .titleblock span:last-child { border-right: 0; }
+  .lines-mobile { display: none; }
+  @media (max-width: 900px) {
+    .sheet { height: auto; padding: 32px 0 24px; background-position: 0 0; }
+    .timebar, .stations, .train, .node, .lines, .titleblock { display: none; }
+    .copy { position: static; width: auto; padding: 0 var(--gutter); }
+    .lines-mobile { display: block; width: calc(100% - 2 * var(--gutter)); margin: 36px var(--gutter) 0; font-family: var(--font-display); font-weight: 600; }
+    .lines-mobile .grid line { stroke: var(--rail-faint); } .lines-mobile .st { stroke: var(--rail); } .lines-mobile text { font-size: 11px; fill: var(--ink-soft); }
+    .lines-mobile .rail { stroke: var(--rail); stroke-width: 1.5; fill: none; } .lines-mobile .teal { stroke: var(--teal); stroke-width: 3; fill: none; stroke-linejoin: round; }
+    .lines-mobile circle { fill: var(--ink); } .lines-mobile .dot { fill: var(--paper); stroke: var(--teal); stroke-width: 2; } .lines-mobile .app { fill: var(--teal-deep); }
+  }
+
+  /* Abschnitte */
+  section:not(.hero) { padding: var(--section-pad) var(--gutter); }
+  section.board-sec { padding-top: 28px; }
+  h2 { margin-bottom: 22px; max-width: 22ch; }
+  .lead { font-size: var(--fs-lead); }
+  .board { list-style: none; margin: 40px 0 0; padding: 0; border-top: 1px solid var(--rail); max-width: 980px; }
+  .board li { border-bottom: 1px solid var(--rail-faint); padding: 22px 0 22px 40px; position: relative; }
+  .board li::before { content: ""; position: absolute; left: 10px; top: 36px; width: 10px; height: 10px; border-radius: 50%; border: 2px solid var(--rail); background: var(--paper); }
+  .board blockquote { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: clamp(1.45rem, 2.6vw, 2.2rem); line-height: 1.08; color: var(--ink); }
+  .pull { margin-top: 36px; font-size: var(--fs-lead); color: var(--teal-deep); max-width: 58ch; font-weight: 500; }
+
+  .leist { background: var(--ink); color: var(--paper); }
+  .leist h2, .leist h3 { color: var(--paper); }
+  .leist p { color: color-mix(in srgb, var(--paper) 80%, var(--ink)); }
+  .leist a { color: var(--teal-bright); font-weight: 600; }
+  .rows { list-style: none; margin: 0; padding: 0; border-top: 1px solid color-mix(in srgb, var(--paper) 30%, var(--ink)); }
+  .rows li { display: grid; grid-template-columns: 5fr 7fr; gap: 40px; padding: 30px 0; border-bottom: 1px solid color-mix(in srgb, var(--paper) 18%, var(--ink)); }
+  .rows li p { margin-bottom: .6em; }
+
+  .vorgehen .lead { margin-bottom: 56px; max-width: 54ch; }
+
+  .werte { background: var(--paper-deep); border-top: 1px solid var(--rail); border-bottom: 1px solid var(--rail); }
+  .wert-list { list-style: none; margin: 0; padding: 0; }
+  .wert-list li { display: grid; grid-template-columns: 6fr 6fr; gap: 40px; padding: 34px 0; border-top: 1px solid var(--rail); }
+  .wert-list h3 { font-size: clamp(1.7rem, 3vw, 2.6rem); }
+
+  .refs-sec h2 { max-width: 28ch; }
+  .refs { list-style: none; margin: 24px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px 0; max-width: 1100px; }
+  .refs li { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.2rem, 2vw, 1.7rem); color: var(--ink); padding: 4px 22px 4px 0; margin-right: 22px; border-right: 1px solid var(--rail); line-height: 1.1; }
+  .refs li:last-child { border-right: 0; }
+
+  .team { background: var(--paper-deep); border-top: 1px solid var(--rail); }
+  .team-head { display: grid; grid-template-columns: 5fr 7fr; gap: 40px; margin-bottom: 40px; }
+  .teamfoto { margin: 0 0 48px; border: 1px solid var(--rail); }
+  .teamfoto img { width: 100%; }
+  .people { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+  .people img { border: 1px solid var(--rail); margin-bottom: 14px; aspect-ratio: 3/2; object-fit: cover; }
+  .people li { display: flex; flex-direction: column; }
+  .people h3 { font-size: 1.45rem; } .role { font-size: var(--fs-small); margin: 4px 0 12px; }
+  .people .links { margin-top: auto; }
+  .links { display: flex; gap: 10px; margin: 0; }
+  .ico { display: inline-flex; width: 40px; height: 40px; align-items: center; justify-content: center; border: 1px solid var(--rail); border-radius: 50%; color: var(--ink); transition: background 160ms, color 160ms, border-color 160ms; }
+  .ico:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .community { background: var(--ink); color: var(--paper); }
+  .community h2 { color: var(--paper); } .community p { color: color-mix(in srgb, var(--paper) 80%, var(--ink)); }
+  .community .sub { font-family: var(--font-display); font-weight: 600; font-size: 1.2rem; color: var(--paper); margin: 36px 0 8px; }
+  .talks { list-style: none; margin: 0 0 32px; padding: 0; border-top: 1px solid color-mix(in srgb, var(--paper) 30%, var(--ink)); max-width: 1000px; }
+  .talks li { display: grid; grid-template-columns: 90px 1fr 260px; gap: 24px; padding: 16px 0; border-bottom: 1px solid color-mix(in srgb, var(--paper) 18%, var(--ink)); align-items: baseline; }
+  .year { font-family: var(--font-display); font-weight: 700; font-size: 1.5rem; color: var(--teal-bright); }
+  .talk { color: var(--paper); } .who { color: color-mix(in srgb, var(--paper) 72%, var(--ink)); font-size: var(--fs-small); }
+  .community a { color: var(--teal-bright); }
+
+  @media (max-width: 900px) {
+    .rows li, .wert-list li, .team-head { grid-template-columns: 1fr; gap: 12px; }
+    .people { grid-template-columns: repeat(2, 1fr); }
+    .talks li { grid-template-columns: 70px 1fr; } .talks .who { grid-column: 2; }
+  }
+  @media (max-width: 520px) { .people { grid-template-columns: 1fr; } }
+</style>

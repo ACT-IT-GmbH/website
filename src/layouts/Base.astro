@@ -1,0 +1,48 @@
+---
+import '@fontsource/barlow-condensed/600.css';
+import '@fontsource/barlow-condensed/700.css';
+import '@fontsource-variable/public-sans';
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+interface Props { title: string; description: string; jsonld?: unknown[]; noindex?: boolean; }
+const { title, description, jsonld = [], noindex = false } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+  {noindex && <meta name="robots" content="noindex, follow" />}
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta name="theme-color" content="#EEF2F4" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content={new URL('/og-image.png', Astro.site)} />
+  <meta property="og:locale" content="de_DE" />
+  <link rel="sitemap" href="/sitemap-index.xml" />
+  <link rel="stylesheet" href="/tweaks.css" />
+  {jsonld.map((d) => <script type="application/ld+json" set:html={JSON.stringify(d)} />)}
+  <script is:inline>/* Rybbit legt sonst eine Besucher-ID im localStorage ab; die Statistik braucht sie nicht. */(()=>{const s=Storage.prototype.setItem;Storage.prototype.setItem=function(k,v){if(/-(visitor|user)-id$/.test(String(k)))return;return s.call(this,k,v);};})();</script>
+  <script src="https://stats.deyama.de/api/script.js?siteId=2a5581d0d590" defer></script>
+</head>
+<body>
+  <a class="skip" href="#inhalt">Zum Inhalt springen</a>
+  <Nav />
+  <main id="inhalt">
+    <slot />
+  </main>
+  <Footer />
+  <script>
+    import '../scripts/main.ts';
+  </script>
+</body>
+</html>

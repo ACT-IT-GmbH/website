@@ -1,0 +1,33 @@
+---
+// Kontaktformular. Sendet an den n8n-Webhook; ohne Endpoint öffnet sich das E-Mail-Programm.
+---
+<form id="anfrage" class="form" method="post" novalidate data-endpoint="https://n8nhooks.deyama.de/webhook/act-it-anfrage">
+  <p class="form-title">Anfrage</p>
+  <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="e-name"><p class="error" id="e-name" data-error-for="name" aria-live="polite"></p></div>
+  <div class="field"><label for="f-firma">Firma <span class="opt">(optional)</span></label><input id="f-firma" name="firma" type="text" autocomplete="organization"></div>
+  <div class="field"><label for="f-email">E-Mail</label><input id="f-email" name="email" type="email" autocomplete="email" required aria-describedby="e-email"><p class="error" id="e-email" data-error-for="email" aria-live="polite"></p></div>
+  <div class="field"><label for="f-vorhaben">Ihr Vorhaben</label><textarea id="f-vorhaben" name="vorhaben" rows="5" required aria-describedby="h-vorhaben e-vorhaben"></textarea><p class="hint" id="h-vorhaben">Womit arbeiten Sie heute, und was soll sich ändern? Zwei, drei Sätze reichen.</p><p class="error" id="e-vorhaben" data-error-for="vorhaben" aria-live="polite"></p></div>
+  <div class="field"><label for="f-quelle">Wie haben Sie uns gefunden? <span class="opt">(optional)</span></label>
+    <select id="f-quelle" name="quelle"><option value="">Bitte wählen</option><option>Empfehlung</option><option>Google</option><option>ChatGPT oder andere KI</option><option>LinkedIn</option><option>Veranstaltung</option><option>Sonstiges</option></select></div>
+  <div class="hp" aria-hidden="true"><label for="f-website">Website</label><input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+  <p class="hint">Wir verwenden Ihre Angaben nur, um Ihre Anfrage zu beantworten. Mehr dazu in der <a href="/datenschutz/">Datenschutzerklärung</a>.</p>
+  <p class="error" id="anfrage-fehler" hidden>Das Senden hat nicht geklappt. Schreiben Sie uns direkt an <a data-user="arhauvr" data-domain="bl.ap-ajh" href="#">Kontakt siehe Impressum</a>.</p>
+  <button class="btn primary" type="submit">Anfrage senden</button>
+</form>
+<p id="anfrage-ok" class="ok" hidden tabindex="-1">Danke, Ihre Anfrage ist angekommen. Wir melden uns bei Ihnen.</p>
+<script>import '../scripts/form.ts';</script>
+<style>
+  .form { display: grid; gap: 18px; max-width: 560px; }
+  .form-title { font-family: var(--font-display); font-weight: 600; font-size: 1.5rem; color: var(--ink); margin: 0; }
+  .field { display: grid; gap: 6px; }
+  label { font-weight: 600; color: var(--ink); font-size: .98rem; }
+  .opt { font-weight: 400; color: var(--ink-soft); }
+  input, textarea, select { font: inherit; color: var(--ink); background: var(--white); border: 1px solid var(--rail); border-radius: 6px; padding: 12px 14px; width: 100%; caret-color: var(--teal); }
+  input:focus, textarea:focus, select:focus { outline: none; border-color: var(--teal); box-shadow: 0 0 0 3px color-mix(in srgb, var(--teal) 28%, transparent); }
+  [aria-invalid="true"] { border-color: #B23A2E; }
+  .hint { font-size: var(--fs-small); margin: 0; }
+  .error { font-size: var(--fs-small); color: #8F2E24; margin: 0; }
+  .error:empty { display: none; }
+  .hp { position: absolute; left: -9999px; }
+  .ok { font-family: var(--font-display); font-size: 1.5rem; color: var(--ink); max-width: 36ch; }
+</style>

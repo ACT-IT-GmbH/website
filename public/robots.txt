@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://act-it.eu/sitemap-index.xml

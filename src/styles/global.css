@@ -1,0 +1,68 @@
+/* ACT! IT, Welt „Der Bildfahrplan“. Alle Werte als Variablen, Regler-Panel in Phase 6. */
+:root {
+  --paper: #EEF2F4;        /* Rasterpapier, Grund */
+  --paper-deep: #E2E8EB;   /* getöntes Papier für abgesetzte Abschnitte */
+  --ink: #0E1F26;          /* Tusche: Text, Stationslinien */
+  --ink-soft: #3C4D55;     /* Fließtext auf Papier */
+  --rail: #9AA7AD;         /* Kundenzüge, Nebenlinien */
+  --rail-faint: #D3DBDF;   /* Rasterlinien */
+  --teal: #1795AD;         /* die eine Linie, die Handlung */
+  --teal-deep: #0F6F82;    /* Teal als Text auf Papier (4.6:1) */
+  --teal-bright: #3FBBD2;  /* Teal als Text auf Tusche (7:1) */
+  --white: #FFFFFF;
+
+  --font-display: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  --font-text: 'Public Sans Variable', system-ui, sans-serif;
+
+  --fs-display: clamp(3.2rem, 8.5vw, 6.9rem);
+  --fs-h2: clamp(2rem, 4.2vw, 3.4rem);
+  --fs-h3: clamp(1.35rem, 2vw, 1.7rem);
+  --fs-lead: clamp(1.125rem, 1.4vw, 1.375rem);
+  --fs-body: 1.0625rem;
+  --fs-small: 0.9rem;
+
+  --container: 1280px;
+  --gutter: clamp(16px, 4vw, 56px);
+  --section-pad: clamp(4rem, 9vw, 8rem);
+  --grid-step: 80px;       /* Abstand der Zeitlinien */
+  --station-w: 160px;      /* Breite der Stationsspalte im Hero */
+  --hero-max: 880px;       /* größte Höhe des Fahrplanblatts */
+  --copy-shift: -36px;     /* Buttons auf der Betrieb-Linie; größer = höher */
+  --copy-left: 2%;         /* Abstand der Aussage zur Stationsspalte */
+  --copy-w: 58%;           /* Breite der Aussage */
+  --radius-pill: 999px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0; background: var(--paper); color: var(--ink);
+  font-family: var(--font-text); font-size: var(--fs-body); line-height: 1.6;
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+}
+::selection { background: var(--teal); color: var(--white); }
+:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; border-radius: 4px; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--teal-deep); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1; letter-spacing: -0.015em; margin: 0; text-wrap: balance; }
+h1 { font-size: var(--fs-display); font-weight: 700; letter-spacing: -0.02em; line-height: 0.9; }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+p { margin: 0 0 1em; max-width: 68ch; color: var(--ink-soft); }
+.num { font-variant-numeric: tabular-nums; }
+.container { width: min(var(--container), 100%); margin-inline: auto; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--ink); color: var(--white); padding: 8px 14px; z-index: 100; }
+.skip:focus { left: 8px; }
+.btn {
+  display: inline-flex; align-items: center; gap: .5em; font-family: var(--font-text); font-weight: 700; font-size: 1.0625rem;
+  padding: .85em 1.5em; border-radius: var(--radius-pill); text-decoration: none; border: 1.5px solid var(--ink); color: var(--ink);
+  background: var(--paper); cursor: pointer; transition: transform 160ms var(--ease-out), background 160ms, color 160ms;
+}
+.btn:hover { background: var(--ink); color: var(--white); }
+.btn:active { transform: translateY(1px); }
+.btn.primary { background: var(--teal); border-color: var(--teal); color: var(--white); font-size: 1.1875rem; }
+.btn.primary:hover { background: var(--teal-deep); border-color: var(--teal-deep); }
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity 700ms var(--ease-out), transform 700ms var(--ease-out); }
+.reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }

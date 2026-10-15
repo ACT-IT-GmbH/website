@@ -1,0 +1,61 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const { title, pubDate, author, description, source, lang } = entry.data;
+const iso = pubDate.toISOString().slice(0, 10);
+const date = pubDate.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric', timeZone: 'UTC' });
+const jsonld = [{
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: title,
+  datePublished: iso,
+  inLanguage: lang,
+  ...(description && { description }),
+  author: { '@type': 'Person', name: author },
+  publisher: { '@type': 'Organization', name: 'ACT! IT GmbH', url: 'https://act-it.eu' },
+  mainEntityOfPage: new URL(Astro.url.pathname, Astro.site).href,
+}];
+---
+<Base title={`${title} | ACT! IT GmbH`} description={description ?? title} jsonld={jsonld}>
+  <article class="post container" lang={lang}>
+    <header>
+      <a class="back" href="/blog/" lang="de">Zurück zum Blog</a>
+      <time class="num" datetime={iso}>{date}</time>
+      <h1>{title}</h1>
+      <p class="by" lang="de">von {author}</p>
+    </header>
+    <div class="body">
+      <Content />
+    </div>
+    {source && <p class="source" lang="de">Zuerst erschienen auf <a href={source}>apex-at-work.blogspot.com</a></p>}
+  </article>
+</Base>
+<style>
+  .post { padding-block: var(--section-pad); }
+  .post > * { max-width: 70ch; }
+  header { margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--rail-faint); }
+  .back { display: inline-block; margin-bottom: 2rem; }
+  time { display: block; font-family: var(--font-display); font-weight: 600; font-size: var(--fs-h3); color: var(--ink-soft); margin-bottom: 0.5rem; }
+  h1 { font-size: var(--fs-h2); line-height: 1.05; }
+  .by { margin: 1rem 0 0; }
+  .body :global(p), .body :global(li) { color: var(--ink-soft); }
+  .body :global(h2), .body :global(h3) { font-family: var(--font-display); margin: 2.5rem 0 1rem; }
+  .body :global(h2) { font-size: var(--fs-h3); }
+  .body :global(a) { color: var(--teal-deep); text-decoration: underline; }
+  .body :global(img) { max-width: 100%; height: auto; margin: 1.5rem 0; }
+  .body :global(pre) {
+    background: var(--paper-deep) !important; color: var(--ink) !important; /* überschreibt Shikis Inline-Farben */
+    border: 1px solid var(--rail-faint); padding: 1rem 1.25rem; margin: 1.5rem 0;
+    overflow-x: auto; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.9rem; line-height: 1.5;
+  }
+  .body :global(pre span) { color: inherit !important; }
+  .body :global(code) { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.9em; }
+  .source { margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid var(--rail-faint); }
+</style>

@@ -1,0 +1,104 @@
+---
+import Base from '../layouts/Base.astro';
+import SubHero from '../components/SubHero.astro';
+import Faq from '../components/Faq.astro';
+import Kontakt from '../components/Kontakt.astro';
+import Stationsleiste from '../components/Stationsleiste.astro';
+const title = 'Oracle APEX Entwicklung und Beratung | ACT! IT GmbH';
+const description = 'Wir entwickeln Geschäftsanwendungen mit Oracle APEX, beraten, leiten das Projekt und betreiben die Lösung. Auch Oracle Forms nach APEX. Vier Entwickler, bundesweit.';
+const fakten = [
+  'Läuft in jeder Oracle-Datenbank, auch in der kostenlosen Express Edition und in der Oracle Cloud.',
+  'Oberfläche im Browser, auf jedem Gerät, ohne Installation.',
+  'Keine Zusatzlizenz. Sie bezahlen die Entwicklung, nicht die Plattform.',
+];
+const passt = ['Anwendungen für den Fachbereich, etwa Planung, Erfassung, Stammdaten und Freigaben', 'Ablösung von Excel-Listen, Access-Tools und alten Java-Anwendungen', 'Auswertungen und Berichte direkt auf den Daten', 'Portale für Kunden, Lieferanten oder Partner', 'Schnittstellen zu ERP, Buchhaltung und anderen Systemen'];
+const tun = [
+  { t: 'Neue Anwendungen', p: 'Von der ersten Anforderung bis zum Go-live. Wir starten mit einem Prototyp, der Fachbereich arbeitet von Anfang an mit.' },
+  { t: 'Weiterentwicklung und Betrieb, auch für Anwendungen von anderen', p: 'Ihre Anwendung läuft, aber sie soll mehr können, oder sie soll einfach weiterlaufen. Wir bleiben dran, auch Jahre nach dem Go-live. Und wir übernehmen APEX-Anwendungen, die jemand anderes gebaut hat, auch ohne den ursprünglichen Entwickler.' },
+  { t: 'Oracle Forms nach APEX', p: 'Forms-Anwendungen tragen oft seit Jahrzehnten das Geschäft. Wir bringen sie nach APEX, Modul für Modul, während das Alte weiterläuft. Datenmodell und Geschäftslogik in der Datenbank bleiben erhalten, die Oberfläche wird neu.' },
+  { t: 'Datenbankentwicklung', p: 'Datenmodelle, PL/SQL, Performance, Schnittstellen. Für Oracle, und wenn Sie es brauchen, auch für PostgreSQL.' },
+  { t: 'Anforderungserhebung und Projektleitung', p: 'Wir erheben die Anforderungen direkt mit den Leuten, die die Anwendung später nutzen, und leiten das Projekt bis zum Ende.' },
+];
+const fragen = [
+  { q: 'Was kostet Oracle APEX?', a: 'Die Plattform selbst nichts. APEX ist Bestandteil jeder Oracle-Datenbank. Sie bezahlen die Entwicklung und, falls Sie noch keine haben, die Datenbank oder den Cloud-Dienst.' },
+  { q: 'Brauchen wir Oracle-Wissen im Haus?', a: 'Nein. Die Anwendung bedienen Ihre Leute im Browser wie jede andere Webanwendung. Die Technik dahinter betreuen wir.' },
+  { q: 'Läuft APEX auch in der Cloud?', a: 'Ja, in der Oracle Cloud und bei anderen Anbietern, die Oracle-Datenbanken betreiben. Oder auf Ihrem eigenen Server.' },
+  { q: 'Wie unterscheidet sich APEX von Power Apps?', a: 'Power Apps gehört zur Microsoft-Welt und zielt auf Microsoft 365. APEX läuft in der Oracle-Datenbank und spielt seine Stärke aus, wenn die Daten dort liegen oder viel Logik in der Datenbank steckt. Welches Werkzeug passt, hängt davon ab, wo Ihre Daten heute sind.' },
+  { q: 'Übernehmen Sie auch eine APEX-Anwendung, die nicht von Ihnen stammt?', a: 'Ja. Wir arbeiten uns ein, auch wenn der ursprüngliche Entwickler nicht mehr erreichbar ist, und entwickeln die Anwendung weiter.' },
+  { q: 'Können Sie Oracle Forms komplett ablösen?', a: 'Ja, in Abschnitten. Die Datenbank bleibt, die Oberfläche entsteht in APEX neu. So läuft das Alte weiter, bis das Neue fertig ist.' },
+];
+const jsonld = [
+  { '@context': 'https://schema.org', '@type': 'Service', name: 'Oracle APEX Entwicklung und Beratung', serviceType: 'Softwareentwicklung mit Oracle APEX', provider: { '@type': 'Organization', name: 'ACT! IT GmbH', url: 'https://act-it.eu/' }, areaServed: 'DE', description },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: fragen.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+];
+---
+<Base title={title} description={description} jsonld={jsonld}>
+  <SubHero title="Oracle APEX Entwicklung aus einer Hand" lead="Neue Anwendung, Weiterentwicklung oder der Weg von Oracle Forms nach APEX: Wir übernehmen Anforderungen, Entwicklung, Projektleitung und Betrieb. Mit einem Team, das seit über 30 Jahren mit Oracle-Datenbanken arbeitet." secondaryHref="#tun" secondaryLabel="Was wir für Sie tun" />
+
+  <Stationsleiste stops={[['was','Was APEX ist'],['passt','Wofür APEX passt'],['tun','Was wir tun'],['wie','Wie wir arbeiten'],['fragen','Fragen'],['kontakt','Anfrage']]} />
+
+  <section id="was" aria-labelledby="h-was">
+    <div class="container two">
+      <div>
+        <h2 id="h-was">Was Oracle APEX ist</h2>
+        <p>Oracle APEX, ausgeschrieben Oracle Application Express, ist die Low-Code-Entwicklungsplattform der Oracle-Datenbank. Anwendungen werden in der Datenbank gebaut und im Browser ausgeführt. Es gibt keinen eigenen Anwendungsserver, keine zusätzliche Lizenz und keine Installation auf den Rechnern der Nutzer. Für Anwendungen, die auf Daten sitzen, ist das der kürzeste Weg von der Anforderung zur fertigen Oberfläche.</p>
+      </div>
+      <ul class="fakten">{fakten.map((f) => <li>{f}</li>)}</ul>
+    </div>
+  </section>
+
+  <section class="passt" id="passt" aria-labelledby="h-passt">
+    <div class="container two">
+      <h2 id="h-passt">Wofür APEX passt</h2>
+      <ul class="liste">{passt.map((p) => <li>{p}</li>)}</ul>
+    </div>
+  </section>
+
+  <section id="tun" class="tun" aria-labelledby="h-tun">
+    <div class="container">
+      <h2 id="h-tun">Was wir für Sie tun</h2>
+      <ul class="rows">{tun.map((t) => <li><h3>{t.t}</h3><p>{t.p}</p></li>)}</ul>
+    </div>
+  </section>
+
+  <section class="wie" id="wie" aria-labelledby="h-wie">
+    <div class="container two">
+      <div>
+        <h2 id="h-wie">Erst der Prototyp, dann das Pflichtenheft.</h2>
+        <p>Lange Lastenhefte beschreiben etwas, das noch niemand gesehen hat. Wir bauen stattdessen früh eine erste Version, die man anklicken kann, und entwickeln sie in kurzen Runden weiter. Direkt mit dem Fachbereich, denn dort sitzt das Wissen.</p>
+        <p><a href="/#vorgehen">Mehr zum Vorgehen</a></p>
+      </div>
+      <div>
+        <h2>Vier Leute, seit Jahren in der APEX-Community</h2>
+        <p>Wir sind vier Personen, über Deutschland verteilt, alle beraten und entwickeln. Tobias Arnhold gehört zum Team der APEX Connect und verantwortet dort den APEX-Stream. Anja Hildebrandt, André Monson und Tobias Arnhold haben dort seit 2021 regelmäßig vorgetragen, von UX-Design bis Requirements Engineering mit Prototypen. Christopher Berg veröffentlicht APEX-Plugins als Open Source.</p>
+        <p><a href="/#team">Das Team</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="fragen" aria-labelledby="h-faq">
+    <div class="container">
+      <h2 id="h-faq">Fragen zu Oracle APEX</h2>
+      <Faq items={fragen} />
+    </div>
+  </section>
+
+  <Kontakt title="Lassen Sie uns über Ihr Vorhaben reden." text="Schreiben Sie uns, worum es geht: neue Anwendung, Weiterentwicklung oder Forms-Ablösung." />
+</Base>
+<style>
+  section:not(.subhero) { padding: var(--section-pad) var(--gutter); }
+  h2 { margin-bottom: 24px; max-width: 22ch; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+  .fakten { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rail); }
+  .fakten li { padding: 20px 0; border-bottom: 1px solid var(--rail-faint); font-family: var(--font-display); font-weight: 600; font-size: 1.5rem; line-height: 1.15; color: var(--ink); }
+  .passt { background: var(--paper-deep); border-top: 1px solid var(--rail); border-bottom: 1px solid var(--rail); }
+  .liste { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rail); }
+  .liste li { padding: 14px 0 14px 32px; border-bottom: 1px solid var(--rail-faint); position: relative; }
+  .liste li::before { content: ""; position: absolute; left: 4px; top: 22px; width: 10px; height: 10px; border-radius: 50%; border: 2px solid var(--teal); }
+  .tun { background: var(--ink); color: var(--paper); }
+  .tun h2, .tun h3 { color: var(--paper); } .tun p { color: color-mix(in srgb, var(--paper) 80%, var(--ink)); margin: 0; }
+  .rows { list-style: none; margin: 0; padding: 0; border-top: 1px solid color-mix(in srgb, var(--paper) 30%, var(--ink)); }
+  .rows li { display: grid; grid-template-columns: 5fr 7fr; gap: 40px; padding: 30px 0; border-bottom: 1px solid color-mix(in srgb, var(--paper) 18%, var(--ink)); }
+  .wie { background: var(--paper-deep); border-top: 1px solid var(--rail); border-bottom: 1px solid var(--rail); }
+  @media (max-width: 820px) { .two, .rows li { grid-template-columns: 1fr; gap: 16px; } }
+</style>

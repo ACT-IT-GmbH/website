@@ -1,0 +1,23 @@
+---
+import Form from './Form.astro';
+interface Props { title: string; text: string; }
+const { title, text } = Astro.props;
+---
+<section class="kontakt" id="kontakt" aria-labelledby="kontakt-h">
+  <div class="container kontakt-grid">
+    <div class="kontakt-copy">
+      <h2 id="kontakt-h">{title}</h2>
+      <p class="lead">{text}</p>
+      <p class="mail">Oder direkt per E-Mail: <a data-user="arhauvr" data-domain="bl.ap-ajh" href="#">Kontakt siehe Impressum</a></p>
+    </div>
+    <Form />
+  </div>
+</section>
+<style>
+  .kontakt { background: var(--paper-deep); padding: var(--section-pad) var(--gutter); border-top: 1px solid var(--rail); }
+  .kontakt-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 64px; align-items: start; }
+  .kontakt h2 { font-size: var(--fs-h2); margin-bottom: 18px; }
+  .lead { font-size: var(--fs-lead); }
+  .mail { font-size: var(--fs-small); }
+  @media (max-width: 900px) { .kontakt-grid { grid-template-columns: 1fr; gap: 36px; } }
+</style>

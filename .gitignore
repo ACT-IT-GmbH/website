@@ -1,11 +1,19 @@
-# OS and editor files
+node_modules/
+dist/
+.astro/
 .DS_Store
-Thumbs.db
-*.log
+*.pyc
+__pycache__/
 
-# Not part of the published site: original photos, working notes, tool folders
-CP_*.jpg
-/docs/
+# Arbeitsdateien bleiben lokal, nur die Quellen der Seite gehen ins Repo
 /*.md
-/.*/
-!/.github/
+tweak/
+recherche/
+referenzen/
+logo/
+pruefung/
+formular/
+assets/
+archiv/
+public/img/*.json
+*.jsonl

@@ -1,0 +1,38 @@
+---
+interface Props { title: string; lead: string; primaryHref?: string; secondaryHref: string; secondaryLabel: string; }
+const { title, lead, primaryHref = '#kontakt', secondaryHref, secondaryLabel } = Astro.props;
+---
+<section class="subhero">
+  <div class="container grid">
+    <div>
+      <h1>{title}</h1>
+      <p class="lead">{lead}</p>
+      <p class="actions"><a class="btn primary" href={primaryHref}>Anfrage senden</a><a class="btn" href={secondaryHref}>{secondaryLabel}</a></p>
+    </div>
+    <svg class="plan" viewBox="0 0 520 300" aria-hidden="true">
+      <g class="st"><line x1="0" y1="50" x2="520" y2="50"/><line x1="0" y1="130" x2="520" y2="130"/><line x1="0" y1="200" x2="520" y2="200"/><line x1="0" y1="270" x2="520" y2="270"/></g>
+      <text x="0" y="40">Verstehen</text><text x="0" y="120">Prototyp</text><text x="0" y="190">Schritt für Schritt</text><text x="0" y="260">Betrieb</text>
+      <path class="rail" d="M120 50 L330 130"/><path class="rail" d="M190 50 L330 130"/><path class="rail" d="M260 50 L330 130"/>
+      <path class="teal" d="M330 130 L355 200 L385 200 L410 270 L520 270"/>
+      <circle class="node" cx="330" cy="130" r="6"/><circle class="node" cx="355" cy="200" r="6"/><circle class="node" cx="410" cy="270" r="6"/>
+      <text x="342" y="122">erste Version</text><text x="366" y="192">Runden</text>
+      <text class="app" x="414" y="258">die Anwendung</text>
+    </svg>
+  </div>
+</section>
+<style>
+  .subhero { padding: calc(var(--section-pad) * .9) var(--gutter) var(--section-pad); border-bottom: 1px solid var(--rail);
+    background-image: linear-gradient(90deg, var(--rail-faint) 1px, transparent 1px); background-size: calc(100% / 16) 100%; }
+  .subhero h1 { font-size: clamp(2.8rem, 6.5vw, 5.4rem); max-width: 16ch; }
+  .lead { font-size: var(--fs-lead); max-width: 52ch; margin: 24px 0 28px; color: var(--ink); }
+  .actions { display: flex; gap: 12px; flex-wrap: wrap; margin: 0; }
+  .grid { display: grid; grid-template-columns: 7fr 5fr; gap: 48px; align-items: end; }
+  .plan { width: 100%; height: auto; font-family: var(--font-display); font-weight: 600; font-size: 15px; }
+  .plan .st line { stroke: var(--rail); stroke-width: 1; } .plan text { fill: var(--ink-soft); }
+  .plan .rail { fill: none; stroke: var(--rail); stroke-width: 1.5; stroke-linejoin: round; }
+  .plan .teal { fill: none; stroke: var(--teal); stroke-width: 3; stroke-linejoin: round; stroke-dasharray: 400; stroke-dashoffset: 400; animation: draw 1200ms var(--ease-out) 300ms forwards; }
+  .plan .node { fill: var(--paper); stroke: var(--ink); stroke-width: 1.5; } .plan .app { fill: var(--teal-deep); }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  @media (prefers-reduced-motion: reduce) { .plan .teal { animation: none; stroke-dashoffset: 0; } }
+  @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } .plan { max-width: 420px; } }
+</style>

@@ -1,0 +1,40 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+const posts = (await getCollection('blog')).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const fmt = (d: Date) => d.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric', timeZone: 'UTC' });
+---
+<Base title="Blog | ACT! IT GmbH" description="Beiträge aus der Praxis mit Oracle APEX von der ACT! IT GmbH, darunter ältere Artikel aus dem Blog apex-at-work von Tobias Arnhold.">
+  <section class="blog container">
+    <h1>Blog</h1>
+    <p class="intro">Beiträge aus der Praxis mit Oracle APEX. Die älteren stammen aus dem Blog apex-at-work von Tobias Arnhold.</p>
+    <ol class="fahrplan">
+      {posts.map((p) => (
+        <li>
+          <time class="num" datetime={p.data.pubDate.toISOString().slice(0, 10)}>{fmt(p.data.pubDate)}</time>
+          <div>
+            <h2>
+              <a href={`/blog/${p.id}/`} lang={p.data.lang}>{p.data.title}</a>
+              {p.data.lang === 'en' && <span class="lang">englisch</span>}
+            </h2>
+            {p.data.description && p.data.description !== p.data.title && <p lang={p.data.lang}>{p.data.description}</p>}
+          </div>
+        </li>
+      ))}
+    </ol>
+  </section>
+</Base>
+<style>
+  .blog { padding-block: var(--section-pad); }
+  .intro { font-size: var(--fs-lead); margin: 0.75em 0 2.5rem; }
+  .fahrplan { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rail-faint); }
+  .fahrplan li { display: grid; grid-template-columns: 9rem 1fr; gap: 1rem 2rem; padding-block: 1.5rem; border-bottom: 1px solid var(--rail-faint); }
+  time { font-family: var(--font-display); font-weight: 600; font-size: var(--fs-h3); line-height: 1.2; color: var(--ink-soft); }
+  h2 { font-size: var(--fs-h3); line-height: 1.15; }
+  h2 a { color: var(--ink); text-decoration: none; }
+  h2 a:hover { color: var(--teal-deep); }
+  .lang { font-family: var(--font-text); font-size: var(--fs-small); font-weight: 400; letter-spacing: 0; color: var(--ink-soft); margin-left: 0.4em; white-space: nowrap; }
+  .fahrplan p { font-size: var(--fs-small); margin: 0.5em 0 0; }
+  @media (max-width: 640px) { .fahrplan li { grid-template-columns: 1fr; gap: 0.25rem; } }
+</style>

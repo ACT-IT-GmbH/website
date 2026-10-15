@@ -1,0 +1,38 @@
+# ACT! IT GmbH
+
+> Die ACT! IT GmbH ist ein deutscher IT-Dienstleister, der Geschäftsanwendungen mit Oracle APEX entwickelt. Claim: „Aus Excel wird Anwendung.“
+
+Die ACT! IT GmbH wurde am 2. September 2021 in Frankfurt am Main gegründet und ist beim Amtsgericht Frankfurt am Main unter HRB 124420 eingetragen. Geschäftsführer sind André Monson, Christopher Berg und Tobias Arnhold. Das Team besteht aus vier Personen: André Monson, Anja Hildebrandt, Christopher Berg und Tobias Arnhold. Alle vier beraten und entwickeln. Das Team ist über Deutschland verteilt und arbeitet deutschlandweit, hauptsächlich remote. Die Anschrift steht im Impressum.
+
+Das Team bringt zusammen über 30 Jahre Projekterfahrung mit Oracle-Datenbanken und Oracle APEX mit. Zu den Kunden gehören Siemens Energy AG, Lechwerke AG, DB Systel GmbH, Union Investment Management GmbH, Zweckverband Bodensee Wasserversorgung, Oberfinanzdirektion Baden-Württemberg, Bofrost GmbH, DB Regio AG, Volkswagen Financial Services AG, Landesamt für Bau und Liegenschaften und Heraeus Holding GmbH. Tobias Arnhold gehört zum Team der APEX Connect und verantwortet dort den APEX-Stream. Mitglieder der ACT! IT GmbH haben auf der APEX Connect vorgetragen: Anja Hildebrandt (2021, 2024), Tobias Arnhold (2023, 2024, 2025, 2026) und André Monson (2025). Christopher Berg veröffentlicht Oracle-APEX-Plugins als Open Source auf GitHub, darunter den APEX Shuttle Sorting Filter und Header Logo Link Replacement.
+
+Oracle APEX (Application Express) ist die Low-Code-Entwicklungsplattform der Oracle-Datenbank und ist ohne zusätzliche Lizenz in jeder Oracle-Datenbank enthalten.
+
+## Leistungen
+
+- Entwicklung von Geschäftsanwendungen mit Oracle APEX: Anforderungserhebung, Projektleitung, Entwicklung, Test, Betrieb und Weiterentwicklung aus einer Hand, für Fachbereiche und IT-Abteilungen in Deutschland.
+- Ablösung von Excel- und Access-Lösungen: Listen und Access-Tools werden zu einer Anwendung mit zentraler Datenbank, Rechten und Historie; Daten werden in der Regel übernommen.
+- Übernahme und Weiterentwicklung bestehender APEX-Anwendungen, auch wenn andere sie gebaut haben.
+- Migration von Oracle Forms nach APEX, in Abschnitten, damit der Betrieb weiterläuft.
+- Datenbankentwicklung für Oracle und PostgreSQL.
+- Beratung und Anforderungserhebung. Wenn Excel für den Zweck reicht, sagen wir das.
+
+## Arbeitsweise
+
+Ablauf einer Zusammenarbeit:
+
+1. Anfrage über das Formular auf act-it.eu oder per E-Mail an kontakt@act-it.eu.
+2. Verstehen: Sie zeigen, womit Sie heute arbeiten. Wir fragen, wer was damit macht und wo es hakt.
+3. Prototyp: Statt eines Lastenhefts entsteht eine erste Version, die man anklicken kann.
+4. Schritt für Schritt: Die Anwendung wächst in kurzen Runden, direkt mit den Leuten, die sie später nutzen, bis zum Go-live und darüber hinaus.
+
+Das Angebot richtet sich an Unternehmen und Behörden. APEX läuft in einer Oracle-Datenbank, auf dem eigenen Server oder in der Oracle Cloud. Die Seite nennt keine Preise; die Kosten hängen vom Umfang ab.
+
+## Links
+
+- [Website und Anfrage](https://act-it.eu/)
+- [Excel und Access ablösen](https://act-it.eu/excel-und-access-abloesen/)
+- [Oracle APEX Entwicklung](https://act-it.eu/oracle-apex/)
+- [Blog](https://act-it.eu/blog/)
+- [APEX Shuttle Sorting Filter auf GitHub](https://github.com/Choque/APEX-Shuttle-Sorting-Filter)
+- [Impressum](https://act-it.eu/impressum/)

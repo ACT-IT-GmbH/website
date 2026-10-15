@@ -1,0 +1,108 @@
+---
+import Base from '../layouts/Base.astro';
+import SubHero from '../components/SubHero.astro';
+import Steps from '../components/Steps.astro';
+import Faq from '../components/Faq.astro';
+import Kontakt from '../components/Kontakt.astro';
+import Stationsleiste from '../components/Stationsleiste.astro';
+const title = 'Excel ersetzen, Access ablösen: eine Anwendung | ACT! IT';
+const description = 'Aus Excel-Listen und Access-Tools wird eine zentrale Webanwendung mit Oracle APEX. Rechte, Historie, Datenübernahme. Schreiben Sie uns, womit Sie heute arbeiten.';
+const szenen = [
+  { t: 'Drei Versionen, keine stimmt', p: 'Die Liste liegt auf dem Netzlaufwerk. Eine Person hat sie offen, alle anderen warten oder legen eine Kopie an. Welche Zahl gilt, weiß am Ende niemand.' },
+  { t: 'Das Tool von früher', p: 'Das Access-Tool hat jemand vor Jahren gebaut. Es läuft noch. Aber die Person geht bald in Rente, und niemand sonst traut sich an die Makros.' },
+  { t: 'Jeder darf alles', p: 'Es gibt keine Rechte und keine Spur. Wer eine Zahl geändert hat und wann, lässt sich nicht nachvollziehen.' },
+  { t: 'Die Auswertung dauert Tage', p: 'Für den Monatsbericht werden zwölf Listen von Hand zusammenkopiert. Jedes Mal etwas anders, und irgendwo steckt immer ein Fehler.' },
+];
+const danach = [
+  'Eine Anwendung im Browser, in der alle gleichzeitig arbeiten, am Schreibtisch und auf dem Tablet.',
+  'Jede Rolle bekommt eigene Rechte. Wer nur lesen soll, kann nur lesen.',
+  'Jede Änderung bleibt nachvollziehbar, mit Person und Zeitpunkt.',
+  'Eingabemasken statt freier Zellen, mit Prüfungen, die Tippfehler abfangen.',
+  'Auswertungen auf Knopfdruck, und wenn Sie wollen, weiterhin ein Export nach Excel.',
+  'Schnittstellen zu den Systemen, die bleiben: ERP, Buchhaltung, Verzeichnisdienst.',
+];
+const schritte = [
+  { t: 'Liste verstehen', text: 'Sie zeigen uns Ihre Dateien am Bildschirm. Wir schauen, wer sie pflegt, welche Spalten wirklich gebraucht werden und was in den Formeln und Makros steckt.' },
+  { t: 'Prototyp bauen', text: 'Statt eines Pflichtenhefts bauen wir eine erste Version mit Ihren echten Daten. Sie klicken sich durch und sagen, was fehlt.' },
+  { t: 'Daten übernehmen, Schritt für Schritt erweitern', text: 'In der Regel übernehmen wir die bestehenden Daten. Wir erweitern die Anwendung in kurzen Runden und begleiten den Umstieg, bis die alte Liste niemandem mehr fehlt.' },
+];
+const fragen = [
+  { q: 'Gehen unsere bestehenden Daten verloren?', a: 'In der Regel nicht. Wir übernehmen die Daten aus Excel und Access in die neue Anwendung. Was dabei bereinigt werden muss, etwa doppelte Einträge, besprechen wir vorher mit Ihnen.' },
+  { q: 'Können wir weiterhin nach Excel exportieren?', a: 'Ja. Auswertungen lassen sich jederzeit als Excel-Datei herunterladen. Excel bleibt Ihr Werkzeug für Auswertungen. Als Datenbank hat es ausgedient.' },
+  { q: 'Müssen wir unsere anderen Programme ersetzen?', a: 'Nein. Die Anwendung bekommt Schnittstellen zu den Systemen, die bleiben.' },
+  { q: 'Wo liegen die Daten?', a: 'In einer Oracle-Datenbank, auf Ihrem Server oder in der Oracle Cloud. Das entscheiden Sie.' },
+  { q: 'Wie bekommen wir das Team dazu, die neue Anwendung zu nutzen?', a: 'Indem das Team sie mitbaut. Die Leute, die heute die Listen pflegen, sitzen beim Prototyp dabei. Was sie dort sagen, fließt direkt ein.' },
+  { q: 'Was kostet das?', a: 'Das hängt vom Umfang ab. Nach dem ersten Gespräch und einem Blick auf Ihre Dateien können wir den Aufwand einschätzen.' },
+];
+const jsonld = [
+  { '@context': 'https://schema.org', '@type': 'Service', name: 'Excel und Access ablösen durch eine Webanwendung', serviceType: 'Individualsoftware mit Oracle APEX', provider: { '@type': 'Organization', name: 'ACT! IT GmbH', url: 'https://act-it.eu/' }, areaServed: 'DE', description },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: fragen.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+];
+---
+<Base title={title} description={description} jsonld={jsonld}>
+  <SubHero title="Excel ersetzen, Access ablösen. Eine Anwendung für alle." lead="Gewachsene Listen und ein Access-Tool, das an einer Person hängt, werden zu einer Webanwendung mit Oracle APEX. Mit Rechten, mit Historie, mit Ihren Daten. Und wenn Excel für Sie reicht, sagen wir das." secondaryHref="#vorgehen" secondaryLabel="Wie wir vorgehen" />
+
+  <Stationsleiste stops={[['zeit','Woran man es merkt'],['danach','Was Sie danach haben'],['vorgehen','Vorgehen'],['reicht','Wann Excel reicht'],['fragen','Fragen'],['kontakt','Anfrage']]} />
+
+  <section id="zeit" aria-labelledby="h-zeit">
+    <div class="container">
+      <h2 id="h-zeit">Woran man merkt, dass es Zeit ist</h2>
+      <ol class="szenen">
+        {szenen.map((s) => <li><h3>{s.t}</h3><p>{s.p}</p></li>)}
+      </ol>
+    </div>
+  </section>
+
+  <section class="danach" id="danach" aria-labelledby="h-danach">
+    <div class="container">
+      <h2 id="h-danach">Was Sie danach haben</h2>
+      <ul class="liste">{danach.map((d) => <li>{d}</li>)}</ul>
+    </div>
+  </section>
+
+  <section id="vorgehen" aria-labelledby="h-vorgehen">
+    <div class="container">
+      <h2 id="h-vorgehen">Wie wir vorgehen</h2>
+      <Steps steps={schritte} />
+    </div>
+  </section>
+
+  <section class="reicht" id="reicht" aria-labelledby="h-reicht">
+    <div class="container two">
+      <div>
+        <h2 id="h-reicht">Wann Excel reicht</h2>
+        <p>Nicht jede Liste braucht eine Anwendung. Pflegt eine Person eine Tabelle für sich, ändert sich wenig, und niemand wartet auf die Zahlen, dann bleibt Excel das richtige Werkzeug. Wenn das bei Ihnen so ist, sagen wir das im ersten Gespräch. Eine Anwendung lohnt sich, sobald mehrere Leute gleichzeitig an denselben Daten arbeiten, Änderungen nachvollziehbar sein müssen oder die Auswertung mehr Zeit kostet als die Pflege.</p>
+      </div>
+      <div>
+        <h2>Warum wir das mit Oracle APEX bauen</h2>
+        <p>Oracle APEX ist die Low-Code-Plattform der Oracle-Datenbank. Daten, Logik und Oberfläche liegen an einem Ort, es braucht keinen eigenen Anwendungsserver und keine zusätzliche Lizenz. Genau das Richtige für Anwendungen, die aus Tabellen entstehen: Stammdaten, Planung, Erfassung, Auswertung. Wenn die Anwendung wächst, wächst APEX mit, bis zu Portalen mit tausenden Nutzern.</p>
+        <p><a href="/oracle-apex/">Mehr zu Oracle APEX</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="fragen" aria-labelledby="h-faq">
+    <div class="container">
+      <h2 id="h-faq">Fragen vor dem Umstieg</h2>
+      <Faq items={fragen} />
+    </div>
+  </section>
+
+  <Kontakt title="Zeigen Sie uns Ihre Listen." text="Schreiben Sie uns, welche Dateien heute im Umlauf sind und was sich ändern soll." />
+</Base>
+<style>
+  section:not(.subhero) { padding: var(--section-pad) var(--gutter); }
+  h2 { margin-bottom: 28px; max-width: 22ch; }
+  .szenen { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0 56px; border-top: 1px solid var(--rail); }
+  .szenen li { padding: 28px 0; border-bottom: 1px solid var(--rail-faint); }
+  .szenen h3 { font-size: clamp(1.6rem, 2.6vw, 2.2rem); margin-bottom: 10px; }
+  .szenen p { margin: 0; }
+  .danach { background: var(--ink); color: var(--paper); }
+  .danach h2 { color: var(--paper); }
+  .liste { list-style: none; margin: 0; padding: 0; max-width: 72ch; border-top: 1px solid color-mix(in srgb, var(--paper) 30%, var(--ink)); }
+  .liste li { padding: 18px 0 18px 36px; border-bottom: 1px solid color-mix(in srgb, var(--paper) 18%, var(--ink)); position: relative; font-size: 1.125rem; color: color-mix(in srgb, var(--paper) 88%, var(--ink)); }
+  .liste li::before { content: ""; position: absolute; left: 6px; top: 27px; width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--teal-bright); }
+  .reicht { background: var(--paper-deep); border-top: 1px solid var(--rail); border-bottom: 1px solid var(--rail); }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
+  @media (max-width: 820px) { .szenen, .two { grid-template-columns: 1fr; } }
+</style>

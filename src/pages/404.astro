@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base noindex title="Seite nicht gefunden | ACT! IT GmbH" description="Diese Seite gibt es nicht oder nicht mehr.">
+  <article class="legal container">
+    <h1>Seite nicht gefunden</h1>
+    <p>Diese Adresse gibt es nicht oder nicht mehr. Vielleicht hilft eine dieser Seiten weiter:</p>
+    <ul>
+      <li><a href="/">Startseite</a></li>
+      <li><a href="/excel-und-access-abloesen/">Excel und Access ablösen</a></li>
+      <li><a href="/oracle-apex/">Oracle APEX Entwicklung</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/#kontakt">Kontakt</a></li>
+    </ul>
+  </article>
+</Base>
+<style>
+  .legal { padding-block: var(--section-pad); }
+  .legal > * { max-width: 70ch; }
+  .legal h1 { margin-bottom: 0.4em; }
+</style>

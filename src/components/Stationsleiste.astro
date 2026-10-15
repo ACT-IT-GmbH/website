@@ -1,0 +1,60 @@
+---
+// Stationsleiste: die teal Linie läuft beim Scrollen am linken Rand weiter. Ab 1100 px, ein Halt je Abschnitt.
+interface Props { stops: [string, string][]; }
+const { stops } = Astro.props;
+---
+<nav class="rail-nav" aria-label="Abschnitte der Seite">
+  <div class="rail-track"><div class="rail-fill"></div></div>
+  <ol class="rail-stops">
+    {stops.map(([id, n]) => (<li><a href={`#${id}`} data-stop={id}><span class="rail-dot"></span><span class="rail-name">{n}</span></a></li>))}
+  </ol>
+</nav>
+<script>
+  const rail = document.querySelector<HTMLElement>('.rail-nav');
+  const hero = document.querySelector<HTMLElement>('.hero, .subhero');
+  if (rail && hero) {
+    const links = [...rail.querySelectorAll<HTMLAnchorElement>('a[data-stop]')];
+    const fill = rail.querySelector<HTMLElement>('.rail-fill')!;
+    const targets = links.map((a) => document.getElementById(a.dataset.stop!)).filter(Boolean) as HTMLElement[];
+    const isDark = (el: HTMLElement) => { const m = getComputedStyle(el).backgroundColor.match(/[\d.]+/g); if (!m || (m.length === 4 && Number(m[3]) === 0)) return false; const [r, g, b] = m.map(Number); return (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255 < 0.45; };
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      const y = window.scrollY + window.innerHeight * 0.4;
+      rail.classList.toggle('show', window.scrollY > hero.offsetTop + hero.offsetHeight - window.innerHeight * 0.5);
+      let idx = -1;
+      targets.forEach((t, k) => { if (t.offsetTop <= y) idx = k; });
+      links.forEach((a, k) => { a.classList.toggle('on', k === idx); a.classList.toggle('done', k < idx); });
+      rail.classList.toggle('dark', idx >= 0 && isDark(targets[idx]));
+      const first = targets[0].offsetTop, last = targets[targets.length - 1].offsetTop;
+      const p = Math.max(0, Math.min(1, (y - first) / (last - first)));
+      fill.style.setProperty('--p', `${(p * 100).toFixed(1)}%`);
+    };
+    addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+    addEventListener('resize', update);
+    update();
+  }
+</script>
+<style>
+  /* Stationsleiste: die teal Linie läuft beim Scrollen am linken Rand weiter */
+  .rail-nav { position: fixed; left: 22px; top: 50%; transform: translateY(-50%); z-index: 40; opacity: 0; pointer-events: none; transition: opacity 400ms var(--ease-out); }
+  .rail-nav.show { opacity: 1; pointer-events: auto; }
+  .rail-track { position: absolute; left: 6px; top: 0; bottom: 0; width: 2px; background: var(--rail-faint); }
+  .rail-fill { width: 100%; height: var(--p, 0%); background: var(--teal); transition: height 300ms var(--ease-out); }
+  .rail-stops { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 34px; position: relative; }
+  .rail-stops a { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); }
+  .rail-dot { width: 14px; height: 14px; border-radius: 50%; background: var(--paper); border: 1.5px solid var(--ink); box-sizing: border-box; flex: none; transition: background 200ms, border-color 200ms; }
+  .rail-stops a.on .rail-dot, .rail-stops a.done .rail-dot { background: var(--teal); border-color: var(--teal); }
+  .rail-stops a.on .rail-dot { box-shadow: 0 0 0 3px var(--paper), 0 0 0 4.5px var(--teal); }
+  .rail-stops li { position: relative; }
+  .rail-name { position: absolute; left: 22px; top: 50%; transform: translateY(-50%) rotate(180deg) translateX(4px); writing-mode: vertical-rl; font-family: var(--font-display); font-weight: 600; font-size: .8rem; line-height: 1; letter-spacing: .02em; white-space: nowrap; opacity: 0; transition: opacity 200ms, transform 200ms var(--ease-out); color: var(--ink-soft); }
+  .rail-stops a.on .rail-name, .rail-stops a:hover .rail-name, .rail-stops a:focus-visible .rail-name { opacity: 1; transform: translateY(-50%) rotate(180deg); }
+  .rail-stops a.on .rail-name { color: var(--ink); }
+  .rail-nav.dark .rail-name, .rail-nav.dark a.on .rail-name { color: var(--paper); }
+  .rail-nav.dark .rail-dot { background: var(--ink); border-color: var(--paper); }
+  .rail-nav.dark a.on .rail-dot, .rail-nav.dark a.done .rail-dot { background: var(--teal); border-color: var(--teal); }
+  .rail-nav.dark a.on .rail-dot { box-shadow: 0 0 0 3px var(--ink), 0 0 0 4.5px var(--teal); }
+  @media (max-width: 1099px), (prefers-reduced-motion: reduce) { .rail-fill { transition: none; } }
+  @media (max-width: 1099px) { .rail-nav { display: none; } }
+
+</style>
