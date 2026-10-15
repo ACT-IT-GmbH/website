@@ -95,7 +95,7 @@ const jsonld = [
       <div class="copy">
         <h1 id="h1">Aus Excel wird Anwendung.</h1>
         <p class="lead">Wir bauen Geschäftsanwendungen mit Oracle APEX. Von der ersten Anforderung bis zum Betrieb, mit einem Team, das alles selbst macht.</p>
-        <p class="actions"><a class="btn primary" href="#kontakt">Anfrage senden</a><a class="btn" href="#vorgehen">So arbeiten wir</a></p>
+        <p class="actions"><a class="btn primary" href="#kontakt" data-rybbit-event="cta" data-rybbit-prop-ort="hero" data-rybbit-prop-ziel="kontakt">Anfrage senden</a><a class="btn" href="#vorgehen" data-rybbit-event="cta" data-rybbit-prop-ort="hero" data-rybbit-prop-ziel="vorgehen">So arbeiten wir</a></p>
       </div>
       <svg class="lines-mobile" viewBox="0 0 400 230" aria-hidden="true">
         <g class="grid">{[40,100,160,220,280,340].map((x) => <line x1={x} y1="0" x2={x} y2="230" />)}</g>
@@ -127,7 +127,7 @@ const jsonld = [
       <h2 id="h-leist">Was wir bauen</h2>
       <ul class="rows">
         {leistungen.map((l) => (
-          <li><h3>{l.t}</h3><div><p>{l.p}</p>{l.href && <a href={l.href}>{l.link}</a>}</div></li>
+          <li><h3>{l.t}</h3><div><p>{l.p}</p>{l.href && <a href={l.href} data-rybbit-event="leistung" data-rybbit-prop-ziel={l.href}>{l.link}</a>}</div></li>
         ))}
       </ul>
       <div class="komp">
@@ -178,8 +178,8 @@ const jsonld = [
             <p class="role">{m.role}</p>
             <p class="links">
               <a class="ico" href={m.linkedin} rel="noopener" aria-label={`${m.name} auf LinkedIn`} title="LinkedIn"><Icon name="linkedin" /></a>
-              <a class="ico" data-user={m.user} data-domain={m.domain} href="#" aria-label={`E-Mail an ${m.name}`} title="E-Mail"><Icon name="mail" /></a>
-              {m.tel && <a class="ico" data-tel={m.tel} href="#" aria-label={`${m.name} anrufen`} title="Telefon"><Icon name="phone" /></a>}
+              <a class="ico" data-user={m.user} data-domain={m.domain} href="#" data-rybbit-event="kontakt" data-rybbit-prop-art="mail" aria-label={`E-Mail an ${m.name}`} title="E-Mail"><Icon name="mail" /></a>
+              {m.tel && <a class="ico" data-tel={m.tel} href="#" data-rybbit-event="kontakt" data-rybbit-prop-art="tel" aria-label={`${m.name} anrufen`} title="Telefon"><Icon name="phone" /></a>}
             </p>
           </li>
         ))}

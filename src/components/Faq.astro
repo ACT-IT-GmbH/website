@@ -5,7 +5,7 @@ const { items } = Astro.props;
 <div class="faq">
   {items.map((it) => (
     <details class="faq-item">
-      <summary><span>{it.q}</span><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><path d="M4 11h14M11 4v14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary>
+      <summary data-rybbit-event="faq" data-rybbit-prop-frage={it.q}><span>{it.q}</span><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><path d="M4 11h14M11 4v14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></summary>
       <p>{it.a}</p>
     </details>
   ))}

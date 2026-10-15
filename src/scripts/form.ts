@@ -26,7 +26,7 @@ if (form) {
     const done = () => { form.hidden = true; const ok = document.getElementById('anfrage-ok'); if (ok) { ok.hidden = false; ok.focus(); } };
     if (endpoint) {
       fetch(endpoint, { method: 'POST', body: d, headers: { Accept: 'application/json' } })
-        .then((r) => { if (!r.ok) throw new Error(); done(); })
+        .then((r) => { if (!r.ok) throw new Error(); done(); (window as any).rybbit?.event?.('anfrage_gesendet', { quelle: String(d.get('quelle') ?? '') }); })
         .catch(() => { const e = document.getElementById('anfrage-fehler'); if (e) e.hidden = false; });
     } else {
       const body = [`Name: ${name}`, `Firma: ${d.get('firma') ?? ''}`, `E-Mail: ${mail}`, `Gefunden über: ${d.get('quelle') ?? ''}`, '', text].join('\n');

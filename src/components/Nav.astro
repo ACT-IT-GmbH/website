@@ -14,7 +14,7 @@ const items = [
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Menü"><span></span><span></span></button>
     <ul class="nav-menu" id="nav-menu">
       {items.map((it) => <li><a href={it.href} aria-current={path === it.href ? 'page' : undefined}>{it.label}</a></li>)}
-      <li><a class="btn nav-cta" href="/#kontakt">Anfrage senden</a></li>
+      <li><a class="btn nav-cta" href="/#kontakt" data-rybbit-event="cta" data-rybbit-prop-ort="nav" data-rybbit-prop-ziel="kontakt">Anfrage senden</a></li>
     </ul>
   </nav>
 </header>

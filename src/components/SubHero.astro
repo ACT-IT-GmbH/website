@@ -1,13 +1,14 @@
 ---
 interface Props { title: string; lead: string; primaryHref?: string; secondaryHref: string; secondaryLabel: string; }
 const { title, lead, primaryHref = '#kontakt', secondaryHref, secondaryLabel } = Astro.props;
+const ort = Astro.url.pathname.includes('excel') ? 'excel' : 'apex';
 ---
 <section class="subhero">
   <div class="container grid">
     <div>
       <h1>{title}</h1>
       <p class="lead">{lead}</p>
-      <p class="actions"><a class="btn primary" href={primaryHref}>Anfrage senden</a><a class="btn" href={secondaryHref}>{secondaryLabel}</a></p>
+      <p class="actions"><a class="btn primary" href={primaryHref} data-rybbit-event="cta" data-rybbit-prop-ort={ort} data-rybbit-prop-ziel="kontakt">Anfrage senden</a><a class="btn" href={secondaryHref} data-rybbit-event="cta" data-rybbit-prop-ort={ort} data-rybbit-prop-ziel={secondaryHref.replace(/^#/, "")}>{secondaryLabel}</a></p>
     </div>
     <svg class="plan" viewBox="0 0 520 300" aria-hidden="true">
       <g class="st"><line x1="0" y1="50" x2="520" y2="50"/><line x1="0" y1="130" x2="520" y2="130"/><line x1="0" y1="200" x2="520" y2="200"/><line x1="0" y1="270" x2="520" y2="270"/></g>
