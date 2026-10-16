@@ -37,6 +37,20 @@ const jsonld = [{
     {source && <p class="source" lang="de">Zuerst erschienen auf <a href={source}>apex-at-work.blogspot.com</a></p>}
   </article>
 </Base>
+
+<script>
+  const icon = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.5"/><path d="M10.5 5.5V3.5a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2"/></svg>';
+  for (const pre of document.querySelectorAll('.body pre')) {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'copy'; b.innerHTML = `${icon}<span>Kopieren</span>`; b.setAttribute('aria-label', 'Code kopieren');
+    b.addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(pre.querySelector('code')?.innerText ?? pre.innerText); } catch { return; }
+      b.dataset.done = ''; b.querySelector('span')!.textContent = 'Kopiert';
+      setTimeout(() => { delete b.dataset.done; b.querySelector('span')!.textContent = 'Kopieren'; }, 1600);
+    });
+    pre.appendChild(b);
+  }
+</script>
 <style>
   .post { padding-block: var(--section-pad); }
   .post > * { max-width: 70ch; }
@@ -51,11 +65,28 @@ const jsonld = [{
   .body :global(a) { color: var(--teal-deep); text-decoration: underline; }
   .body :global(img) { max-width: 100%; height: auto; margin: 1.5rem 0; }
   .body :global(pre) {
-    background: var(--paper-deep) !important; color: var(--ink) !important; /* überschreibt Shikis Inline-Farben */
-    border: 1px solid var(--rail-faint); padding: 1rem 1.25rem; margin: 1.5rem 0;
-    overflow-x: auto; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.9rem; line-height: 1.5;
+    position: relative; background: var(--paper-deep) !important; border: 1px solid var(--rail-faint);
+    padding: 1rem 1.25rem; margin: 1.5rem 0; overflow-x: auto;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.9rem; line-height: 1.5;
   }
-  .body :global(pre span) { color: inherit !important; }
+  .body :global(pre:has(.copy)) { padding-top: 2.4rem; }
+  .body :global(.copy) {
+    position: absolute; top: 0.5rem; right: 0.5rem; display: inline-flex; align-items: center; gap: 0.35rem;
+    font: 600 0.75rem/1 var(--font-text); letter-spacing: 0.02em; color: var(--ink-soft);
+    background: var(--paper); border: 1px solid var(--rail-faint); border-radius: 999px; padding: 0.35rem 0.65rem; cursor: pointer;
+    transition: color 150ms, border-color 150ms;
+  }
+  .body :global(.copy:hover), .body :global(.copy:focus-visible) { color: var(--teal-deep); border-color: var(--teal); }
+  .body :global(.copy[data-done]) { color: var(--teal-deep); border-color: var(--teal); }
+  .body :global(.copy svg) { width: 14px; height: 14px; }
+  .body :global(blockquote) {
+    margin: 1.5rem 0; padding: 0.9rem 1.25rem; background: var(--paper-deep); border-left: 1px solid var(--teal);
+    color: var(--ink);
+  }
+  .body :global(blockquote p) { margin: 0; color: var(--ink); }
+  .body :global(blockquote p + p) { margin-top: 0.75rem; }
+  .body :global(blockquote code) { background: var(--paper); padding: 0.05em 0.35em; border: 1px solid var(--rail-faint); }
+  .body :global(:not(pre) > code) { background: var(--paper-deep); padding: 0.05em 0.35em; border: 1px solid var(--rail-faint); }
   .body :global(code) { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.9em; }
   .source { margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid var(--rail-faint); }
 </style>
