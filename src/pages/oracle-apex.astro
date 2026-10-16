@@ -26,6 +26,7 @@ const fragen = [
   { q: 'Wie unterscheidet sich APEX von Power Apps?', a: 'Power Apps gehört zur Microsoft-Welt und zielt auf Microsoft 365. APEX läuft in der Oracle-Datenbank und spielt seine Stärke aus, wenn die Daten dort liegen oder viel Logik in der Datenbank steckt. Welches Werkzeug passt, hängt davon ab, wo Ihre Daten heute sind.' },
   { q: 'Übernehmen Sie auch eine APEX-Anwendung, die nicht von Ihnen stammt?', a: 'Ja. Wir arbeiten uns ein, auch wenn der ursprüngliche Entwickler nicht mehr erreichbar ist, und entwickeln die Anwendung weiter.' },
   { q: 'Können Sie Oracle Forms komplett ablösen?', a: 'Ja, in Abschnitten. Die Datenbank bleibt, die Oberfläche entsteht in APEX neu. So läuft das Alte weiter, bis das Neue fertig ist.' },
+  { q: 'Können wir KI in unsere bestehende APEX-Anwendung einbauen?', a: 'Ja, wenn die Anwendung auf APEX 26.1 oder neuer läuft. Ist sie älter, aktualisieren wir zuerst. Dann klären wir, welche Aufgabe die KI übernehmen soll und welche Daten sie dafür sehen darf. Den ersten Fall bauen wir als Prototyp, damit Sie sehen, ob das Ergebnis trägt.' },
 ];
 const jsonld = [
   { '@context': 'https://schema.org', '@type': 'Service', name: 'Oracle APEX Entwicklung und Beratung', serviceType: 'Softwareentwicklung mit Oracle APEX', provider: { '@type': 'Organization', name: 'ACT! IT GmbH', url: 'https://act-it.eu/' }, areaServed: 'DE', description },
@@ -35,7 +36,7 @@ const jsonld = [
 <Base title={title} description={description} jsonld={jsonld}>
   <SubHero title="Oracle APEX Entwicklung aus einer Hand" lead="Neue Anwendung, Weiterentwicklung oder der Weg von Oracle Forms nach APEX: Wir übernehmen Anforderungen, Entwicklung, Projektleitung und Betrieb. Mit einem Team, das seit über 30 Jahren mit Oracle-Datenbanken arbeitet." secondaryHref="#tun" secondaryLabel="Was wir für Sie tun" />
 
-  <Stationsleiste stops={[['was','Was APEX ist'],['passt','Wofür APEX passt'],['tun','Was wir tun'],['wie','Wie wir arbeiten'],['fragen','Fragen'],['kontakt','Anfrage']]} />
+  <Stationsleiste stops={[['was','Was APEX ist'],['passt','Wofür APEX passt'],['tun','Was wir tun'],['ki','KI in APEX'],['wie','Wie wir arbeiten'],['fragen','Fragen'],['kontakt','Anfrage']]} />
 
   <section id="was" aria-labelledby="h-was">
     <div class="container two">
@@ -58,6 +59,20 @@ const jsonld = [
     <div class="container">
       <h2 id="h-tun">Was wir für Sie tun</h2>
       <ul class="rows">{tun.map((t) => <li><h3>{t.t}</h3><p>{t.p}</p></li>)}</ul>
+    </div>
+  </section>
+
+  <section id="ki" class="ki" aria-labelledby="h-ki">
+    <div class="container">
+      <h2 id="h-ki">KI in Ihrer APEX-Anwendung</h2>
+      <p class="lead">Seit APEX 26.1 bringt Oracle KI direkt in die Plattform: Assistenten in der Anwendung, Anbindung an Sprachmodelle, und mit APEXlang eine Beschreibung, aus der KI-Agenten Seiten und Logik erzeugen. Das ändert zwei Dinge: was eine Anwendung kann, und wie schnell sie entsteht.</p>
+      <div class="blocks">
+        <div><h3>Was in der Anwendung geht</h3><p>Ein Assistent, der Fragen zu den eigenen Daten in Alltagssprache beantwortet. Ein Agent, der eingehende Dokumente liest, Felder vorbelegt und den Vorgang zur Prüfung vorlegt. Vorschläge für Texte, Zuordnungen oder Prioritäten direkt im Formular. All das haben wir bereits in eigenen Anwendungen gebaut.</p></div>
+        <div><h3>Was die KI darf und was nicht</h3><p>Die KI bekommt nur die Funktionen, die Sie dafür freigeben, und sieht nur die Daten, die der angemeldete Nutzer auch sieht. Freigeben oder ablehnen tun Ihre Leute. Welches Sprachmodell läuft, entscheiden Sie, der Datenschutz geht vor: ein Modell, das Sie schon freigegeben haben, ein Anbieter wie Mistral oder Anthropic nach Ihrer Freigabe, oder ein lokales Modell wie Qwen auf eigener Hardware, wenn keine Daten das Haus verlassen dürfen.</p></div>
+        <div><h3>Wie wir mit KI entwickeln</h3><p>Wir nutzen KI-Agenten beim Bauen, für Testfälle, Dokumentation und mit APEXlang für erste Seiten und Logik. Der erste Prototyp steht dadurch früher. Was in Ihre Anwendung kommt, lesen und prüfen wir, bevor es läuft.</p></div>
+        <div><h3>Was es braucht</h3><p>Eine Oracle-Datenbank mit APEX 26.1 oder neuer und einen Zugang zu einem Sprachmodell. Hat Ihre Anwendung einen älteren Stand, ist das Update Teil des Projekts.</p></div>
+      </div>
+      <p class="schluss">Wenn eine Regel oder ein Bericht die Aufgabe genauso löst, sagen wir das. KI ist ein Werkzeug, kein Ziel.</p>
     </div>
   </section>
 
@@ -99,6 +114,12 @@ const jsonld = [
   .tun h2, .tun h3 { color: var(--paper); } .tun p { color: color-mix(in srgb, var(--paper) 80%, var(--ink)); margin: 0; }
   .rows { list-style: none; margin: 0; padding: 0; border-top: 1px solid color-mix(in srgb, var(--paper) 30%, var(--ink)); }
   .rows li { display: grid; grid-template-columns: 5fr 7fr; gap: 40px; padding: 30px 0; border-bottom: 1px solid color-mix(in srgb, var(--paper) 18%, var(--ink)); }
+  .ki .lead { max-width: 62ch; margin-bottom: 2.5rem; }
+  .ki .blocks { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem 3rem; }
+  .ki .blocks h3 { margin-bottom: .5rem; }
+  .ki .blocks p { margin: 0; max-width: 52ch; }
+  .ki .schluss { margin-top: 2.5rem; max-width: 62ch; font-weight: 600; color: var(--ink); }
+  @media (max-width: 760px) { .ki .blocks { grid-template-columns: 1fr; } }
   .wie { background: var(--paper-deep); border-top: 1px solid var(--rail); border-bottom: 1px solid var(--rail); }
   @media (max-width: 820px) { .two, .rows li { grid-template-columns: 1fr; gap: 16px; } }
 </style>

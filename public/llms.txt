@@ -15,6 +15,7 @@ Oracle APEX (Application Express) ist die Low-Code-Entwicklungsplattform der Ora
 - Übernahme und Weiterentwicklung bestehender APEX-Anwendungen, auch wenn andere sie gebaut haben.
 - Migration von Oracle Forms nach APEX, in Abschnitten, damit der Betrieb weiterläuft.
 - Datenbankentwicklung für Oracle und PostgreSQL.
+- KI in APEX-Anwendungen (ab APEX 26.1): Assistenten, die Fragen zu den eigenen Daten beantworten, Agenten, die Dokumente lesen und Vorgänge vorbereiten, Vorschläge im Formular. Die KI bekommt nur freigegebene Funktionen und Daten. Welches Sprachmodell läuft, entscheidet der Kunde; ohne Freigabe für einen Anbieter kommen lokale Modelle wie Qwen zum Einsatz. Bisher in eigenen Anwendungen erprobt. Bei der Entwicklung nutzt das Team KI-Agenten, unter anderem mit APEXlang.
 - Beratung und Anforderungserhebung. Wenn Excel für den Zweck reicht, sagen wir das.
 
 ## Arbeitsweise
