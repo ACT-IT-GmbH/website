@@ -4,6 +4,7 @@ pubDate: 2022-07-20
 author: "Tobias Arnhold"
 description: "If you want an automatically increasing number column in your Interactive Grid, follow these instructions: a hidden item, one computation and a dynamic action on row initialization."
 tags: ["apex", "interactive grid"]
+source: "https://apex-at-work.blogspot.com/2022/07/interactive-grid-automatic-position-number.html"
 lang: "en"
 ---
 

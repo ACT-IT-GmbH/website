@@ -4,6 +4,7 @@ pubDate: 2018-07-17
 author: "Tobias Arnhold"
 description: "Two ways to copy the content of a textarea to the clipboard in APEX: a dynamic action with two lines of JavaScript, or the Copy to Clipboard plugin by Dick Dral."
 tags: ["apex", "plugin"]
+source: "https://apex-at-work.blogspot.com/2018/07/copy-and-paste-to-clipboard.html"
 lang: "en"
 ---
 

@@ -4,6 +4,7 @@ pubDate: 2018-03-01
 author: "Tobias Arnhold"
 description: "Give half of the columns in an Interactive Report another background colour: a static ID per column and one CSS rule that matches the ID prefix."
 tags: ["apex", "interactive report"]
+source: "https://apex-at-work.blogspot.com/2018/03/interactive-report-standard-column.html"
 lang: "en"
 ---
 

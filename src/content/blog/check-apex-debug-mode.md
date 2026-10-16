@@ -4,6 +4,7 @@ pubDate: 2018-06-08
 author: "Tobias Arnhold"
 description: "A condition that is true only while APEX runs in debug mode: APEX_APPLICATION.G_DEBUG returns a boolean, not the \"Yes\" or \"No\" the documentation suggests."
 tags: ["apex", "debug"]
+source: "https://apex-at-work.blogspot.com/2018/06/check-inside-your-apex-application-if.html"
 lang: "en"
 ---
 

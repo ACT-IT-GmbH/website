@@ -4,6 +4,7 @@ pubDate: 2022-05-02
 author: "Tobias Arnhold"
 description: "Run a process after the Interactive Grid has saved all rows, then refresh the recalculated columns inside the grid. A dynamic action on the Save event does both."
 tags: ["apex", "interactive grid"]
+source: "https://apex-at-work.blogspot.com/2020/03/interactive-grid-after-update-trigger.html"
 lang: "en"
 ---
 

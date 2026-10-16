@@ -4,6 +4,7 @@ pubDate: 2018-07-18
 author: "Tobias Arnhold"
 description: "Development, test and production of a small application share one database and differ only by application ID. A page-zero dynamic action names the environment in the logo."
 tags: ["apex", "universal theme"]
+source: "https://apex-at-work.blogspot.com/2018/07/set-apex-application-name-for-dev-test.html"
 lang: "en"
 ---
 

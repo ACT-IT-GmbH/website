@@ -4,6 +4,7 @@ pubDate: 2018-06-28
 author: "Tobias Arnhold"
 description: "Keep the save button disabled until a form item changes: a static ID, the disabled attribute and a three-line dynamic action on page load."
 tags: ["apex", "dynamic action"]
+source: "https://apex-at-work.blogspot.com/2018/06/enable-save-button-on-form-change.html"
 lang: "en"
 ---
 
