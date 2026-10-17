@@ -26,7 +26,7 @@ const fmt = (d: Date) => d.toLocaleDateString('de-DE', { day: '2-digit', month: 
   </section>
 </Base>
 <style>
-  .blog { padding-block: var(--section-pad); }
+  .blog { padding: var(--section-pad) var(--gutter); }
   .intro { font-size: var(--fs-lead); margin: 0.75em 0 2.5rem; }
   .fahrplan { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rail-faint); }
   .fahrplan li { display: grid; grid-template-columns: 9rem 1fr; gap: 1rem 2rem; padding-block: 1.5rem; border-bottom: 1px solid var(--rail-faint); }
