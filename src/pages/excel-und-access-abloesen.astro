@@ -5,8 +5,8 @@ import Steps from '../components/Steps.astro';
 import Faq from '../components/Faq.astro';
 import Kontakt from '../components/Kontakt.astro';
 import Stationsleiste from '../components/Stationsleiste.astro';
-const title = 'Excel ersetzen, Access ablösen: eine Anwendung | ACT! IT';
-const description = 'Aus Excel-Listen und Access-Tools wird eine zentrale Webanwendung mit Oracle APEX. Rechte, Historie, Datenübernahme. Schreiben Sie uns, womit Sie heute arbeiten.';
+const title = 'Excel-Listen ablösen durch eine Webanwendung | ACT! IT';
+const description = 'Aus gewachsenen Excel-Listen wird eine zentrale Webanwendung mit Oracle APEX: Rechte, Historie, Datenübernahme. Und wenn Excel reicht, sagen wir das.';
 const szenen = [
   { t: 'Drei Versionen, keine stimmt', p: 'Die Liste liegt auf dem Netzlaufwerk. Eine Person hat sie offen, alle anderen warten oder legen eine Kopie an. Welche Zahl gilt, weiß am Ende niemand.' },
   { t: 'Das Tool von früher', p: 'Das Access-Tool hat jemand vor Jahren gebaut. Es läuft noch. Aber die Person geht bald in Rente, und niemand sonst traut sich an die Makros.', href: '/access-datenbank-abloesen/', link: 'So läuft die Ablösung einer Access-Datenbank' },
@@ -40,7 +40,7 @@ const jsonld = [
 ];
 ---
 <Base title={title} description={description} jsonld={jsonld}>
-  <SubHero title="Excel ersetzen, Access ablösen. Eine Anwendung für alle." lead="Gewachsene Listen und ein Access-Tool, das an einer Person hängt, werden zu einer Webanwendung mit Oracle APEX. Mit Rechten, mit Historie, mit Ihren Daten. Und wenn Excel für Sie reicht, sagen wir das." secondaryHref="#vorgehen" secondaryLabel="Wie wir vorgehen" />
+  <SubHero title="Excel-Listen ablösen. Eine Anwendung für alle." lead="Gewachsene Listen und ein Access-Tool, das an einer Person hängt, werden zu einer Webanwendung mit Oracle APEX. Mit Rechten, mit Historie, mit Ihren Daten. Und wenn Excel für Sie reicht, sagen wir das." secondaryHref="#vorgehen" secondaryLabel="Wie wir vorgehen" />
 
   <Stationsleiste stops={[['zeit','Woran man es merkt'],['danach','Was Sie danach haben'],['vorgehen','Vorgehen'],['reicht','Wann Excel reicht'],['fragen','Fragen'],['kontakt','Anfrage']]} />
 
