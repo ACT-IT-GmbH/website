@@ -71,7 +71,7 @@ const jsonld = [
     knowsAbout: ['Oracle APEX', 'Oracle Database', 'PL/SQL', 'PostgreSQL', 'Low-Code', 'Oracle Forms'],
     founder: ['André Monson', 'Christopher Berg', 'Tobias Arnhold'].map((n) => ({ '@type': 'Person', name: n })),
     employee: team.map((m) => ({ '@type': 'Person', name: m.name, jobTitle: m.role, sameAs: m.linkedin })),
-    sameAs: team.map((m) => m.linkedin),
+    sameAs: ['https://www.linkedin.com/company/act-it-gmbh/', ...team.map((m) => m.linkedin)],
     makesOffer: ['Entwicklung von Geschäftsanwendungen mit Oracle APEX', 'Ablösung von Excel- und Access-Lösungen', 'Datenbankentwicklung für Oracle und PostgreSQL', 'Migration von Oracle Forms nach APEX', 'Anforderungserhebung, Projektleitung und Beratung', 'Betrieb und Weiterentwicklung bestehender APEX-Anwendungen'].map((s) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name: s } })),
   },
   { '@context': 'https://schema.org', '@type': 'WebSite', name: 'ACT! IT GmbH', url: 'https://act-it.eu/', inLanguage: 'de' },
