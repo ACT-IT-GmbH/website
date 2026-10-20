@@ -35,7 +35,7 @@ const fragen = [
   { q: 'Was kostet das?', a: 'Das hängt vom Umfang ab. Nach dem ersten Gespräch und einem Blick auf Ihre Dateien können wir den Aufwand einschätzen.' },
 ];
 const jsonld = [
-  { '@context': 'https://schema.org', '@type': 'Service', name: 'Excel und Access ablösen durch eine Webanwendung', serviceType: 'Individualsoftware mit Oracle APEX', provider: { '@type': 'Organization', name: 'ACT! IT GmbH', url: 'https://act-it.eu/' }, areaServed: 'DE', description },
+  { '@context': 'https://schema.org', '@type': 'Service', name: 'Excel-Listen ablösen durch eine Webanwendung', serviceType: 'Individualsoftware mit Oracle APEX', provider: { '@type': 'Organization', name: 'ACT! IT GmbH', url: 'https://act-it.eu/' }, areaServed: 'DE', description },
   { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: fragen.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
 ];
 ---
