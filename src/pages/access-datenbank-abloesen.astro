@@ -1,0 +1,132 @@
+---
+import Base from '../layouts/Base.astro';
+import SubHero from '../components/SubHero.astro';
+import Steps from '../components/Steps.astro';
+import Faq from '../components/Faq.astro';
+import Kontakt from '../components/Kontakt.astro';
+import Stationsleiste from '../components/Stationsleiste.astro';
+const title = 'Access-Datenbank ablösen: so läuft der Umstieg | ACT! IT';
+const description = 'Aus der Access-Datenbank, die an einer Person hängt, wird eine Webanwendung mit Oracle APEX. Formulare, Berichte, VBA und Daten kommen mit.';
+const szenen = [
+  { t: 'Eine Person kennt das Tool', p: 'Die Datenbank hat jemand vor Jahren nebenbei gebaut. Sie trägt heute einen ganzen Ablauf. Die Person geht bald, und niemand sonst traut sich an die Makros.' },
+  { t: 'Zwei zugleich, und es knirscht', p: 'Ab dem zweiten Nutzer gibt es Sperren, ab dem dritten die Meldung, die Datenbank sei beschädigt. Jemand komprimiert und repariert abends von Hand.' },
+  { t: 'Die Datei liegt auf dem Netzlaufwerk', p: 'Wer das Laufwerk sieht, kann die Datei kopieren, mitnehmen oder löschen. Rechte pro Rolle gibt es nicht, und wer wann was geändert hat, weiß niemand.' },
+  { t: 'Unterwegs wird abgetippt', p: 'Vom Tablet oder von zu Hause kommt niemand an die Daten. Also werden Zettel geschrieben, Mails geschickt und am Montag abgetippt.' },
+];
+const wege = [
+  { t: 'Backend tauschen, Access behalten', p: 'Die Tabellen wandern in eine richtige Datenbank, die Access-Formulare bleiben und greifen per verknüpfter Tabelle darauf zu. Das beendet Sperren und kaputte Dateien. Es ändert nichts daran, dass das Tool an einer Person hängt, nur unter Windows läuft und VBA bleibt. Reicht Ihnen das, sagen wir es im ersten Gespräch.' },
+  { t: 'Neu bauen als Webanwendung', p: 'Daten in einer Oracle-Datenbank, Oberfläche im Browser mit Oracle APEX. Rechte pro Rolle, Historie jeder Änderung, Zugriff vom Tablet, Schnittstellen zu ERP und Verzeichnisdienst. Das ist der Weg, den wir in den meisten Fällen gehen.' },
+  { t: 'Fertiges Produkt nehmen', p: 'Bildet die Access-Datenbank einen Ablauf ab, für den es gute Standardsoftware gibt, etwa Kundenverwaltung oder Ticketbearbeitung, dann nehmen Sie das Produkt. Auch das sagen wir Ihnen am Anfang.' },
+];
+const objekte = [
+  { t: 'Tabellen und Beziehungen', p: 'werden zum Datenmodell in der Oracle-Datenbank. Prüfungen, die in Access nur im Formular saßen, sitzen danach in der Datenbank und gelten überall.' },
+  { t: 'Abfragen', p: 'werden zu Views und SQL. Die meisten Access-Abfragen lassen sich fast eins zu eins übernehmen.' },
+  { t: 'Formulare', p: 'werden zu Seiten in APEX: Eingabemasken, Listen, Master-Detail. Die Reihenfolge der Felder bleibt, damit sich das Team nicht umgewöhnen muss.' },
+  { t: 'Berichte', p: 'werden zu interaktiven Berichten mit Filter, Sortierung und Excel-Export, als PDF, wo ein PDF gebraucht wird. Berichte sind oft der größte Posten, deshalb zählen wir sie am Anfang.' },
+  { t: 'Makros und VBA', p: 'werden zu Logik in der Datenbank oder in APEX-Prozessen. Toten Code lassen wir weg. VBA, das Word oder Outlook steuert, bekommt einen eigenen Weg: PDF-Erzeugung und Mailversand direkt aus der Anwendung.' },
+  { t: 'Verknüpfte Excel-Dateien', p: 'bleiben als Import und Export möglich. Excel bleibt Ihr Werkzeug für Auswertungen, nicht mehr der Ort, an dem die Daten liegen.' },
+];
+const schritte = [
+  { t: 'Datenbank anschauen', text: 'Sie öffnen Ihre Access-Datenbank am Bildschirm. Wir zählen Tabellen, Formulare, Berichte und Module und fragen, was davon im Alltag genutzt wird. Daraus entsteht die Aufwandsschätzung.' },
+  { t: 'Daten zuerst, dann Prototyp', text: 'Wir bauen das Datenmodell, übernehmen Ihre Daten und bauen darauf die ersten Seiten. Sie klicken mit echten Daten durch und sagen, was fehlt.' },
+  { t: 'Parallelbetrieb, dann Umstieg', text: 'Beide Anwendungen laufen eine Zeit nebeneinander. Zum Stichtag übernehmen wir die Daten noch einmal, die Access-Datei wird schreibgeschützt und bleibt als Archiv.' },
+];
+const fragen = [
+  { q: 'Gehen unsere bestehenden Daten verloren?', a: 'Nein. Wir übernehmen die Daten aus den Access-Tabellen in die neue Datenbank. Doppelte oder unvollständige Einträge fallen dabei auf; was damit geschieht, besprechen wir vorher mit Ihnen.' },
+  { q: 'Können wir Access in der Übergangszeit weiter nutzen?', a: 'Ja. Die neue Anwendung läuft parallel, bis Ihr Team sie im Alltag angenommen hat. Erst dann wird die Access-Datei schreibgeschützt.' },
+  { q: 'Was passiert mit unseren VBA-Makros?', a: 'Wir lesen sie und übernehmen die Logik, die noch gebraucht wird, in die Datenbank oder die Anwendung. Makros, die seit Jahren niemand ausführt, lassen wir weg.' },
+  { q: 'Muss sich das Team komplett umgewöhnen?', a: 'Nein. Felder und Abläufe behalten ihre Reihenfolge. Was anders wird, sind die Dinge, die heute stören: Sperren, Abstürze, das Abtippen.' },
+  { q: 'Reicht nicht ein neues Backend hinter den Access-Formularen?', a: 'Manchmal ja. Wenn die Oberfläche gut ist und nur der Mehrbenutzerbetrieb Probleme macht, ist das der kleinere Schritt. Wir sagen Ihnen nach dem ersten Blick auf die Datei, ob er bei Ihnen reicht.' },
+  { q: 'Brauchen wir dafür eine Oracle-Datenbank?', a: 'Ja, APEX läuft in einer Oracle-Datenbank, auf Ihrem Server, in der kostenlosen Free Edition oder in der Oracle Cloud. Eine Lizenz für APEX selbst gibt es nicht. Haben Sie PostgreSQL, entwickeln wir auch dort, dann ohne APEX.' },
+  { q: 'Was kostet das?', a: 'Der Aufwand hängt an drei Zahlen: Formulare, Berichte und der Umfang des VBA-Codes. Nach dem ersten Gespräch und einem Blick auf Ihre Datei nennen wir eine Spanne.' },
+];
+const jsonld = [
+  { '@context': 'https://schema.org', '@type': 'Service', name: 'Access-Datenbank ablösen durch eine Webanwendung', serviceType: 'Individualsoftware mit Oracle APEX', provider: { '@type': 'Organization', name: 'ACT! IT GmbH', url: 'https://act-it.eu/' }, areaServed: 'DE', description },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: fragen.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+];
+---
+<Base title={title} description={description} jsonld={jsonld}>
+  <SubHero title="Access-Datenbank ablösen, ohne den Ablauf zu verlieren." lead="Aus der Access-Datei, die an einer Person hängt, wird eine Webanwendung mit Oracle APEX. Formulare, Berichte und Daten kommen mit. Und wenn ein neues Backend hinter den alten Formularen reicht, sagen wir das." secondaryHref="#wege" secondaryLabel="Drei Wege im Vergleich" />
+
+  <Stationsleiste stops={[['zeit','Woran man es merkt'],['wege','Drei Wege'],['objekte','Was aus Access wird'],['vorgehen','Vorgehen'],['dauer','Dauer und Kosten'],['fragen','Fragen'],['kontakt','Anfrage']]} />
+
+  <section id="zeit" aria-labelledby="h-zeit">
+    <div class="container">
+      <h2 id="h-zeit">Woran man merkt, dass es Zeit ist</h2>
+      <ol class="szenen">
+        {szenen.map((s) => <li><h3>{s.t}</h3><p>{s.p}</p></li>)}
+      </ol>
+    </div>
+  </section>
+
+  <section class="wege-sec" id="wege" aria-labelledby="h-wege">
+    <div class="container">
+      <h2 id="h-wege">Drei Wege, und welcher passt</h2>
+      <ol class="wege">
+        {wege.map((w, i) => <li><span class="num">0{i + 1}</span><h3>{w.t}</h3><p>{w.p}</p></li>)}
+      </ol>
+    </div>
+  </section>
+
+  <section id="objekte" aria-labelledby="h-objekte">
+    <div class="container">
+      <h2 id="h-objekte">Was aus Ihrer Access-Datenbank wird</h2>
+      <dl class="objekte">
+        {objekte.map((o) => <div><dt>{o.t}</dt><dd>{o.p}</dd></div>)}
+      </dl>
+    </div>
+  </section>
+
+  <section id="vorgehen" aria-labelledby="h-vorgehen">
+    <div class="container">
+      <h2 id="h-vorgehen">Wie wir vorgehen</h2>
+      <Steps steps={schritte} />
+    </div>
+  </section>
+
+  <section class="dauer" id="dauer" aria-labelledby="h-dauer">
+    <div class="container two">
+      <div>
+        <h2 id="h-dauer">Dauer und Kosten</h2>
+        <p>Der Aufwand hängt an drei Zahlen: wie viele Formulare, wie viele Berichte, wie viel VBA. Eine Datenbank mit einer Handvoll Masken ist ein Projekt von Wochen. Eine gewachsene mit Dutzenden Formularen und Berichten dauert Monate, in Abschnitten, damit der Betrieb weiterläuft. Nach dem ersten Blick auf Ihre Datei nennen wir eine Spanne.</p>
+        <p>Lizenzen kommen keine dazu. Oracle APEX ist Teil jeder Oracle-Datenbank, auch der kostenlosen Free Edition. Sie bezahlen die Entwicklung, nicht die Plattform.</p>
+      </div>
+      <div>
+        <h2>Warum wir das mit Oracle APEX bauen</h2>
+        <p>Access und APEX denken gleich: Tabellen, Formulare darauf, Berichte darüber. Nur liegt bei APEX alles in einer Datenbank, die Mehrbenutzerbetrieb, Rechte und Historie von Haus aus kann, und die Oberfläche läuft im Browser statt auf jedem einzelnen Windows-Rechner. Deshalb bleibt der Weg von Access nach APEX kurz.</p>
+        <p><a href="/oracle-apex/">Mehr zu Oracle APEX</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="fragen" aria-labelledby="h-faq">
+    <div class="container">
+      <h2 id="h-faq">Fragen vor dem Umstieg</h2>
+      <Faq items={fragen} />
+    </div>
+  </section>
+
+  <Kontakt title="Zeigen Sie uns Ihre Access-Datenbank." text="Schreiben Sie uns, wie viele Formulare und Berichte drinstecken und wer sie heute pflegt." />
+</Base>
+<style>
+  section:not(.subhero) { padding: var(--section-pad) var(--gutter); }
+  h2 { margin-bottom: 28px; max-width: 22ch; }
+  .szenen { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0 56px; border-top: 1px solid var(--rail); }
+  .szenen li { padding: 28px 0; border-bottom: 1px solid var(--rail-faint); }
+  .szenen h3 { font-size: clamp(1.6rem, 2.6vw, 2.2rem); margin-bottom: 10px; }
+  .szenen p { margin: 0; }
+  .wege-sec { background: var(--ink); color: var(--paper); }
+  .wege-sec h2 { color: var(--paper); }
+  .wege { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; }
+  .wege li { padding-top: 18px; border-top: 1px solid color-mix(in srgb, var(--paper) 30%, var(--ink)); }
+  .wege .num { display: block; color: var(--teal-bright); margin-bottom: 12px; }
+  .wege h3 { font-size: 1.35rem; margin-bottom: 10px; color: var(--paper); }
+  .wege p { margin: 0; color: color-mix(in srgb, var(--paper) 88%, var(--ink)); }
+  .objekte { margin: 0; max-width: 80ch; border-top: 1px solid var(--rail); }
+  .objekte div { display: grid; grid-template-columns: 14rem 1fr; gap: 24px; padding: 18px 0; border-bottom: 1px solid var(--rail-faint); }
+  .objekte dt { font-weight: 600; }
+  .objekte dd { margin: 0; }
+  .dauer { background: var(--paper-deep); border-top: 1px solid var(--rail); border-bottom: 1px solid var(--rail); }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
+  @media (max-width: 820px) { .szenen, .wege, .two, .objekte div { grid-template-columns: 1fr; } .objekte div { gap: 6px; } }
+</style>

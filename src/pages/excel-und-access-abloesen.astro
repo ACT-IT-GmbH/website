@@ -9,7 +9,7 @@ const title = 'Excel ersetzen, Access ablösen: eine Anwendung | ACT! IT';
 const description = 'Aus Excel-Listen und Access-Tools wird eine zentrale Webanwendung mit Oracle APEX. Rechte, Historie, Datenübernahme. Schreiben Sie uns, womit Sie heute arbeiten.';
 const szenen = [
   { t: 'Drei Versionen, keine stimmt', p: 'Die Liste liegt auf dem Netzlaufwerk. Eine Person hat sie offen, alle anderen warten oder legen eine Kopie an. Welche Zahl gilt, weiß am Ende niemand.' },
-  { t: 'Das Tool von früher', p: 'Das Access-Tool hat jemand vor Jahren gebaut. Es läuft noch. Aber die Person geht bald in Rente, und niemand sonst traut sich an die Makros.' },
+  { t: 'Das Tool von früher', p: 'Das Access-Tool hat jemand vor Jahren gebaut. Es läuft noch. Aber die Person geht bald in Rente, und niemand sonst traut sich an die Makros.', href: '/access-datenbank-abloesen/', link: 'So läuft die Ablösung einer Access-Datenbank' },
   { t: 'Jeder darf alles', p: 'Es gibt keine Rechte und keine Spur. Wer eine Zahl geändert hat und wann, lässt sich nicht nachvollziehen.' },
   { t: 'Die Auswertung dauert Tage', p: 'Für den Monatsbericht werden zwölf Listen von Hand zusammenkopiert. Jedes Mal etwas anders, und irgendwo steckt immer ein Fehler.' },
 ];
@@ -48,7 +48,7 @@ const jsonld = [
     <div class="container">
       <h2 id="h-zeit">Woran man merkt, dass es Zeit ist</h2>
       <ol class="szenen">
-        {szenen.map((s) => <li><h3>{s.t}</h3><p>{s.p}</p></li>)}
+        {szenen.map((s) => <li><h3>{s.t}</h3><p>{s.p}</p>{s.href && <p><a href={s.href}>{s.link}</a></p>}</li>)}
       </ol>
     </div>
   </section>
@@ -97,6 +97,7 @@ const jsonld = [
   .szenen li { padding: 28px 0; border-bottom: 1px solid var(--rail-faint); }
   .szenen h3 { font-size: clamp(1.6rem, 2.6vw, 2.2rem); margin-bottom: 10px; }
   .szenen p { margin: 0; }
+  .szenen p + p { margin-top: 12px; }
   .danach { background: var(--ink); color: var(--paper); }
   .danach h2 { color: var(--paper); }
   .liste { list-style: none; margin: 0; padding: 0; max-width: 72ch; border-top: 1px solid color-mix(in srgb, var(--paper) 30%, var(--ink)); }
