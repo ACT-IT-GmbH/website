@@ -4,8 +4,16 @@ import SubHero from '../components/SubHero.astro';
 import Faq from '../components/Faq.astro';
 import Kontakt from '../components/Kontakt.astro';
 import Stationsleiste from '../components/Stationsleiste.astro';
-const title = 'Oracle APEX Entwicklung und Beratung | ACT! IT GmbH';
-const description = 'Wir entwickeln Geschäftsanwendungen mit Oracle APEX, beraten, leiten das Projekt und betreiben die Lösung. Auch Oracle Forms nach APEX. Vier Entwickler, bundesweit.';
+import referenzen from '../data/referenzen.json';
+const title = 'Oracle APEX Dienstleister in Deutschland | ACT! IT GmbH';
+const description = 'Oracle APEX Dienstleister aus Aschaffenburg, deutschlandweit remote: Entwicklung, Beratung, Betrieb, Übernahme bestehender Anwendungen, Oracle Forms nach APEX.';
+const wer = [
+  { t: 'Sitz', p: 'Aschaffenburg, gegründet 2021 in Frankfurt am Main' },
+  { t: 'Team', p: 'Vier Personen, alle beraten und entwickeln, zusammen über 30 Jahre Oracle und APEX' },
+  { t: 'Einsatz', p: 'Deutschlandweit, hauptsächlich remote, vor Ort wenn es die Sache braucht' },
+  { t: 'Branchen', p: 'Energie, Bahn, Finanzdienstleistung, öffentliche Verwaltung, Lebensmittel, Industrie' },
+  { t: 'Community', p: 'Team der APEX Connect, Vorträge bei DOAG-Konferenzen, APEX-Plugins als Open Source' },
+];
 const fakten = [
   'Läuft in jeder Oracle-Datenbank, auch in der kostenlosen Express Edition und in der Oracle Cloud.',
   'Oberfläche im Browser, auf jedem Gerät, ohne Installation.',
@@ -14,7 +22,7 @@ const fakten = [
 const passt = ['Anwendungen für den Fachbereich, etwa Planung, Erfassung, Stammdaten und Freigaben', 'Ablösung von Excel-Listen, Access-Tools und alten Java-Anwendungen', 'Auswertungen und Berichte direkt auf den Daten', 'Portale für Kunden, Lieferanten oder Partner', 'Schnittstellen zu ERP, Buchhaltung und anderen Systemen'];
 const tun = [
   { t: 'Neue Anwendungen', p: 'Von der ersten Anforderung bis zum Go-live. Wir starten mit einem Prototyp, der Fachbereich arbeitet von Anfang an mit.' },
-  { t: 'Weiterentwicklung und Betrieb, auch für Anwendungen von anderen', p: 'Ihre Anwendung läuft, aber sie soll mehr können, oder sie soll einfach weiterlaufen. Wir bleiben dran, auch Jahre nach dem Go-live. Und wir übernehmen APEX-Anwendungen, die jemand anderes gebaut hat, auch ohne den ursprünglichen Entwickler.' },
+  { t: 'Weiterentwicklung und Betrieb, auch für Anwendungen von anderen', p: 'Ihre Anwendung läuft, aber sie soll mehr können, oder sie soll einfach weiterlaufen. Wir bleiben dran, auch Jahre nach dem Go-live. Und wir übernehmen APEX-Anwendungen, die jemand anderes gebaut hat, auch ohne den ursprünglichen Entwickler.', href: '/apex-anwendung-uebernehmen/', link: 'So läuft die Übernahme' },
   { t: 'Oracle Forms nach APEX', p: 'Forms-Anwendungen tragen oft seit Jahrzehnten das Geschäft. Wir bringen sie nach APEX, Modul für Modul, während das Alte weiterläuft. Datenmodell und Geschäftslogik in der Datenbank bleiben erhalten, die Oberfläche wird neu.' },
   { t: 'Datenbankentwicklung', p: 'Datenmodelle, PL/SQL, Performance, Schnittstellen. Für Oracle, und wenn Sie es brauchen, auch für PostgreSQL.' },
   { t: 'Anforderungserhebung und Projektleitung', p: 'Wir erheben die Anforderungen direkt mit den Leuten, die die Anwendung später nutzen, und leiten das Projekt bis zum Ende.' },
@@ -29,14 +37,27 @@ const fragen = [
   { q: 'Können wir KI in unsere bestehende APEX-Anwendung einbauen?', a: 'Ja, wenn die Anwendung auf APEX 26.1 oder neuer läuft. Ist sie älter, aktualisieren wir zuerst. Dann klären wir, welche Aufgabe die KI übernehmen soll und welche Daten sie dafür sehen darf. Den ersten Fall bauen wir als Prototyp, damit Sie sehen, ob das Ergebnis trägt.' },
 ];
 const jsonld = [
-  { '@context': 'https://schema.org', '@type': 'Service', name: 'Oracle APEX Entwicklung und Beratung', serviceType: 'Softwareentwicklung mit Oracle APEX', provider: { '@type': 'Organization', name: 'ACT! IT GmbH', url: 'https://act-it.eu/' }, areaServed: 'DE', description },
+  { '@context': 'https://schema.org', '@type': 'Service', name: 'Oracle APEX Dienstleister: Entwicklung, Beratung und Betrieb', serviceType: 'Softwareentwicklung mit Oracle APEX', provider: { '@type': 'Organization', name: 'ACT! IT GmbH', url: 'https://act-it.eu/' }, areaServed: 'DE', description },
   { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: fragen.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
 ];
 ---
 <Base title={title} description={description} jsonld={jsonld}>
-  <SubHero title="Oracle APEX Entwicklung aus einer Hand" lead="Neue Anwendung, Weiterentwicklung oder der Weg von Oracle Forms nach APEX: Wir übernehmen Anforderungen, Entwicklung, Projektleitung und Betrieb. Mit einem Team, das seit über 30 Jahren mit Oracle-Datenbanken arbeitet." secondaryHref="#tun" secondaryLabel="Was wir für Sie tun" />
+  <SubHero title="Oracle APEX Dienstleister in Deutschland" lead="Neue Anwendung, Weiterentwicklung oder der Weg von Oracle Forms nach APEX: Wir übernehmen Anforderungen, Entwicklung, Projektleitung und Betrieb. Aus Aschaffenburg, deutschlandweit, mit einem Team, das seit über 30 Jahren mit Oracle-Datenbanken arbeitet." secondaryHref="#tun" secondaryLabel="Was wir für Sie tun" />
 
-  <Stationsleiste stops={[['was','Was APEX ist'],['passt','Wofür APEX passt'],['tun','Was wir tun'],['ki','KI in APEX'],['wie','Wie wir arbeiten'],['fragen','Fragen'],['kontakt','Anfrage']]} />
+  <Stationsleiste stops={[['wer','Wer wir sind'],['was','Was APEX ist'],['passt','Wofür APEX passt'],['tun','Was wir tun'],['ki','KI in APEX'],['wie','Wie wir arbeiten'],['fragen','Fragen'],['kontakt','Anfrage']]} />
+
+  <section id="wer" aria-labelledby="h-wer">
+    <div class="container two">
+      <div>
+        <h2 id="h-wer">Wer hinter dem Angebot steht</h2>
+        <dl class="wer">{wer.map((w) => <div><dt>{w.t}</dt><dd>{w.p}</dd></div>)}</dl>
+      </div>
+      <div>
+        <h3 class="refs-h">Für diese Unternehmen und Behörden haben wir gearbeitet</h3>
+        <ul class="refs">{referenzen.map((r) => <li>{r}</li>)}</ul>
+      </div>
+    </div>
+  </section>
 
   <section id="was" aria-labelledby="h-was">
     <div class="container two">
@@ -58,7 +79,7 @@ const jsonld = [
   <section id="tun" class="tun" aria-labelledby="h-tun">
     <div class="container">
       <h2 id="h-tun">Was wir für Sie tun</h2>
-      <ul class="rows">{tun.map((t) => <li><h3>{t.t}</h3><p>{t.p}</p></li>)}</ul>
+      <ul class="rows">{tun.map((t) => <li><h3>{t.t}</h3><div><p>{t.p}</p>{t.href && <p class="more"><a href={t.href}>{t.link}</a></p>}</div></li>)}</ul>
     </div>
   </section>
 
@@ -112,6 +133,13 @@ const jsonld = [
   .liste li::before { content: ""; position: absolute; left: 4px; top: 22px; width: 10px; height: 10px; border-radius: 50%; border: 2px solid var(--teal); }
   .tun { background: var(--ink); color: var(--paper); }
   .tun h2, .tun h3 { color: var(--paper); } .tun p { color: color-mix(in srgb, var(--paper) 80%, var(--ink)); margin: 0; }
+  .tun .more { margin-top: 12px; } .tun .more a { color: var(--paper); }
+  .wer { margin: 0; border-top: 1px solid var(--rail); }
+  .wer div { display: grid; grid-template-columns: 8rem 1fr; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--rail-faint); }
+  .wer dt { font-weight: 600; } .wer dd { margin: 0; }
+  .refs-h { margin-bottom: 16px; }
+  .refs { list-style: none; margin: 0; padding: 0; columns: 2; column-gap: 32px; }
+  .refs li { padding: 6px 0; break-inside: avoid; }
   .rows { list-style: none; margin: 0; padding: 0; border-top: 1px solid color-mix(in srgb, var(--paper) 30%, var(--ink)); }
   .rows li { display: grid; grid-template-columns: 5fr 7fr; gap: 40px; padding: 30px 0; border-bottom: 1px solid color-mix(in srgb, var(--paper) 18%, var(--ink)); }
   .ki .lead { max-width: 62ch; margin-bottom: 2.5rem; }

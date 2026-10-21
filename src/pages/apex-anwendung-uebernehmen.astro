@@ -1,0 +1,113 @@
+---
+import Base from '../layouts/Base.astro';
+import SubHero from '../components/SubHero.astro';
+import Faq from '../components/Faq.astro';
+import Kontakt from '../components/Kontakt.astro';
+import Stationsleiste from '../components/Stationsleiste.astro';
+const title = 'Bestehende APEX-Anwendung übernehmen | ACT! IT GmbH';
+const description = 'Ihre Oracle APEX Anwendung läuft, aber der Entwickler ist weg? Wir übernehmen Betrieb und Weiterentwicklung, auch ohne Dokumentation. In fünf Schritten.';
+const szenen = [
+  { t: 'Der Entwickler ist weg', p: 'Die Anwendung hat ein Freelancer oder ein Kollege gebaut. Beide sind nicht mehr erreichbar. Seitdem fasst niemand etwas an.' },
+  { t: 'Jede Änderung ist ein Risiko', p: 'Ein neues Feld, ein neuer Bericht, ein Fehler im Export. Alles wartet, weil niemand weiß, was sonst noch bricht.' },
+  { t: 'Die Version ist alt', p: 'APEX und Datenbank sind einige Releases zurück. Das Update traut sich keiner, weil unklar ist, was die Anwendung dabei verliert.' },
+  { t: 'Der Dienstleister will nicht mehr', p: 'Der bisherige Betreuer hat gekündigt, ist zu teuer geworden oder antwortet nur noch langsam.' },
+];
+const schritte = [
+  { t: 'Zugang', p: 'Wir brauchen einen Zugang zur Datenbank, zum APEX-Workspace und, falls vorhanden, zum Quellcode-Repository. Mehr nicht.' },
+  { t: 'Bestandsaufnahme', p: 'Wir lesen die Anwendung: Datenmodell, Seiten, PL/SQL, JavaScript, Plug-ins, Schnittstellen, Jobs. Daraus entsteht eine Karte, die es vorher nicht gab.' },
+  { t: 'Risikoliste', p: 'Was fällt um, wenn man es anfasst? Welche Plug-ins sind verwaist, welche Logik liegt doppelt, wo fehlen Prüfungen? Sortiert nach Schaden, nicht nach Schönheit.' },
+  { t: 'Betrieb', p: 'Ab hier sind wir erreichbar. Fehler, Fragen, kleine Änderungen laufen über einen festen Kanal mit vereinbarten Reaktionszeiten.' },
+  { t: 'Weiterentwicklung', p: 'Erst wenn wir die Anwendung verstanden haben, bauen wir Neues. Jede Erweiterung wird vorher geschätzt und einzeln freigegeben.' },
+];
+const drin = [
+  'Ansprechpartner mit vereinbarter Reaktionszeit, passend zur Bedeutung der Anwendung.',
+  'Fehleranalyse und Behebung in Anwendung und Datenbank.',
+  'Kleine Änderungen im laufenden Betrieb: Felder, Listen, Berichte, Rechte.',
+  'Updates von APEX und Datenbank, vorher getestet auf einer Kopie.',
+  'Dokumentation, die beim Lesen entsteht und mit jeder Änderung mitwächst.',
+];
+const extra = [
+  'Neue Module und größere Erweiterungen, einzeln geschätzt und freigegeben.',
+  'Anbindung neuer Systeme über Schnittstellen.',
+  'KI-Funktionen in der Anwendung, sobald APEX 26.1 oder neuer läuft.',
+];
+const fragen = [
+  { q: 'Übernehmen Sie Anwendungen, die nicht von Ihnen stammen?', a: 'Ja. Das ist der Normalfall auf dieser Seite. Wir arbeiten uns ein, auch wenn der ursprüngliche Entwickler nicht mehr erreichbar ist.' },
+  { q: 'Es gibt keine Dokumentation. Geht das trotzdem?', a: 'Ja. Die Dokumentation entsteht bei der Bestandsaufnahme. Was der Code nicht erklärt, fragen wir die Leute, die mit der Anwendung arbeiten.' },
+  { q: 'Müssen wir die Anwendung neu bauen lassen?', a: 'In der Regel nicht. Eine laufende APEX-Anwendung ist mehr wert als ein Neubau. Wir ändern nichts, bevor wir sie verstanden haben, und bauen nur neu, was sich nicht retten lässt.' },
+  { q: 'Wie schnell sind Sie erreichbar?', a: 'Das vereinbaren wir schriftlich, abhängig davon, wie geschäftskritisch die Anwendung ist. Auch wenn nur eine Person von uns gebucht ist, steht das ganze Team dahinter.' },
+  { q: 'Was passiert bei einem alten APEX-Stand?', a: 'Wir prüfen die Anwendung auf einer Kopie gegen die aktuelle Version, beheben, was bricht, und aktualisieren dann die Produktion. Das Update ist meist der erste größere Schritt.' },
+  { q: 'Was kostet die Übernahme?', a: 'Die Bestandsaufnahme ist ein festes Paket, dessen Umfang von der Größe der Anwendung abhängt. Danach nennen wir einen Satz für den laufenden Betrieb und schätzen Erweiterungen einzeln.' },
+];
+const jsonld = [
+  { '@context': 'https://schema.org', '@type': 'Service', name: 'Übernahme, Betrieb und Weiterentwicklung bestehender Oracle APEX Anwendungen', serviceType: 'Softwarebetrieb und Wartung mit Oracle APEX', provider: { '@type': 'Organization', name: 'ACT! IT GmbH', url: 'https://act-it.eu/' }, areaServed: 'DE', description },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: fragen.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+];
+---
+<Base title={title} description={description} jsonld={jsonld}>
+  <SubHero title="Wir übernehmen Ihre bestehende APEX-Anwendung." lead="Auch wenn der Entwickler weg ist und die Dokumentation fehlt. Erst lesen wir die Anwendung, dann betreiben wir sie, dann bauen wir weiter. Nichts wird geändert, bevor wir es verstanden haben." secondaryHref="#schritte" secondaryLabel="Die fünf Schritte" />
+
+  <Stationsleiste stops={[['zeit','Woran man es merkt'],['schritte','Fünf Schritte'],['umfang','Was dazugehört'],['fragen','Fragen'],['kontakt','Anfrage']]} />
+
+  <section id="zeit" aria-labelledby="h-zeit">
+    <div class="container">
+      <h2 id="h-zeit">Woran man merkt, dass es Zeit ist</h2>
+      <ol class="szenen">
+        {szenen.map((s) => <li><h3>{s.t}</h3><p>{s.p}</p></li>)}
+      </ol>
+    </div>
+  </section>
+
+  <section class="schritte-sec" id="schritte" aria-labelledby="h-schritte">
+    <div class="container">
+      <h2 id="h-schritte">Fünf Schritte bis zum ruhigen Betrieb</h2>
+      <ol class="schritte">
+        {schritte.map((s, i) => <li><span class="num">0{i + 1}</span><div><h3>{s.t}</h3><p>{s.p}</p></div></li>)}
+      </ol>
+    </div>
+  </section>
+
+  <section class="umfang" id="umfang" aria-labelledby="h-umfang">
+    <div class="container two">
+      <div>
+        <h2 id="h-umfang">Was zum laufenden Betrieb gehört</h2>
+        <ul class="liste">{drin.map((d) => <li>{d}</li>)}</ul>
+      </div>
+      <div>
+        <h2>Was wir einzeln anbieten</h2>
+        <ul class="liste">{extra.map((e) => <li>{e}</li>)}</ul>
+        <p><a href="/oracle-apex/">Alles, was wir mit Oracle APEX tun</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="fragen" aria-labelledby="h-faq">
+    <div class="container">
+      <h2 id="h-faq">Fragen vor der Übernahme</h2>
+      <Faq items={fragen} />
+    </div>
+  </section>
+
+  <Kontakt title="Zeigen Sie uns die Anwendung." text="Schreiben Sie uns, worum es geht, auf welchem APEX-Stand sie läuft und wer sie heute betreut." />
+</Base>
+<style>
+  section:not(.subhero) { padding: var(--section-pad) var(--gutter); }
+  h2 { margin-bottom: 28px; max-width: 22ch; }
+  .szenen { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0 56px; border-top: 1px solid var(--rail); }
+  .szenen li { padding: 28px 0; border-bottom: 1px solid var(--rail-faint); }
+  .szenen h3 { font-size: clamp(1.6rem, 2.6vw, 2.2rem); margin-bottom: 10px; }
+  .szenen p { margin: 0; }
+  .schritte-sec { background: var(--ink); color: var(--paper); }
+  .schritte-sec h2, .schritte-sec h3 { color: var(--paper); }
+  .schritte { list-style: none; margin: 0; padding: 0; max-width: 80ch; border-top: 1px solid color-mix(in srgb, var(--paper) 30%, var(--ink)); }
+  .schritte li { display: grid; grid-template-columns: 4rem 1fr; gap: 24px; padding: 22px 0; border-bottom: 1px solid color-mix(in srgb, var(--paper) 18%, var(--ink)); }
+  .schritte .num { color: var(--teal-bright); }
+  .schritte h3 { font-size: 1.35rem; margin-bottom: 8px; }
+  .schritte p { margin: 0; color: color-mix(in srgb, var(--paper) 88%, var(--ink)); }
+  .umfang { background: var(--paper-deep); border-top: 1px solid var(--rail); border-bottom: 1px solid var(--rail); }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
+  .liste { list-style: none; margin: 0 0 24px; padding: 0; border-top: 1px solid var(--rail); }
+  .liste li { padding: 14px 0 14px 32px; border-bottom: 1px solid var(--rail-faint); position: relative; }
+  .liste li::before { content: ""; position: absolute; left: 4px; top: 22px; width: 10px; height: 10px; border-radius: 50%; border: 2px solid var(--teal); }
+  @media (max-width: 820px) { .szenen, .two { grid-template-columns: 1fr; } }
+</style>
