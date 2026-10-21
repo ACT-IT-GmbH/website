@@ -8,7 +8,7 @@ import Radar from '../components/Radar.astro';
 import team from '../data/team.json';
 import Icon from '../components/Icon.astro';
 
-const title = 'Oracle APEX Entwicklung aus einer Hand | ACT! IT GmbH';
+const title = 'Excel und Access ablösen, Anwendungen mit Oracle APEX | ACT! IT GmbH';
 const description = 'Aus Excel wird Anwendung. Wir bauen Geschäftsanwendungen mit Oracle APEX, von der Anforderung bis zum Betrieb. Deutschlandweit, meist remote.';
 
 const saetze = [
@@ -26,7 +26,7 @@ const leistungen = [
   { t: 'KI in Ihrer APEX-Anwendung', p: 'Ein Assistent, der Fragen zu Ihren Daten beantwortet. Ein Agent, der Dokumente liest und Vorgänge vorbereitet. Beides läuft in Ihrer APEX-Anwendung, mit genau den Rechten, die Sie freigeben. Entscheidungen bleiben bei Ihren Leuten.', href: '/oracle-apex/#ki', link: 'Was mit KI in APEX geht' },
   { t: 'Oracle Forms nach APEX', p: 'Forms läuft noch, aber niemand will mehr darin entwickeln. Wir bringen Forms-Anwendungen nach APEX, in Abschnitten, damit der Betrieb weitergeht.' },
   { t: 'Anforderungserhebung, Projektleitung, Beratung', p: 'Wir erheben die Anforderungen direkt mit den Leuten aus dem Fachbereich, leiten das Projekt und beraten, wenn die Richtung noch offen ist.' },
-  { t: 'Betrieb und Weiterentwicklung', p: 'Nach dem Go-live bleiben wir dran, auch Jahre später. Das gilt auch für APEX-Anwendungen, die jemand anderes gebaut hat: Wir übernehmen sie und entwickeln sie weiter.' },
+  { t: 'Betrieb und Weiterentwicklung', p: 'Nach dem Go-live bleiben wir dran, auch Jahre später. Das gilt auch für APEX-Anwendungen, die jemand anderes gebaut hat: Wir übernehmen sie und entwickeln sie weiter.', href: '/apex-anwendung-uebernehmen/', link: 'So übernehmen wir eine bestehende Anwendung' },
 ];
 const schritte = [
   { t: 'Verstehen', text: 'Sie zeigen uns, womit Sie heute arbeiten: die Listen, das Access-Tool, die alte Anwendung. Wir fragen, wer was damit macht und wo es hakt.' },
@@ -38,7 +38,7 @@ const werte = [
   { t: 'Direkt mit dem Fachbereich', p: 'Das Wissen über Ihre Abläufe sitzt bei den Leuten, die sie jeden Tag ausführen. Mit diesen Leuten arbeiten wir, von Anfang an.' },
   { t: 'Team statt Einzelkämpfer', p: 'Auch wenn Sie nur eine Person von uns buchen, steht das ganze Team dahinter. Wir tauschen uns intern aus, prüfen gegenseitig unsere Arbeit und springen ein, wenn jemand ausfällt.' },
 ];
-const referenzen = ['Siemens Energy AG', 'Lechwerke AG', 'DB Systel GmbH', 'Union Investment Management GmbH', 'Zweckverband Bodensee Wasserversorgung', 'Oberfinanzdirektion Baden-Württemberg', 'Bofrost GmbH', 'DB Regio AG', 'Volkswagen Financial Services AG', 'Landesamt für Bau und Liegenschaften', 'Heraeus Holding GmbH'];
+import referenzen from '../data/referenzen.json';
 const vortraege = [
   { y: '2026', t: 'KI Paneldiskussion. Der Countdown läuft: Sind unsere Jobs in 18 Monaten noch relevant?', w: 'Moderation Tobias Arnhold' },
   { y: '2025', t: 'Die APEX Karriereleiter', w: 'André Monson und Tobias Arnhold' },
