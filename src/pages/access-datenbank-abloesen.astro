@@ -8,15 +8,15 @@ import Stationsleiste from '../components/Stationsleiste.astro';
 const title = 'Access-Datenbank ablösen: so läuft der Umstieg | ACT! IT';
 const description = 'Aus der Access-Datenbank, die an einer Person hängt, wird eine Webanwendung mit Oracle APEX. Formulare, Berichte, VBA und Daten kommen mit.';
 const szenen = [
-  { t: 'Eine Person kennt das Tool', p: 'Die Datenbank hat jemand vor Jahren nebenbei gebaut. Sie trägt heute einen ganzen Ablauf. Die Person geht bald, und niemand sonst traut sich an die Makros.' },
+  { t: 'Eine Person kennt das Tool', p: 'Die Datenbank hat jemand vor Jahren nebenbei gebaut. Sie trägt heute einen ganzen Ablauf. Die Person geht bald, und der VBA-Code ist seit Jahren unangetastet.' },
   { t: 'Zwei zugleich, und es knirscht', p: 'Ab dem zweiten Nutzer gibt es Sperren, ab dem dritten die Meldung, die Datenbank sei beschädigt. Jemand komprimiert und repariert abends von Hand.' },
   { t: 'Die Datei liegt auf dem Netzlaufwerk', p: 'Wer das Laufwerk sieht, kann die Datei kopieren, mitnehmen oder löschen. Rechte pro Rolle gibt es nicht, und wer wann was geändert hat, weiß niemand.' },
   { t: 'Unterwegs wird abgetippt', p: 'Vom Tablet oder von zu Hause kommt niemand an die Daten. Also werden Zettel geschrieben, Mails geschickt und am Montag abgetippt.' },
 ];
 const wege = [
-  { t: 'Backend tauschen, Access behalten', p: 'Die Tabellen wandern in eine richtige Datenbank, die Access-Formulare bleiben und greifen per verknüpfter Tabelle darauf zu. Das beendet Sperren und kaputte Dateien. Es ändert nichts daran, dass das Tool an einer Person hängt, nur unter Windows läuft und VBA bleibt. Reicht Ihnen das, sagen wir es im ersten Gespräch.' },
+  { t: 'Backend tauschen, Access behalten', p: 'Die Tabellen wandern in eine richtige Datenbank, die Access-Formulare bleiben und greifen per verknüpfter Tabelle darauf zu. Das beendet Sperren und kaputte Dateien. Es ändert nichts daran, dass das Tool an einer Person hängt, nur unter Windows läuft und VBA bleibt. Für manche Datenbanken ist das genug.' },
   { t: 'Neu bauen als Webanwendung', p: 'Daten in einer Oracle-Datenbank, Oberfläche im Browser mit Oracle APEX. Rechte pro Rolle, Historie jeder Änderung, Zugriff vom Tablet, Schnittstellen zu ERP und Verzeichnisdienst. Das ist der Weg, den wir in den meisten Fällen gehen.' },
-  { t: 'Fertiges Produkt nehmen', p: 'Bildet die Access-Datenbank einen Ablauf ab, für den es gute Standardsoftware gibt, etwa Kundenverwaltung oder Ticketbearbeitung, dann nehmen Sie das Produkt. Auch das sagen wir Ihnen am Anfang.' },
+  { t: 'Fertiges Produkt nehmen', p: 'Bildet die Access-Datenbank einen Ablauf ab, für den es gute Standardsoftware gibt, etwa Kundenverwaltung oder Ticketbearbeitung, dann nehmen Sie das Produkt. Das ist der günstigere Weg.' },
 ];
 const objekte = [
   { t: 'Tabellen und Beziehungen', p: 'werden zum Datenmodell in der Oracle-Datenbank. Prüfungen, die in Access nur im Formular saßen, sitzen danach in der Datenbank und gelten überall.' },
@@ -24,7 +24,7 @@ const objekte = [
   { t: 'Formulare', p: 'werden zu Seiten in APEX: Eingabemasken, Listen, Master-Detail. Die Reihenfolge der Felder bleibt, damit sich das Team nicht umgewöhnen muss.' },
   { t: 'Berichte', p: 'werden zu interaktiven Berichten mit Filter, Sortierung und Excel-Export, als PDF, wo ein PDF gebraucht wird. Berichte sind oft der größte Posten, deshalb zählen wir sie am Anfang.' },
   { t: 'Makros und VBA', p: 'werden zu Logik in der Datenbank oder in APEX-Prozessen. Toten Code lassen wir weg. VBA, das Word oder Outlook steuert, bekommt einen eigenen Weg: PDF-Erzeugung und Mailversand direkt aus der Anwendung.' },
-  { t: 'Verknüpfte Excel-Dateien', p: 'bleiben als Import und Export möglich. Excel bleibt Ihr Werkzeug für Auswertungen, nicht mehr der Ort, an dem die Daten liegen.' },
+  { t: 'Verknüpfte Excel-Dateien', p: 'bleiben als Import und Export möglich. Für Auswertungen exportieren Sie weiter nach Excel.' },
 ];
 const schritte = [
   { t: 'Datenbank anschauen', text: 'Sie öffnen Ihre Access-Datenbank am Bildschirm. Wir zählen Tabellen, Formulare, Berichte und Module und fragen, was davon im Alltag genutzt wird. Daraus entsteht die Aufwandsschätzung.' },
@@ -35,8 +35,8 @@ const fragen = [
   { q: 'Gehen unsere bestehenden Daten verloren?', a: 'Nein. Wir übernehmen die Daten aus den Access-Tabellen in die neue Datenbank. Doppelte oder unvollständige Einträge fallen dabei auf; was damit geschieht, besprechen wir vorher mit Ihnen.' },
   { q: 'Können wir Access in der Übergangszeit weiter nutzen?', a: 'Ja. Die neue Anwendung läuft parallel, bis Ihr Team sie im Alltag angenommen hat. Erst dann wird die Access-Datei schreibgeschützt.' },
   { q: 'Was passiert mit unseren VBA-Makros?', a: 'Wir lesen sie und übernehmen die Logik, die noch gebraucht wird, in die Datenbank oder die Anwendung. Makros, die seit Jahren niemand ausführt, lassen wir weg.' },
-  { q: 'Muss sich das Team komplett umgewöhnen?', a: 'Nein. Felder und Abläufe behalten ihre Reihenfolge. Was anders wird, sind die Dinge, die heute stören: Sperren, Abstürze, das Abtippen.' },
-  { q: 'Reicht nicht ein neues Backend hinter den Access-Formularen?', a: 'Manchmal ja. Wenn die Oberfläche gut ist und nur der Mehrbenutzerbetrieb Probleme macht, ist das der kleinere Schritt. Wir sagen Ihnen nach dem ersten Blick auf die Datei, ob er bei Ihnen reicht.' },
+  { q: 'Muss sich das Team komplett umgewöhnen?', a: 'Nein. Felder und Abläufe behalten ihre Reihenfolge. Sperren, Abstürze und das Abtippen fallen weg.' },
+  { q: 'Reicht nicht ein neues Backend hinter den Access-Formularen?', a: 'Manchmal ja. Wenn die Oberfläche gut ist und nur der Mehrbenutzerbetrieb Probleme macht, ist das der kleinere Schritt. Nach dem ersten Blick auf die Datei wissen wir, ob er bei Ihnen reicht.' },
   { q: 'Brauchen wir dafür eine Oracle-Datenbank?', a: 'Ja, APEX läuft in einer Oracle-Datenbank, auf Ihrem Server, in der kostenlosen Free Edition oder in der Oracle Cloud. Eine Lizenz für APEX selbst gibt es nicht. Haben Sie PostgreSQL, entwickeln wir auch dort, dann ohne APEX.' },
   { q: 'Was kostet das?', a: 'Der Aufwand hängt an drei Zahlen: Formulare, Berichte und der Umfang des VBA-Codes. Nach dem ersten Gespräch und einem Blick auf Ihre Datei nennen wir eine Spanne.' },
 ];
@@ -89,12 +89,12 @@ const jsonld = [
       <div>
         <h2 id="h-dauer">Dauer und Kosten</h2>
         <p>Der Aufwand hängt an drei Zahlen: wie viele Formulare, wie viele Berichte, wie viel VBA. Eine Datenbank mit einer Handvoll Masken ist ein Projekt von Wochen. Eine gewachsene mit Dutzenden Formularen und Berichten dauert Monate, in Abschnitten, damit der Betrieb weiterläuft. Nach dem ersten Blick auf Ihre Datei nennen wir eine Spanne.</p>
-        <p>Lizenzen kommen keine dazu. Oracle APEX ist Teil jeder Oracle-Datenbank, auch der kostenlosen Free Edition. Sie bezahlen die Entwicklung, nicht die Plattform.</p>
+        <p>Für APEX selbst fällt keine Lizenz an. Es ist Teil jeder Oracle-Datenbank, auch der kostenlosen Free Edition.</p>
       </div>
       <div>
-        <h2>Warum wir das mit Oracle APEX bauen</h2>
-        <p>Access und APEX denken gleich: Tabellen, Formulare darauf, Berichte darüber. Nur liegt bei APEX alles in einer Datenbank, die Mehrbenutzerbetrieb, Rechte und Historie von Haus aus kann, und die Oberfläche läuft im Browser statt auf jedem einzelnen Windows-Rechner. Deshalb bleibt der Weg von Access nach APEX kurz.</p>
-        <p><a href="/oracle-apex/">Mehr zu Oracle APEX</a></p>
+        <h2>Warum Oracle APEX</h2>
+        <p>Access und APEX sind ähnlich aufgebaut: Tabellen, darauf Formulare und Berichte. Bei APEX liegt alles in einer Datenbank, die Mehrbenutzerbetrieb, Rechte und Historie von Haus aus kann, und die Oberfläche läuft im Browser statt auf jedem einzelnen Windows-Rechner.</p>
+        <p><a href="/oracle-apex/">Was wir mit Oracle APEX tun und wer dahinter steht</a></p>
       </div>
     </div>
   </section>

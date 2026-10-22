@@ -7,15 +7,15 @@ import Stationsleiste from '../components/Stationsleiste.astro';
 const title = 'Bestehende APEX-Anwendung übernehmen | ACT! IT GmbH';
 const description = 'Ihre Oracle APEX Anwendung läuft, aber der Entwickler ist weg? Wir übernehmen Betrieb und Weiterentwicklung, auch ohne Dokumentation. In fünf Schritten.';
 const szenen = [
-  { t: 'Der Entwickler ist weg', p: 'Die Anwendung hat ein Freelancer oder ein Kollege gebaut. Beide sind nicht mehr erreichbar. Seitdem fasst niemand etwas an.' },
-  { t: 'Jede Änderung ist ein Risiko', p: 'Ein neues Feld, ein neuer Bericht, ein Fehler im Export. Alles wartet, weil niemand weiß, was sonst noch bricht.' },
+  { t: 'Der Entwickler ist weg', p: 'Die Anwendung hat ein Freelancer oder ein Kollege gebaut. Beide sind nicht mehr erreichbar, und seit Jahren hat keiner mehr etwas daran geändert.' },
+  { t: 'Jede Änderung ist ein Risiko', p: 'Neue Felder, Berichte oder Fehlerkorrekturen bleiben liegen, weil unklar ist, was sonst noch bricht.' },
   { t: 'Die Version ist alt', p: 'APEX und Datenbank sind einige Releases zurück. Das Update traut sich keiner, weil unklar ist, was die Anwendung dabei verliert.' },
   { t: 'Der Dienstleister will nicht mehr', p: 'Der bisherige Betreuer hat gekündigt, ist zu teuer geworden oder antwortet nur noch langsam.' },
 ];
 const schritte = [
-  { t: 'Zugang', p: 'Wir brauchen einen Zugang zur Datenbank, zum APEX-Workspace und, falls vorhanden, zum Quellcode-Repository. Mehr nicht.' },
-  { t: 'Bestandsaufnahme', p: 'Wir lesen die Anwendung: Datenmodell, Seiten, PL/SQL, JavaScript, Plug-ins, Schnittstellen, Jobs. Daraus entsteht eine Karte, die es vorher nicht gab.' },
-  { t: 'Risikoliste', p: 'Was fällt um, wenn man es anfasst? Welche Plug-ins sind verwaist, welche Logik liegt doppelt, wo fehlen Prüfungen? Sortiert nach Schaden, nicht nach Schönheit.' },
+  { t: 'Zugang', p: 'Wir brauchen einen Zugang zur Datenbank, zum APEX-Workspace und, falls vorhanden, zum Quellcode-Repository.' },
+  { t: 'Bestandsaufnahme', p: 'Wir lesen die Anwendung: Datenmodell, Seiten, PL/SQL, JavaScript, Plug-ins, Schnittstellen, Jobs. Daraus entsteht eine Übersicht der Anwendung.' },
+  { t: 'Risikoliste', p: 'Was fällt um, wenn man es anfasst? Welche Plug-ins sind verwaist, welche Logik liegt doppelt, wo fehlen Prüfungen? Sortiert danach, was im Betrieb den größten Schaden anrichten kann.' },
   { t: 'Betrieb', p: 'Ab hier sind wir erreichbar. Fehler, Fragen, kleine Änderungen laufen über einen festen Kanal mit vereinbarten Reaktionszeiten.' },
   { t: 'Weiterentwicklung', p: 'Erst wenn wir die Anwendung verstanden haben, bauen wir Neues. Jede Erweiterung wird vorher geschätzt und einzeln freigegeben.' },
 ];
@@ -34,7 +34,7 @@ const extra = [
 const fragen = [
   { q: 'Übernehmen Sie Anwendungen, die nicht von Ihnen stammen?', a: 'Ja. Das ist der Normalfall auf dieser Seite. Wir arbeiten uns ein, auch wenn der ursprüngliche Entwickler nicht mehr erreichbar ist.' },
   { q: 'Es gibt keine Dokumentation. Geht das trotzdem?', a: 'Ja. Die Dokumentation entsteht bei der Bestandsaufnahme. Was der Code nicht erklärt, fragen wir die Leute, die mit der Anwendung arbeiten.' },
-  { q: 'Müssen wir die Anwendung neu bauen lassen?', a: 'In der Regel nicht. Eine laufende APEX-Anwendung ist mehr wert als ein Neubau. Wir ändern nichts, bevor wir sie verstanden haben, und bauen nur neu, was sich nicht retten lässt.' },
+  { q: 'Müssen wir die Anwendung neu bauen lassen?', a: 'In der Regel nicht. Eine laufende Anwendung weiterzuentwickeln ist meist günstiger als ein Neubau. Wir bauen nur neu, was sich nicht retten lässt.' },
   { q: 'Wie schnell sind Sie erreichbar?', a: 'Das vereinbaren wir schriftlich, abhängig davon, wie geschäftskritisch die Anwendung ist. Auch wenn nur eine Person von uns gebucht ist, steht das ganze Team dahinter.' },
   { q: 'Was passiert bei einem alten APEX-Stand?', a: 'Wir prüfen die Anwendung auf einer Kopie gegen die aktuelle Version, beheben, was bricht, und aktualisieren dann die Produktion. Das Update ist meist der erste größere Schritt.' },
   { q: 'Was kostet die Übernahme?', a: 'Die Bestandsaufnahme ist ein festes Paket, dessen Umfang von der Größe der Anwendung abhängt. Danach nennen wir einen Satz für den laufenden Betrieb und schätzen Erweiterungen einzeln.' },
@@ -45,7 +45,7 @@ const jsonld = [
 ];
 ---
 <Base title={title} description={description} jsonld={jsonld}>
-  <SubHero title="Wir übernehmen Ihre bestehende APEX-Anwendung." lead="Auch wenn der Entwickler weg ist und die Dokumentation fehlt. Erst lesen wir die Anwendung, dann betreiben wir sie, dann bauen wir weiter. Nichts wird geändert, bevor wir es verstanden haben." secondaryHref="#schritte" secondaryLabel="Die fünf Schritte" />
+  <SubHero title="Wir übernehmen Ihre bestehende APEX-Anwendung." lead="Auch wenn der Entwickler weg ist und die Dokumentation fehlt. Wir lesen die Anwendung zuerst und übernehmen den Betrieb. Erweiterungen kommen danach." secondaryHref="#schritte" secondaryLabel="Die fünf Schritte" />
 
   <Stationsleiste stops={[['zeit','Woran man es merkt'],['schritte','Fünf Schritte'],['umfang','Was dazugehört'],['fragen','Fragen'],['kontakt','Anfrage']]} />
 
