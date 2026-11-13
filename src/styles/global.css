@@ -66,3 +66,5 @@ p { margin: 0 0 1em; max-width: 68ch; color: var(--ink-soft); }
 .reveal { opacity: 0; transform: translateY(18px); transition: opacity 700ms var(--ease-out), transform 700ms var(--ease-out); }
 .reveal.in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+/* Ohne JavaScript blendet nichts ein, also steht der Inhalt sofort da. */
+@media (scripting: none) { .reveal { opacity: 1; transform: none; } }

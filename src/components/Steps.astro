@@ -23,4 +23,6 @@ const { steps } = Astro.props;
     .stop { padding-top: 0; }
     .stop::before { left: -36px; top: 4px; }
   }
+  @media (scripting: none) { .track::after { width: 100%; } }
+  @media (scripting: none) and (max-width: 760px) { .track::after { width: 2px; height: 100%; } }
 </style>

@@ -54,6 +54,7 @@ const shape = 'M400,147.8 C434.2,147.8 478.8,178.8 502.7,204.3 C526.6,229.9 522.
   @media (hover: hover) and (pointer: fine) { .hint { display: block; } }
   @media (max-width: 760px) { .labels text { font-size: 30px; } .radar { margin-inline: calc(-1 * var(--gutter)); width: auto; } }
   @media (prefers-reduced-motion: reduce) { .shape, .dots circle { transition: none; } }
+  @media (scripting: none) { .shape { transform: none; opacity: 1; } .dots circle { opacity: 1; } }
 </style>
 
 <script>
