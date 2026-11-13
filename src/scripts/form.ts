@@ -9,6 +9,12 @@ if (form) {
     return !text;
   };
   form.noValidate = true;
+  // Eine Meldung verschwindet, sobald das Feld wieder etwas enthält.
+  form.addEventListener('input', (ev) => {
+    const el = ev.target as HTMLInputElement;
+    if (el.getAttribute('aria-invalid') === 'true' && el.value.trim()) msg(el.name, '');
+  });
+  const button = form.querySelector<HTMLButtonElement>('button[type="submit"]');
   form.addEventListener('submit', (ev) => {
     ev.preventDefault();
     const d = new FormData(form);
@@ -25,9 +31,13 @@ if (form) {
     const endpoint = form.dataset.endpoint;
     const done = () => { form.hidden = true; const ok = document.getElementById('anfrage-ok'); if (ok) { ok.hidden = false; ok.focus(); } };
     if (endpoint) {
+      const fehler = document.getElementById('anfrage-fehler');
+      if (fehler) fehler.hidden = true;
+      if (button) button.disabled = true; // kein doppeltes Senden
       fetch(endpoint, { method: 'POST', body: d, headers: { Accept: 'application/json' } })
         .then((r) => { if (!r.ok) throw new Error(); done(); (window as any).rybbit?.event?.('anfrage_gesendet', { quelle: String(d.get('quelle') ?? '') }); })
-        .catch(() => { const e = document.getElementById('anfrage-fehler'); if (e) e.hidden = false; });
+        .catch(() => { if (fehler) fehler.hidden = false; })
+        .finally(() => { if (button) button.disabled = false; });
     } else {
       const body = [`Name: ${name}`, `Firma: ${d.get('firma') ?? ''}`, `E-Mail: ${mail}`, `Gefunden über: ${d.get('quelle') ?? ''}`, '', text].join('\n');
       location.href = `mailto:kontakt@act-it.eu?subject=${encodeURIComponent('Anfrage über act-it.eu')}&body=${encodeURIComponent(body)}`;

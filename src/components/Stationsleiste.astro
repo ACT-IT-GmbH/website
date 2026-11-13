@@ -17,14 +17,16 @@ const { stops } = Astro.props;
     const fill = rail.querySelector<HTMLElement>('.rail-fill')!;
     const targets = links.map((a) => document.getElementById(a.dataset.stop!)).filter(Boolean) as HTMLElement[];
     const isDark = (el: HTMLElement) => { const m = getComputedStyle(el).backgroundColor.match(/[\d.]+/g); if (!m || (m.length === 4 && Number(m[3]) === 0)) return false; const [r, g, b] = m.map(Number); return (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255 < 0.45; };
+    const wide = matchMedia('(min-width: 1100px)'); // darunter ist die Leiste ausgeblendet
     let ticking = false;
     const update = () => {
       ticking = false;
+      if (!wide.matches) return;
       const y = window.scrollY + window.innerHeight * 0.4;
       rail.classList.toggle('show', window.scrollY > hero.offsetTop + hero.offsetHeight - window.innerHeight * 0.5);
       let idx = -1;
       targets.forEach((t, k) => { if (t.offsetTop <= y) idx = k; });
-      links.forEach((a, k) => { a.classList.toggle('on', k === idx); a.classList.toggle('done', k < idx); });
+      links.forEach((a, k) => { a.classList.toggle('on', k === idx); a.classList.toggle('done', k < idx); if (k === idx) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current'); });
       rail.classList.toggle('dark', idx >= 0 && isDark(targets[idx]));
       const first = targets[0].offsetTop, last = targets[targets.length - 1].offsetTop;
       const p = Math.max(0, Math.min(1, (y - first) / (last - first)));

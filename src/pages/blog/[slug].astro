@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import sharp from 'sharp';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -8,6 +9,17 @@ export async function getStaticPaths() {
 }
 const { entry } = Astro.props;
 const { Content } = await render(entry);
+// Blogbilder liegen in public/ und laufen nicht durch Astros Bildverarbeitung.
+// Breite und Höhe verhindern, dass der Text beim Laden springt; lazy lädt sie erst beim Scrollen.
+let html = entry.rendered?.html;
+if (html) {
+  const sizes = new Map<string, string>();
+  for (const [, src] of html.matchAll(/<img src="(\/[^"]+)"/g)) {
+    const { width, height } = await sharp(`public${decodeURI(src)}`).metadata();
+    sizes.set(src, `width="${width}" height="${height}" loading="lazy" decoding="async"`);
+  }
+  html = html.replace(/<img src="(\/[^"]+)"/g, (m, src) => `${m} ${sizes.get(src)}`);
+}
 const { title, pubDate, author, description, source, lang } = entry.data;
 const iso = pubDate.toISOString().slice(0, 10);
 const date = pubDate.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric', timeZone: 'UTC' });
@@ -32,7 +44,7 @@ const jsonld = [{
       <p class="by" lang="de">von {author}</p>
     </header>
     <div class="body">
-      <Content />
+      {html ? <Fragment set:html={html} /> : <Content />}
     </div>
     {source && <p class="source" lang="de">Zuerst erschienen auf <a href={source}>apex-at-work.blogspot.com</a></p>}
   </article>

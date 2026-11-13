@@ -33,6 +33,8 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
   {jsonld.map((d) => <script type="application/ld+json" set:html={JSON.stringify(d)} />)}
   <script is:inline>/* Rybbit legt sonst eine Besucher-ID im localStorage ab; die Statistik braucht sie nicht. */(()=>{const s=Storage.prototype.setItem;Storage.prototype.setItem=function(k,v){if(/-(visitor|user)-id$/.test(String(k)))return;return s.call(this,k,v);};})();</script>
   <script src="https://stats.deyama.de/api/script.js?siteId=2a5581d0d590" defer></script>
+  <!-- Lädt die nächste Seite vor, sobald jemand auf einem Link verweilt. Nur prefetch, damit die Statistik nichts mitzählt. -->
+  <script is:inline type="speculationrules">{"prefetch":[{"where":{"href_matches":"/*"},"eagerness":"moderate"}]}</script>
 </head>
 <body>
   <a class="skip" href="#inhalt">Zum Inhalt springen</a>
